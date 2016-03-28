@@ -6,11 +6,15 @@ Cafe SDK에 대하여 자세히 알고싶으시면 [네이버 CafeSDK 공식카�
 
 
 
-
-v.1.0.0
+v.1.4.0
 -------------
- NaverCafeSDK 오픈
+####updated
+1. 프로필 화면에서 작성한 글, 댓글단 글, 좋아요 한 글을 볼 수 있습니다.
+2. 카페 SDK 로고를 터치하면 카페 SDK 버전을 확인 할 수 있습니다
+3. 글쓰기, 댓글쓰기, 카페가입 리스너를 등록하여 이벤트를 받아 사용할 수 있습니다.
 
+####fixed
+1. 알려진 버그 수정
 
 폴더 구조
 -------------
@@ -18,28 +22,27 @@ v.1.0.0
 file      | 설명 		
 ---			| ---		
 guide/			| 가이드 문서 및 CafeSDK 설명
-sample/		| sample project
+lib/		 	| iOS용 CafeSDK 라이브러리 파일
+sample/proj.ios_mac		| iOS 샘플
+sample/proj.android		| Android 샘플
 LICENSE     | 라이선스 파일
 README.md   | readme 파일
 
 
 의존 라이브러리
 -------------
-[Android]
 
-1. [네이버 아이디 로그인](https://nid.naver.com/devcenter/docs.nhn?menu=Android)
-2. android support library v13
-3. [naver volleyer](http://mvnrepository.com/artifact/com.navercorp.volleyextensions/volleyer)   (2.0.1 사용 중)
-4. [volley](http://mvnrepository.com/artifact/com.mcxiaoke.volley/library/) (1.0.2사용 중)
-5. [google gson](http://mvnrepository.com/artifact/com.google.code.gson/gson)  (2.3.1 사용 중)
-6. [glide](http://mvnrepository.com/artifact/com.github.bumptech.glide/glide)  (3.6.1 사용 중)
-7. [otto](http://mvnrepository.com/artifact/com.squareup/otto)  (1.3.8 사용 중)
-8. [VierwPagerIndicator](http://mvnrepository.com/artifact/com.viewpagerindicator/library) (2.4.1 사용 중) 
-<br>**ViewPagerIndicator의 경우 jar가 아닌 라이브러리 형태로 배포되고 있습니다. aar or apklib or zip으로 받아 개발툴에 맞는 라이브러리를 사용하시면 됩니다.
-<br>**aar (https://bintray.com/populov/maven/com.viewpagerindicator:library)
-
-[iOS]
-
-1. [네이버 아이디 로그인-4.1.4](https://nid.naver.com/devcenter/docs.nhn?menu=IOS)
+1. [네이버 아이디 로그인-4.0.6](https://nid.naver.com/devcenter/docs.nhn?menu=IOS)
 2. [AFNetworking](https://github.com/AFNetworking/AFNetworking)(UIImageView+AFNetworking)
 <br>1.x ~ 2.x 모두 사용 가능하며 2.6.1에서 테스트 진행했습니다.
+
+
+
+라이선스
+-------------
+NAVER Cafe SDK for iOS
+
+Copyright 2015 NAVER Corp.
+All rights reserved.
+
+Unauthorized use, modification and redistribution of this software are strongly prohibited.

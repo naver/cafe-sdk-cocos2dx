@@ -18,6 +18,7 @@
  NCSDKLoginManager 싱글톤 객체
  */
 + (NCSDKLoginManager *)getSharedInstance;
++ (void)resetSharedInstance;
 
 /*
  AppDelegate URL Scheme 처리
@@ -29,8 +30,7 @@
  */
 - (void)loginWithFinish:(void (^)(BOOL successACToken))finish;
 - (void)loginWithFinish:(void (^)(BOOL successACToken))finish
-                failure:(void (^)(NSError *error))failure
-                finally:(void (^)(void))finally;
+                failure:(void (^)(NSError *error))failure;
 
 
 /*
