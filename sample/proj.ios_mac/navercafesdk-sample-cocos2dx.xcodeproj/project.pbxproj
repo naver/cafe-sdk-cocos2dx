@@ -46,6 +46,7 @@
 		4ABA5CF51BF1F53F00700256 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CF41BF1F53F00700256 /* MediaPlayer.framework */; };
 		4ABA5CF91BF1F55000700256 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CF81BF1F55000700256 /* CoreMedia.framework */; };
 		4ABA5D171BF1FA9A00700256 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CF21BF1F53000700256 /* SystemConfiguration.framework */; };
+		4ACA561B1CA8FF9A00DB2E81 /* NaverAuth.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4ACA561A1CA8FF9A00DB2E81 /* NaverAuth.bundle */; };
 		4AF6ED341BF4798E00080F13 /* icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AF6ED321BF4798E00080F13 /* icon1.png */; };
 		4AF6ED351BF4798E00080F13 /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AF6ED331BF4798E00080F13 /* icon2.png */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
@@ -179,6 +180,7 @@
 		4ABA5CF61BF1F54700700256 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		4ABA5CF81BF1F55000700256 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		4ABA5D181BF2006100700256 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
+		4ACA561A1CA8FF9A00DB2E81 /* NaverAuth.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NaverAuth.bundle; sourceTree = "<group>"; };
 		4AF6ED321BF4798E00080F13 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.png; sourceTree = "<group>"; };
 		4AF6ED331BF4798E00080F13 /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 		4ABA5CD61BF1F43A00700256 /* NaverLogin */ = {
 			isa = PBXGroup;
 			children = (
+				4ACA561A1CA8FF9A00DB2E81 /* NaverAuth.bundle */,
 				4ABA5CCC1BF1F3EE00700256 /* libNaverLogin.a */,
 				4ABA5CCE1BF1F3EE00700256 /* NaverThirdPartyConstantsForApp.h */,
 				4ABA5CCF1BF1F3EE00700256 /* NaverThirdPartyLoginConnection.h */,
@@ -610,6 +613,7 @@
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
+				4ACA561B1CA8FF9A00DB2E81 /* NaverAuth.bundle in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
