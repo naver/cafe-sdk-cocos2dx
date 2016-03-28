@@ -2,6 +2,8 @@
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "NativeUtils.h"
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "PluginCafe.h"
 #endif
 
 USING_NS_CC;
@@ -95,6 +97,8 @@ bool HelloWorld::init()
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     NativeUtils::sharedInstance();
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    cafe::CafeSdk::init("UKvNABLDsyEJusJGsXL2", "rK4suc_Qd0", 28266581);
 #endif
 
     return true;
@@ -114,6 +118,8 @@ void HelloWorld::menuNaverCafeSDK(Ref* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     NativeUtils::sharedInstance().navercafe();
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    cafe::CafeSdk::startHome();
 #endif
 }
 
@@ -121,5 +127,19 @@ void HelloWorld::menuNaverCafeScreenShot(Ref* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     NativeUtils::sharedInstance().screenshot();
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCSize screenSize = Director::getInstance()->getWinSize();
+    RenderTexture* texture = RenderTexture::create(screenSize.width, screenSize.height);
+    texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
+
+    texture->begin();
+    Director::getInstance()->getRunningScene()->visit();
+    texture->end();
+
+    std::string fileName = "captured_image.png";
+    if (texture->saveToFile(fileName, Image::Format::PNG)) {
+    	std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
+    	cafe::CafeSdk::startImageWrite(-1, "subject", "text", imageUri);
+    }
 #endif
 }
