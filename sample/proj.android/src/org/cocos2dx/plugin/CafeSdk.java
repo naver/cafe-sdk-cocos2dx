@@ -5,6 +5,7 @@ import com.naver.glink.android.sdk.Glink.OnSdkStartedListener;
 
 import android.app.Activity;
 import android.content.Context;
+import android.widget.Toast;
 
 public class CafeSdk {
 	private static Activity mContext;
@@ -35,11 +36,32 @@ public class CafeSdk {
 		Glink.startHome(mContext);
 	}
 
+	public void startNotice() {
+		Glink.startNotice(mContext);
+	}
+	
+	public void startEvent() {
+		Glink.startEvent(mContext);
+	}
+	
+	public void startMenu() {
+		Glink.startMenu(mContext);
+	}
+	
 	public void startProfile() {
 		Glink.startProfile(mContext);
 	}
 	
 	public void startImageWrite(int menuId, String subject, String text, String imageUri) {
 		Glink.startImageWrite(mContext, menuId, subject, text, imageUri);
+	}
+	
+	public void showToast(final String text) {
+		mContext.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
+			}
+		});
 	}
 }

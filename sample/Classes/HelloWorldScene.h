@@ -3,7 +3,13 @@
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::Layer
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "PluginCafe.h"
+#else
+namespace cafe { class CafeListener{ /* empty. */ }; }
+#endif
+
+class HelloWorld : public cocos2d::Layer, cafe::CafeListener
 {
 public:
     static cocos2d::Scene* createScene();
@@ -17,6 +23,13 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+
+private:
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    void onCafeSdkStarted();
+#endif
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__

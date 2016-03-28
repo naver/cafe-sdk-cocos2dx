@@ -2,8 +2,6 @@
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "NativeUtils.h"
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-#include "PluginCafe.h"
 #endif
 
 USING_NS_CC;
@@ -99,6 +97,7 @@ bool HelloWorld::init()
     NativeUtils::sharedInstance();
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     cafe::CafeSdk::init("UKvNABLDsyEJusJGsXL2", "rK4suc_Qd0", 28266581);
+    cafe::CafeSdk::setCafeListener(this);
 #endif
 
     return true;
@@ -143,3 +142,11 @@ void HelloWorld::menuNaverCafeScreenShot(Ref* pSender)
     }
 #endif
 }
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
+void HelloWorld::onCafeSdkStarted() {
+	cafe::CafeSdk::showToast("onCafeSdkStarted");
+}
+
+#endif
