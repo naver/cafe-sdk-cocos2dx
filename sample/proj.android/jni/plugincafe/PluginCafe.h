@@ -14,8 +14,7 @@ namespace cafe {
 
 class CafeListener {
 public:
-	virtual void onSdkStarted() = 0;
-	virtual ~CafeListener();
+	virtual void onCafeSdkStarted() = 0;
 };
 
 class CafeSdk {
@@ -23,11 +22,17 @@ public:
 	static void init(std::string clientId, std::string clientSecret, int cafeId);
 
 	static void setCafeListener(CafeListener *listener);
+	static CafeListener* getCafeListener();
 
 	static void startHome();
+	static void startNotice();
+	static void startEvent();
+	static void startMenu();
 	static void startProfile();
 
 	static void startImageWrite(int menuId, std::string subject, std::string text, std::string imageUri);
+
+	static void showToast(std::string text);
 };
 
 } /* namespace cafe */
