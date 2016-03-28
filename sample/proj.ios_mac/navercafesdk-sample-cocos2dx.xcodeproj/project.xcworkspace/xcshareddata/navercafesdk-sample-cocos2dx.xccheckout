@@ -10,31 +10,31 @@
 	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4A4D196EB139CB086A88BB0C6C62B19D63C83808</key>
-		<string>https://oss.navercorp.com/GLink/cocos2d-x.git</string>
+		<key>00DE5824EEE75CC29410BD3D26ADCA160E6D857D</key>
+		<string>https://oss.navercorp.com/GLink/cocos2dx-public.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>proj.ios_mac/navercafesdk-sample-cocos2dx.xcodeproj/project.xcworkspace</string>
+	<string>sample/proj.ios_mac/navercafesdk-sample-cocos2dx.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4A4D196EB139CB086A88BB0C6C62B19D63C83808</key>
-		<string>../../..</string>
+		<key>00DE5824EEE75CC29410BD3D26ADCA160E6D857D</key>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://oss.navercorp.com/GLink/cocos2d-x.git</string>
+	<string>https://oss.navercorp.com/GLink/cocos2dx-public.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4A4D196EB139CB086A88BB0C6C62B19D63C83808</string>
+	<string>00DE5824EEE75CC29410BD3D26ADCA160E6D857D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4A4D196EB139CB086A88BB0C6C62B19D63C83808</string>
+			<string>00DE5824EEE75CC29410BD3D26ADCA160E6D857D</string>
 			<key>IDESourceControlWCCName</key>
-			<string>navercafesdk-sample-cocos2dx</string>
+			<string>cafe-sdk-cocos2dx</string>
 		</dict>
 	</array>
 </dict>
