@@ -19,19 +19,12 @@ namespace cafe {
 
 static CafeListener* gCafeListener = nullptr;
 
-static CafeSdkHolder* holder() {
-	return CafeSdkHolder::getInstance();
+CafeListener::~CafeListener() {
+	// do nothing.
 }
 
-void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
-	JNIEnv *env = PluginJniHelper::getEnv();
-	jstring jClientId = env->NewStringUTF(clientId.c_str());
-	jstring jClientSecret = env->NewStringUTF(clientSecret.c_str());
-
-	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.init, jClientId, jClientSecret, cafeId);
-
-	env->DeleteLocalRef(jClientId);
-	env->DeleteLocalRef(jClientSecret);
+static CafeSdkHolder* holder() {
+	return CafeSdkHolder::getInstance();
 }
 
 void CafeSdk::setCafeListener(CafeListener *listener) {
@@ -62,26 +55,37 @@ void CafeSdk::startProfile() {
 	holder()->callJavaMethod("startProfile");
 }
 
+void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
+	JNIEnv *env = PluginJniHelper::getEnv();
+	jstring _clientId = env->NewStringUTF(clientId.c_str());
+	jstring _clientSecret = env->NewStringUTF(clientSecret.c_str());
+
+	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.init, _clientId, _clientSecret, cafeId);
+
+	env->DeleteLocalRef(_clientId);
+	env->DeleteLocalRef(_clientSecret);
+}
+
 void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text, std::string imageUri) {
 	JNIEnv *env = PluginJniHelper::getEnv();
-	jstring jSubject = env->NewStringUTF(subject.c_str());
-	jstring jText = env->NewStringUTF(text.c_str());
-	jstring jImageUri = env->NewStringUTF(imageUri.c_str());
+	jstring _subject = env->NewStringUTF(subject.c_str());
+	jstring _text = env->NewStringUTF(text.c_str());
+	jstring _imageUri = env->NewStringUTF(imageUri.c_str());
 
-	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.startImageWrite, menuId, jSubject, jText, jImageUri);
+	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.startImageWrite, menuId, _subject, _text, _imageUri);
 
-	env->DeleteLocalRef(jSubject);
-	env->DeleteLocalRef(jText);
-	env->DeleteLocalRef(jImageUri);
+	env->DeleteLocalRef(_subject);
+	env->DeleteLocalRef(_text);
+	env->DeleteLocalRef(_imageUri);
 }
 
 void CafeSdk::showToast(std::string text) {
 	JNIEnv *env = PluginJniHelper::getEnv();
-	jstring jText = env->NewStringUTF(text.c_str());
+	jstring _text = env->NewStringUTF(text.c_str());
 
-	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.showToast, jText);
+	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.showToast, _text);
 
-	env->DeleteLocalRef(jText);
+	env->DeleteLocalRef(_text);
 }
 
 } /* namespace cafe */

@@ -15,6 +15,7 @@ namespace cafe {
 class CafeListener {
 public:
 	virtual void onCafeSdkStarted() = 0;
+	virtual ~CafeListener();
 };
 
 class CafeSdk {

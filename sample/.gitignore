@@ -88,3 +88,10 @@ proj.android/libraries/*/local.properties
 # Generated documentation, it can be regenerated using doxygen #
 ######################
 docs/html/*
+
+cafe-sdk/android/bin
+cocos2d/cocos/platform/android/java/bin
+cocos2d/plugin/protocols/proj.android/bin
+bin/
+cocos2d/build/build/
+proj.ios_mac/build/
