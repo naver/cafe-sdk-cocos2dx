@@ -1,5 +1,9 @@
 #include "HelloWorldScene.h"
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "NativeUtils.h"
+#endif
+
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
@@ -88,7 +92,11 @@ bool HelloWorld::init()
     
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     NativeUtils::sharedInstance();
+#endif
+
     return true;
 }
 
