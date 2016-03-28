@@ -1,7 +1,9 @@
 package org.cocos2dx.plugin;
 
 import com.naver.glink.android.sdk.Glink;
+import com.naver.glink.android.sdk.Glink.OnClickAppSchemeBannerListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStartedListener;
+import com.naver.glink.android.sdk.Glink.OnSdkStoppedListener;
 
 import android.app.Activity;
 import android.content.Context;
@@ -28,9 +30,35 @@ public class CafeSdk {
 				});
 			}
 		});
+		
+		Glink.setOnSdkStoppedListener(new OnSdkStoppedListener() {
+			@Override
+			public void onSdkStopped() {
+				PluginWrapper.runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						nativeOnSdkStopped();
+					}
+				});
+			}
+		});
+		
+		Glink.setOnClickAppSchemeBannerListener(new OnClickAppSchemeBannerListener() {
+			@Override
+			public void onClickAppSchemeBanner(final String appScheme) {
+				PluginWrapper.runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						nativeOnClickAppSchemeBanner(appScheme);
+					}
+				});
+			}			
+		});
 	}
-
+	
 	private static native void nativeOnSdkStarted();
+	private static native void nativeOnSdkStopped();
+	private static native void nativeOnClickAppSchemeBanner(String appScheme);
 	
 	public void startHome() {
 		Glink.startHome(mContext);

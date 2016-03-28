@@ -43,11 +43,11 @@ void CafeSdk::startNotice() {
 	holder()->callJavaMethod("startNotice");
 }
 
-void CafeSdk::startEvent()  {
+void CafeSdk::startEvent() {
 	holder()->callJavaMethod("startEvent");
 }
 
-void CafeSdk::startMenu()  {
+void CafeSdk::startMenu() {
 	holder()->callJavaMethod("startMenu");
 }
 
@@ -56,36 +56,50 @@ void CafeSdk::startProfile() {
 }
 
 void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
-	JNIEnv *env = PluginJniHelper::getEnv();
-	jstring _clientId = env->NewStringUTF(clientId.c_str());
-	jstring _clientSecret = env->NewStringUTF(clientSecret.c_str());
+	PluginJniMethodInfo t;
+	if (holder()->getMethodInfo(t, "init",
+			"(Ljava/lang/String;Ljava/lang/String;I)V")) {
+		jstring _clientId = t.env->NewStringUTF(clientId.c_str());
+		jstring _clientSecret = t.env->NewStringUTF(clientSecret.c_str());
 
-	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.init, _clientId, _clientSecret, cafeId);
+		t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, _clientId,
+				_clientSecret, cafeId);
 
-	env->DeleteLocalRef(_clientId);
-	env->DeleteLocalRef(_clientSecret);
+		t.env->DeleteLocalRef(_clientId);
+		t.env->DeleteLocalRef(_clientSecret);
+		t.env->DeleteLocalRef(t.classID);
+	}
 }
 
-void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text, std::string imageUri) {
-	JNIEnv *env = PluginJniHelper::getEnv();
-	jstring _subject = env->NewStringUTF(subject.c_str());
-	jstring _text = env->NewStringUTF(text.c_str());
-	jstring _imageUri = env->NewStringUTF(imageUri.c_str());
+void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text,
+		std::string imageUri) {
+	PluginJniMethodInfo t;
+	if (holder()->getMethodInfo(t, "startImageWrite",
+			"(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")) {
+		jstring _subject = t.env->NewStringUTF(subject.c_str());
+		jstring _text = t.env->NewStringUTF(text.c_str());
+		jstring _imageUri = t.env->NewStringUTF(imageUri.c_str());
 
-	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.startImageWrite, menuId, _subject, _text, _imageUri);
+		t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, menuId,
+				_subject, _text, _imageUri);
 
-	env->DeleteLocalRef(_subject);
-	env->DeleteLocalRef(_text);
-	env->DeleteLocalRef(_imageUri);
+		t.env->DeleteLocalRef(_subject);
+		t.env->DeleteLocalRef(_text);
+		t.env->DeleteLocalRef(_imageUri);
+		t.env->DeleteLocalRef(t.classID);
+	}
 }
 
 void CafeSdk::showToast(std::string text) {
-	JNIEnv *env = PluginJniHelper::getEnv();
-	jstring _text = env->NewStringUTF(text.c_str());
+	PluginJniMethodInfo t;
+	if (holder()->getMethodInfo(t, "showToast", "(Ljava/lang/String;)V")) {
+		jstring _text = t.env->NewStringUTF(text.c_str());
 
-	env->CallVoidMethod(holder()->getJavaObject(), holder()->methods_.showToast, _text);
+		t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, _text);
 
-	env->DeleteLocalRef(_text);
+		t.env->DeleteLocalRef(_text);
+		t.env->DeleteLocalRef(t.classID);
+	}
 }
 
 } /* namespace cafe */

@@ -149,4 +149,12 @@ void HelloWorld::onCafeSdkStarted() {
 	cafe::CafeSdk::showToast("onCafeSdkStarted");
 }
 
+void HelloWorld::onCafeSdkStopped() {
+	cafe::CafeSdk::showToast("onCafeSdkStopped");
+}
+
+void HelloWorld::onClickAppSchemeBanner(const std::string& appScheme) {
+	cafe::CafeSdk::showToast(appScheme);
+}
+
 #endif
