@@ -13,14 +13,13 @@
 
 namespace cafe {
 
-class CafeSdk;
 class CafeSdkHolder: public cocos2d::plugin::PluginProtocol {
 public:
 	CafeSdkHolder();
 	jobject getJavaObject();
 	void callJavaMethod(std::string name);
 
-	bool getMethodInfo(cocos2d::PluginJniMethodInfo &methodinfo,
+	bool getMethodInfo(cocos2d::PluginJniMethodInfo& methodinfo,
 			std::string name, std::string signature);
 
 	static CafeSdkHolder* getInstance();

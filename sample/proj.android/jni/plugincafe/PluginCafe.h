@@ -16,7 +16,10 @@ class CafeListener {
 public:
 	virtual void onCafeSdkStarted() = 0;
 	virtual void onCafeSdkStopped() = 0;
-	virtual void onClickAppSchemeBanner(const std::string& appScheme) = 0;
+	virtual void onCafeSdkClickAppSchemeBanner(const std::string& appScheme) = 0;
+	virtual void onCafeSdkJoined() = 0;
+	virtual void onCafeSdkPostedArticle(int menuId) = 0;
+	virtual void onCafeSdkPostedComment(int articleId) = 0;
 	virtual ~CafeListener();
 };
 
@@ -25,7 +28,7 @@ public:
 	static void init(std::string clientId, std::string clientSecret,
 			int cafeId);
 
-	static void setCafeListener(CafeListener *listener);
+	static void setCafeListener(CafeListener* listener);
 	static CafeListener* getCafeListener();
 
 	static void startHome();

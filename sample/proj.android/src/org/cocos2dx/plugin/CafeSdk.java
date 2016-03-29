@@ -2,6 +2,9 @@ package org.cocos2dx.plugin;
 
 import com.naver.glink.android.sdk.Glink;
 import com.naver.glink.android.sdk.Glink.OnClickAppSchemeBannerListener;
+import com.naver.glink.android.sdk.Glink.OnJoinedListener;
+import com.naver.glink.android.sdk.Glink.OnPostedArticleListener;
+import com.naver.glink.android.sdk.Glink.OnPostedCommentListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStartedListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStoppedListener;
 
@@ -54,11 +57,50 @@ public class CafeSdk {
 				});
 			}			
 		});
+		
+		Glink.setOnJoinedListener(new OnJoinedListener() {
+			@Override
+			public void onJoined() {
+				PluginWrapper.runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						nativeOnJoined();
+					}
+				});
+			}
+		});
+		
+		Glink.setOnPostedArticleListener(new OnPostedArticleListener() {
+			@Override
+			public void onPostedArticle(final int menuId) {
+				PluginWrapper.runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						nativeOnPostedArticle(menuId);
+					}
+				});
+			}
+		});
+		
+		Glink.setOnPostedCommentListener(new OnPostedCommentListener() {
+			@Override
+			public void onPostedComment(final int articleId) {
+				PluginWrapper.runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						nativeOnPostedComment(articleId);
+					}
+				});
+			}
+		});
 	}
 	
 	private static native void nativeOnSdkStarted();
 	private static native void nativeOnSdkStopped();
 	private static native void nativeOnClickAppSchemeBanner(String appScheme);
+	private static native void nativeOnJoined();
+	private static native void nativeOnPostedArticle(int menuId);
+	private static native void nativeOnPostedComment(int articleId);
 	
 	public void startHome() {
 		Glink.startHome(mContext);

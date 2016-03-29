@@ -29,7 +29,10 @@ private:
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     void onCafeSdkStarted();
     void onCafeSdkStopped();
-    void onClickAppSchemeBanner(const std::string& appScheme);
+    void onCafeSdkClickAppSchemeBanner(const std::string& appScheme);
+    void onCafeSdkJoined();
+    void onCafeSdkPostedArticle(int menuId);
+    void onCafeSdkPostedComment(int articleId);
 #endif
 
 };

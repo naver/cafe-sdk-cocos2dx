@@ -27,7 +27,7 @@ static CafeSdkHolder* holder() {
 	return CafeSdkHolder::getInstance();
 }
 
-void CafeSdk::setCafeListener(CafeListener *listener) {
+void CafeSdk::setCafeListener(CafeListener* listener) {
 	gCafeListener = listener;
 }
 

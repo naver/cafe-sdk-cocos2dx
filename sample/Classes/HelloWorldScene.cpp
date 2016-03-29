@@ -153,8 +153,20 @@ void HelloWorld::onCafeSdkStopped() {
 	cafe::CafeSdk::showToast("onCafeSdkStopped");
 }
 
-void HelloWorld::onClickAppSchemeBanner(const std::string& appScheme) {
+void HelloWorld::onCafeSdkClickAppSchemeBanner(const std::string& appScheme) {
 	cafe::CafeSdk::showToast(appScheme);
+}
+
+void HelloWorld::onCafeSdkJoined() {
+	cafe::CafeSdk::showToast("onCafeSdkJoined");
+}
+
+void HelloWorld::onCafeSdkPostedArticle(int menuId) {
+	cafe::CafeSdk::showToast("onCafeSdkPostedArticle");
+}
+
+void HelloWorld::onCafeSdkPostedComment(int articleId) {
+	cafe::CafeSdk::showToast("onCafeSdkPostedComment");
 }
 
 #endif
