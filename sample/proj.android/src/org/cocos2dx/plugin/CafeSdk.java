@@ -114,16 +114,36 @@ public class CafeSdk {
 		Glink.startEvent(mContext);
 	}
 	
-	public void startMenu() {
-		Glink.startMenu(mContext);
+	public void startMenu(int menuId) {
+		if (menuId == -1) {
+			Glink.startMenu(mContext);			
+		} else {
+			Glink.startMenu(mContext, menuId);
+		}
 	}
 	
 	public void startProfile() {
 		Glink.startProfile(mContext);
 	}
 	
+	public void startWrite(int menuId, String subject, String text) {
+		Glink.startWrite(mContext, menuId, subject, text);
+	}
+	
 	public void startImageWrite(int menuId, String subject, String text, String imageUri) {
 		Glink.startImageWrite(mContext, menuId, subject, text, imageUri);
+	}
+	
+	public void startVideoWrite(int menuId, String subject, String text, String videoUri) {
+		Glink.startVideoWrite(mContext, menuId, subject, text, videoUri);
+	}
+	
+	public void syncGameUserId(String gameUserId) {
+		Glink.syncGameUserId(mContext, gameUserId);
+	}
+	
+	public boolean isShowGlink() {
+		return Glink.isShowGlink(mContext);
 	}
 	
 	public void showToast(final String text) {

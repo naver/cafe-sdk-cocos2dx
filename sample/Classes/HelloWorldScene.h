@@ -3,10 +3,11 @@
 
 #include "cocos2d.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-#include "PluginCafe.h"
-#else
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "NativeUtils.h"
 namespace cafe { class CafeListener{ /* empty. */ }; }
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "PluginCafe.h"
 #endif
 
 class HelloWorld : public cocos2d::Layer, cafe::CafeListener
@@ -27,6 +28,9 @@ public:
 private:
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    void initForAndroid(cocos2d::Menu* menu);
+    void menuCallback(Ref* pSender);
+
     void onCafeSdkStarted();
     void onCafeSdkStopped();
     void onCafeSdkClickAppSchemeBanner(const std::string& appScheme);

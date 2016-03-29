@@ -1,9 +1,5 @@
 #include "HelloWorldScene.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#include "NativeUtils.h"
-#endif
-
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
@@ -52,31 +48,32 @@ bool HelloWorld::init()
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     /////////////////////////////
     // 3. add your codes below...
     auto navercafe = MenuItemImage::create(
                                            "icon1.png",
                                            "icon1.png",
                                            CC_CALLBACK_1(HelloWorld::menuNaverCafeSDK, this));
-    
+
     navercafe->setPosition(Vec2(origin.x + navercafe->getContentSize().width,
                                 origin.y + visibleSize.height - navercafe->getContentSize().height));
     menu->addChild(navercafe);
-    
+
     auto screenshot = MenuItemImage::create(
                                            "icon2.png",
                                            "icon2.png",
                                            CC_CALLBACK_1(HelloWorld::menuNaverCafeScreenShot, this));
-    
+
     screenshot->setPosition(Vec2(origin.x + screenshot->getContentSize().width,
                                 origin.y + visibleSize.height - navercafe->getContentSize().height * 2));
     menu->addChild(screenshot);
-    
+
     // add a label shows "Hello World"
     // create and initialize a label
-    
+
     auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
-    
+
     // position the label on the center of the screen
     label->setPosition(Vec2(origin.x + visibleSize.width/2,
                             origin.y + visibleSize.height - label->getContentSize().height));
@@ -89,15 +86,13 @@ bool HelloWorld::init()
 
     // position the sprite on the center of the screen
     sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    
+
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     NativeUtils::sharedInstance();
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    cafe::CafeSdk::init("UKvNABLDsyEJusJGsXL2", "rK4suc_Qd0", 28266581);
-    cafe::CafeSdk::setCafeListener(this);
+    initForAndroid(menu);
 #endif
 
     return true;
@@ -117,8 +112,6 @@ void HelloWorld::menuNaverCafeSDK(Ref* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     NativeUtils::sharedInstance().navercafe();
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    cafe::CafeSdk::startHome();
 #endif
 }
 
@@ -126,24 +119,85 @@ void HelloWorld::menuNaverCafeScreenShot(Ref* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     NativeUtils::sharedInstance().screenshot();
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CCSize screenSize = Director::getInstance()->getWinSize();
-    RenderTexture* texture = RenderTexture::create(screenSize.width, screenSize.height);
-    texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
-
-    texture->begin();
-    Director::getInstance()->getRunningScene()->visit();
-    texture->end();
-
-    std::string fileName = "captured_image.png";
-    if (texture->saveToFile(fileName, Image::Format::PNG)) {
-    	std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
-    	cafe::CafeSdk::startImageWrite(-1, "subject", "text", imageUri);
-    }
 #endif
 }
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
+static const std::string gActions[] = {
+    "home",
+	"notice",
+	"event",
+	"menu",
+	"menu(id:7)",
+	"profile",
+	"write1",
+	"write2",
+	"is show"
+};
+
+void HelloWorld::menuCallback(Ref* pSender) {
+    auto item = (MenuItemFont*) pSender;
+    auto action = gActions[item->getTag()];
+
+    if ("home" == action) {
+    	cafe::CafeSdk::startHome();
+    } else if ("notice" == action) {
+    	cafe::CafeSdk::startNotice();
+    } else if ("event" == action) {
+    	cafe::CafeSdk::startEvent();
+    } else if ("menu" == action) {
+    	cafe::CafeSdk::startMenu();
+    } else if ("menu(id:7)" == action) {
+    	cafe::CafeSdk::startMenu(7);
+    } else if ("profile" == action) {
+    	cafe::CafeSdk::startProfile();
+    } else if ("write1" == action) {
+    	cafe::CafeSdk::startWrite(-1, "subject", "text");
+    } else if ("write2" == action) {
+		CCSize screenSize = Director::getInstance()->getWinSize();
+		RenderTexture* texture = RenderTexture::create(screenSize.width, screenSize.height);
+		texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
+
+		texture->begin();
+		Director::getInstance()->getRunningScene()->visit();
+		texture->end();
+
+		std::string fileName = "captured_image.png";
+		if (texture->saveToFile(fileName, Image::Format::PNG)) {
+			std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
+			cafe::CafeSdk::startImageWrite(5, "subject", "text", imageUri);
+		}
+    } else if ("is show" == action) {
+    	cafe::CafeSdk::showToast(cafe::CafeSdk::isShowGlink() ? "show" : "hide");
+    }
+}
+
+void HelloWorld::initForAndroid(Menu* menu) {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	float columsPosX[] = {
+		origin.x + visibleSize.width / 6,
+		origin.x + (visibleSize.width * 3) / 6,
+		origin.x + (visibleSize.width * 5) / 6
+	};
+
+	float step = 45.0f;
+	float beginY = origin.y + visibleSize.height - step;
+
+	int actionCount = sizeof(gActions) / sizeof(std::string);
+	for (int i = 0; i < actionCount; ++i) {
+		std::string action = gActions[i];
+		auto item = MenuItemFont::create(action.c_str(), CC_CALLBACK_1(HelloWorld::menuCallback, this));
+		item->setTag(i);
+		item->setPosition(Point(columsPosX[i % 3], beginY - (i / 3) * step));
+		menu->addChild(item);
+	}
+
+	cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
+	cafe::CafeSdk::setCafeListener(this);
+}
 
 void HelloWorld::onCafeSdkStarted() {
 	cafe::CafeSdk::showToast("onCafeSdkStarted");

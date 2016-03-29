@@ -48,7 +48,12 @@ void CafeSdk::startEvent() {
 }
 
 void CafeSdk::startMenu() {
-	holder()->callJavaMethod("startMenu");
+	startMenu(-1);
+}
+
+void CafeSdk::startMenu(int menuId) {
+	PluginParam _menuId(menuId);
+	holder()->callFuncWithParam("startMenu", &_menuId, NULL);
 }
 
 void CafeSdk::startProfile() {
@@ -67,6 +72,22 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
 
 		t.env->DeleteLocalRef(_clientId);
 		t.env->DeleteLocalRef(_clientSecret);
+		t.env->DeleteLocalRef(t.classID);
+	}
+}
+
+void CafeSdk::startWrite(int menuId, std::string subject, std::string text) {
+	PluginJniMethodInfo t;
+	if (holder()->getMethodInfo(t, "startWrite",
+			"(ILjava/lang/String;Ljava/lang/String;)V")) {
+		jstring _subject = t.env->NewStringUTF(subject.c_str());
+		jstring _text = t.env->NewStringUTF(text.c_str());
+
+		t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, menuId,
+				_subject, _text);
+
+		t.env->DeleteLocalRef(_subject);
+		t.env->DeleteLocalRef(_text);
 		t.env->DeleteLocalRef(t.classID);
 	}
 }
@@ -90,16 +111,37 @@ void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text,
 	}
 }
 
-void CafeSdk::showToast(std::string text) {
+void CafeSdk::startVideoWrite(int menuId, std::string subject, std::string text,
+		std::string videoUri) {
 	PluginJniMethodInfo t;
-	if (holder()->getMethodInfo(t, "showToast", "(Ljava/lang/String;)V")) {
+	if (holder()->getMethodInfo(t, "startVideoWrite",
+			"(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")) {
+		jstring _subject = t.env->NewStringUTF(subject.c_str());
 		jstring _text = t.env->NewStringUTF(text.c_str());
+		jstring _videoUri = t.env->NewStringUTF(videoUri.c_str());
 
-		t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, _text);
+		t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, menuId,
+				_subject, _text, _videoUri);
 
+		t.env->DeleteLocalRef(_subject);
 		t.env->DeleteLocalRef(_text);
+		t.env->DeleteLocalRef(_videoUri);
 		t.env->DeleteLocalRef(t.classID);
 	}
+}
+
+void CafeSdk::syncGameUserId(std::string gameUserId) {
+	PluginParam _gameUserId(gameUserId.c_str());
+	holder()->callFuncWithParam("syncGameUserId", &_gameUserId, NULL);
+}
+
+bool CafeSdk::isShowGlink() {
+	return holder()->callBoolFuncWithParam("isShowGlink", NULL);
+}
+
+void CafeSdk::showToast(std::string text) {
+	PluginParam _text(text.c_str());
+	holder()->callFuncWithParam("showToast", &_text, NULL);
 }
 
 } /* namespace cafe */
