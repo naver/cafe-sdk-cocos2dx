@@ -15,18 +15,18 @@ namespace cafe {
 
 class CafeSdkHolder: public cocos2d::plugin::PluginProtocol {
 public:
-	CafeSdkHolder();
-	jobject getJavaObject();
-	void callJavaMethod(std::string name);
+    CafeSdkHolder();
+    jobject getJavaObject();
+    void callJavaMethod(std::string name);
 
-	bool getMethodInfo(cocos2d::PluginJniMethodInfo& methodinfo,
-			std::string name, std::string signature);
+    bool getMethodInfo(cocos2d::PluginJniMethodInfo& methodinfo,
+            std::string name, std::string signature);
 
-	static CafeSdkHolder* getInstance();
+    static CafeSdkHolder* getInstance();
 
 private:
-	bool success_;
-	static CafeSdkHolder *sharedInstance_;
+    bool success_;
+    static CafeSdkHolder *sharedInstance_;
 };
 
 } /* namespace cafe */

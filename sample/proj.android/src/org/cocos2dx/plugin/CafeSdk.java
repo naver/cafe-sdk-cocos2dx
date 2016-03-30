@@ -13,12 +13,15 @@ import android.content.Context;
 import android.widget.Toast;
 
 public class CafeSdk {
-	private static Activity mContext;
 
 	public CafeSdk(Context context) {
-		mContext = (Activity) context;
+		// do nothing.
 	}
 
+	private Activity getActivity() {
+		return (Activity) PluginWrapper.getContext();
+	}
+	
 	public void init(String clientId, String clientSecret, int cafeId) {
 		Glink.init(clientId, clientSecret, cafeId);
 		
@@ -103,54 +106,54 @@ public class CafeSdk {
 	private static native void nativeOnPostedComment(int articleId);
 	
 	public void startHome() {
-		Glink.startHome(mContext);
+		Glink.startHome(getActivity());
 	}
 
 	public void startNotice() {
-		Glink.startNotice(mContext);
+		Glink.startNotice(getActivity());
 	}
 	
 	public void startEvent() {
-		Glink.startEvent(mContext);
+		Glink.startEvent(getActivity());
 	}
 	
 	public void startMenu(int menuId) {
 		if (menuId == -1) {
-			Glink.startMenu(mContext);			
+			Glink.startMenu(getActivity());			
 		} else {
-			Glink.startMenu(mContext, menuId);
+			Glink.startMenu(getActivity(), menuId);
 		}
 	}
 	
 	public void startProfile() {
-		Glink.startProfile(mContext);
+		Glink.startProfile(getActivity());
 	}
 	
 	public void startWrite(int menuId, String subject, String text) {
-		Glink.startWrite(mContext, menuId, subject, text);
+		Glink.startWrite(getActivity(), menuId, subject, text);
 	}
 	
 	public void startImageWrite(int menuId, String subject, String text, String imageUri) {
-		Glink.startImageWrite(mContext, menuId, subject, text, imageUri);
+		Glink.startImageWrite(getActivity(), menuId, subject, text, imageUri);
 	}
 	
 	public void startVideoWrite(int menuId, String subject, String text, String videoUri) {
-		Glink.startVideoWrite(mContext, menuId, subject, text, videoUri);
+		Glink.startVideoWrite(getActivity(), menuId, subject, text, videoUri);
 	}
 	
 	public void syncGameUserId(String gameUserId) {
-		Glink.syncGameUserId(mContext, gameUserId);
+		Glink.syncGameUserId(getActivity(), gameUserId);
 	}
 	
 	public boolean isShowGlink() {
-		return Glink.isShowGlink(mContext);
+		return Glink.isShowGlink(getActivity());
 	}
 	
 	public void showToast(final String text) {
-		mContext.runOnUiThread(new Runnable() {
+		getActivity().runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
 			}
 		});
 	}

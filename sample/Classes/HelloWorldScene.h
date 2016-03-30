@@ -5,23 +5,22 @@
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "NativeUtils.h"
-namespace cafe { class CafeListener{ /* empty. */ }; }
+namespace cafe {class CafeListener { /* empty. */};}
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include "PluginCafe.h"
 #endif
 
-class HelloWorld : public cocos2d::Layer, cafe::CafeListener
-{
+class HelloWorld: public cocos2d::Layer, cafe::CafeListener {
 public:
     static cocos2d::Scene* createScene();
 
     virtual bool init();
-    
+
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
     void menuNaverCafeSDK(cocos2d::Ref* pSender);
     void menuNaverCafeScreenShot(cocos2d::Ref* pSender);
-    
+
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 

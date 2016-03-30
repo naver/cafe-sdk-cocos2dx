@@ -126,14 +126,14 @@ void HelloWorld::menuNaverCafeScreenShot(Ref* pSender)
 
 static const std::string gActions[] = {
     "home",
-	"notice",
-	"event",
-	"menu",
-	"menu(id:7)",
-	"profile",
-	"write1",
-	"write2",
-	"is show"
+    "notice",
+    "event",
+    "menu",
+    "menu(id:7)",
+    "profile",
+    "write1",
+    "write2",
+    "is show"
 };
 
 void HelloWorld::menuCallback(Ref* pSender) {
@@ -141,86 +141,86 @@ void HelloWorld::menuCallback(Ref* pSender) {
     auto action = gActions[item->getTag()];
 
     if ("home" == action) {
-    	cafe::CafeSdk::startHome();
+        cafe::CafeSdk::startHome();
     } else if ("notice" == action) {
-    	cafe::CafeSdk::startNotice();
+        cafe::CafeSdk::startNotice();
     } else if ("event" == action) {
-    	cafe::CafeSdk::startEvent();
+        cafe::CafeSdk::startEvent();
     } else if ("menu" == action) {
-    	cafe::CafeSdk::startMenu();
+        cafe::CafeSdk::startMenu();
     } else if ("menu(id:7)" == action) {
-    	cafe::CafeSdk::startMenu(7);
+        cafe::CafeSdk::startMenu(7);
     } else if ("profile" == action) {
-    	cafe::CafeSdk::startProfile();
+        cafe::CafeSdk::startProfile();
     } else if ("write1" == action) {
-    	cafe::CafeSdk::startWrite(-1, "subject", "text");
+        cafe::CafeSdk::startWrite(-1, "subject", "text");
     } else if ("write2" == action) {
-		CCSize screenSize = Director::getInstance()->getWinSize();
-		RenderTexture* texture = RenderTexture::create(screenSize.width, screenSize.height);
-		texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
+        CCSize screenSize = Director::getInstance()->getWinSize();
+        RenderTexture* texture = RenderTexture::create(screenSize.width, screenSize.height);
+        texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
 
-		texture->begin();
-		Director::getInstance()->getRunningScene()->visit();
-		texture->end();
+        texture->begin();
+        Director::getInstance()->getRunningScene()->visit();
+        texture->end();
 
-		std::string fileName = "captured_image.png";
-		if (texture->saveToFile(fileName, Image::Format::PNG)) {
-			std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
-			cafe::CafeSdk::startImageWrite(5, "subject", "text", imageUri);
-		}
+        std::string fileName = "captured_image.png";
+        if (texture->saveToFile(fileName, Image::Format::PNG)) {
+            std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
+            cafe::CafeSdk::startImageWrite(5, "subject", "text", imageUri);
+        }
     } else if ("is show" == action) {
-    	cafe::CafeSdk::showToast(cafe::CafeSdk::isShowGlink() ? "show" : "hide");
+        cafe::CafeSdk::showToast(cafe::CafeSdk::isShowGlink() ? "show" : "hide");
     }
 }
 
 void HelloWorld::initForAndroid(Menu* menu) {
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	float columsPosX[] = {
-		origin.x + visibleSize.width / 6,
-		origin.x + (visibleSize.width * 3) / 6,
-		origin.x + (visibleSize.width * 5) / 6
-	};
+    float columsPosX[] = {
+        origin.x + visibleSize.width / 6,
+        origin.x + (visibleSize.width * 3) / 6,
+        origin.x + (visibleSize.width * 5) / 6
+    };
 
-	float step = 45.0f;
-	float beginY = origin.y + visibleSize.height - step;
+    float step = 45.0f;
+    float beginY = origin.y + visibleSize.height - step;
 
-	int actionCount = sizeof(gActions) / sizeof(std::string);
-	for (int i = 0; i < actionCount; ++i) {
-		std::string action = gActions[i];
-		auto item = MenuItemFont::create(action.c_str(), CC_CALLBACK_1(HelloWorld::menuCallback, this));
-		item->setTag(i);
-		item->setPosition(Point(columsPosX[i % 3], beginY - (i / 3) * step));
-		menu->addChild(item);
-	}
+    int actionCount = sizeof(gActions) / sizeof(std::string);
+    for (int i = 0; i < actionCount; ++i) {
+        std::string action = gActions[i];
+        auto item = MenuItemFont::create(action.c_str(), CC_CALLBACK_1(HelloWorld::menuCallback, this));
+        item->setTag(i);
+        item->setPosition(Point(columsPosX[i % 3], beginY - (i / 3) * step));
+        menu->addChild(item);
+    }
 
-	cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
-	cafe::CafeSdk::setCafeListener(this);
+    cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
+    cafe::CafeSdk::setCafeListener(this);
 }
 
 void HelloWorld::onCafeSdkStarted() {
-	cafe::CafeSdk::showToast("onCafeSdkStarted");
+    cafe::CafeSdk::showToast("onCafeSdkStarted");
 }
 
 void HelloWorld::onCafeSdkStopped() {
-	cafe::CafeSdk::showToast("onCafeSdkStopped");
+    cafe::CafeSdk::showToast("onCafeSdkStopped");
 }
 
 void HelloWorld::onCafeSdkClickAppSchemeBanner(const std::string& appScheme) {
-	cafe::CafeSdk::showToast(appScheme);
+    cafe::CafeSdk::showToast(appScheme);
 }
 
 void HelloWorld::onCafeSdkJoined() {
-	cafe::CafeSdk::showToast("onCafeSdkJoined");
+    cafe::CafeSdk::showToast("onCafeSdkJoined");
 }
 
 void HelloWorld::onCafeSdkPostedArticle(int menuId) {
-	cafe::CafeSdk::showToast("onCafeSdkPostedArticle");
+    cafe::CafeSdk::showToast("onCafeSdkPostedArticle");
 }
 
 void HelloWorld::onCafeSdkPostedComment(int articleId) {
-	cafe::CafeSdk::showToast("onCafeSdkPostedComment");
+    cafe::CafeSdk::showToast("onCafeSdkPostedComment");
 }
 
 #endif

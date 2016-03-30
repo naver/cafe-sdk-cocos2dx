@@ -21,94 +21,94 @@ const char* kCafeSdkClass = "org/cocos2dx/plugin/CafeSdk";
 
 CafeSdkHolder* CafeSdkHolder::sharedInstance_ = nullptr;
 CafeSdkHolder* CafeSdkHolder::getInstance() {
-	if (sharedInstance_ == nullptr) {
-		sharedInstance_ = new (std::nothrow) CafeSdkHolder();
-	}
+    if (sharedInstance_ == nullptr) {
+        sharedInstance_ = new (std::nothrow) CafeSdkHolder();
+    }
 
-	return sharedInstance_;
+    return sharedInstance_;
 }
 
 CafeSdkHolder::CafeSdkHolder() {
-	PluginJniMethodInfo t;
-	if (!PluginJniHelper::getStaticMethodInfo(t,
-			"org/cocos2dx/plugin/PluginWrapper", "initPlugin",
-			"(Ljava/lang/String;)Ljava/lang/Object;")) {
-		return;
-	}
+    PluginJniMethodInfo t;
+    if (!PluginJniHelper::getStaticMethodInfo(t,
+            "org/cocos2dx/plugin/PluginWrapper", "initPlugin",
+            "(Ljava/lang/String;)Ljava/lang/Object;")) {
+        return;
+    }
 
-	jstring name = t.env->NewStringUTF(kCafeSdkClass);
-	jobject obj = t.env->CallStaticObjectMethod(t.classID, t.methodID, name);
+    jstring name = t.env->NewStringUTF(kCafeSdkClass);
+    jobject obj = t.env->CallStaticObjectMethod(t.classID, t.methodID, name);
 
-	t.env->DeleteLocalRef(name);
-	t.env->DeleteLocalRef(t.classID);
+    t.env->DeleteLocalRef(name);
+    t.env->DeleteLocalRef(t.classID);
 
-	success_ = obj != nullptr;
-	if (success_) {
-		PluginUtils::initJavaPlugin(this, obj, kCafeSdkClass);
-	}
+    success_ = obj != nullptr;
+    if (success_) {
+        PluginUtils::initJavaPlugin(this, obj, kCafeSdkClass);
+    }
 }
 
 void CafeSdkHolder::callJavaMethod(std::string name) {
-	if (success_) {
-		PluginUtils::callJavaFunctionWithName(this, name.c_str());
-	}
+    if (success_) {
+        PluginUtils::callJavaFunctionWithName(this, name.c_str());
+    }
 }
 
 jobject CafeSdkHolder::getJavaObject() {
-	return success_ ? PluginUtils::getPluginJavaData(this)->jobj : nullptr;
+    return success_ ? PluginUtils::getPluginJavaData(this)->jobj : nullptr;
 }
 
 bool CafeSdkHolder::getMethodInfo(PluginJniMethodInfo& t, std::string name,
-		std::string signature) {
-	return success_ ?
-			PluginJniHelper::getMethodInfo(t, kCafeSdkClass, name.c_str(),
-					signature.c_str()) :
-			false;
+        std::string signature) {
+    return success_ ?
+            PluginJniHelper::getMethodInfo(t, kCafeSdkClass, name.c_str(),
+                    signature.c_str()) :
+            false;
 }
 
 extern "C" {
 
 JNIEXPORT void JNICALL
 Java_org_cocos2dx_plugin_CafeSdk_nativeOnSdkStarted(JNIEnv* env, jobject thiz) {
-	auto cafeListener = CafeSdk::getCafeListener();
-	if (cafeListener == nullptr) return;
-	cafeListener->onCafeSdkStarted();
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkStarted();
 }
 
 JNIEXPORT void JNICALL
 Java_org_cocos2dx_plugin_CafeSdk_nativeOnSdkStopped(JNIEnv* env, jobject thiz) {
-	auto cafeListener = CafeSdk::getCafeListener();
-	if (cafeListener == nullptr) return;
-	cafeListener->onCafeSdkStopped();
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkStopped();
 }
 
 JNIEXPORT void JNICALL
 Java_org_cocos2dx_plugin_CafeSdk_nativeOnClickAppSchemeBanner(JNIEnv* env, jobject thiz, jstring appScheme) {
-	auto cafeListener = CafeSdk::getCafeListener();
-	if (cafeListener == nullptr) return;
-	std::string _appScheme = PluginJniHelper::jstring2string(appScheme);
-	cafeListener->onCafeSdkClickAppSchemeBanner(_appScheme);
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    std::string _appScheme = PluginJniHelper::jstring2string(appScheme);
+    cafeListener->onCafeSdkClickAppSchemeBanner(_appScheme);
 }
 
 JNIEXPORT void JNICALL
 Java_org_cocos2dx_plugin_CafeSdk_nativeOnJoined(JNIEnv* env, jobject thiz) {
-	auto cafeListener = CafeSdk::getCafeListener();
-	if (cafeListener == nullptr) return;
-	cafeListener->onCafeSdkJoined();
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkJoined();
 }
 
 JNIEXPORT void JNICALL
 Java_org_cocos2dx_plugin_CafeSdk_nativeOnPostedArticle(JNIEnv* env, jobject thiz, jstring appScheme, jint menuId) {
-	auto cafeListener = CafeSdk::getCafeListener();
-	if (cafeListener == nullptr) return;
-	cafeListener->onCafeSdkPostedArticle(menuId);
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkPostedArticle(menuId);
 }
 
 JNIEXPORT void JNICALL
 Java_org_cocos2dx_plugin_CafeSdk_nativeOnPostedComment(JNIEnv* env, jobject thiz, jint articleId) {
-	auto cafeListener = CafeSdk::getCafeListener();
-	if (cafeListener == nullptr) return;
-	cafeListener->onCafeSdkPostedComment(articleId);
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkPostedComment(articleId);
 }
 
 }
