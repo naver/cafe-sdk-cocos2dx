@@ -1,4 +1,6 @@
-package org.cocos2dx.plugin;
+package com.naver.cafe;
+
+import org.cocos2dx.lib.Cocos2dxActivity;
 
 import com.naver.glink.android.sdk.Glink;
 import com.naver.glink.android.sdk.Glink.OnClickAppSchemeBannerListener;
@@ -8,27 +10,25 @@ import com.naver.glink.android.sdk.Glink.OnPostedCommentListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStartedListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStoppedListener;
 
-import android.app.Activity;
-import android.content.Context;
 import android.widget.Toast;
 
 public class CafeSdk {
 
-	public CafeSdk(Context context) {
-		// do nothing.
+	public static Cocos2dxActivity getActivity() {
+		return (Cocos2dxActivity) Cocos2dxActivity.getContext();
 	}
 
-	private Activity getActivity() {
-		return (Activity) PluginWrapper.getContext();
+	public static void runOnGLThread(Runnable r) {
+		getActivity().runOnGLThread(r);
 	}
-	
-	public void init(String clientId, String clientSecret, int cafeId) {
+
+	public static void init(String clientId, String clientSecret, int cafeId) {
 		Glink.init(clientId, clientSecret, cafeId);
-		
+
 		Glink.setOnSdkStartedListener(new OnSdkStartedListener() {
 			@Override
 			public void onSdkStarted() {
-				PluginWrapper.runOnGLThread(new Runnable() {
+				runOnGLThread(new Runnable() {
 					@Override
 					public void run() {
 						nativeOnSdkStarted();
@@ -36,11 +36,11 @@ public class CafeSdk {
 				});
 			}
 		});
-		
+
 		Glink.setOnSdkStoppedListener(new OnSdkStoppedListener() {
 			@Override
 			public void onSdkStopped() {
-				PluginWrapper.runOnGLThread(new Runnable() {
+				runOnGLThread(new Runnable() {
 					@Override
 					public void run() {
 						nativeOnSdkStopped();
@@ -48,23 +48,23 @@ public class CafeSdk {
 				});
 			}
 		});
-		
+
 		Glink.setOnClickAppSchemeBannerListener(new OnClickAppSchemeBannerListener() {
 			@Override
 			public void onClickAppSchemeBanner(final String appScheme) {
-				PluginWrapper.runOnGLThread(new Runnable() {
+				runOnGLThread(new Runnable() {
 					@Override
 					public void run() {
 						nativeOnClickAppSchemeBanner(appScheme);
 					}
 				});
-			}			
+			}
 		});
-		
+
 		Glink.setOnJoinedListener(new OnJoinedListener() {
 			@Override
 			public void onJoined() {
-				PluginWrapper.runOnGLThread(new Runnable() {
+				runOnGLThread(new Runnable() {
 					@Override
 					public void run() {
 						nativeOnJoined();
@@ -72,11 +72,11 @@ public class CafeSdk {
 				});
 			}
 		});
-		
+
 		Glink.setOnPostedArticleListener(new OnPostedArticleListener() {
 			@Override
 			public void onPostedArticle(final int menuId) {
-				PluginWrapper.runOnGLThread(new Runnable() {
+				runOnGLThread(new Runnable() {
 					@Override
 					public void run() {
 						nativeOnPostedArticle(menuId);
@@ -84,11 +84,11 @@ public class CafeSdk {
 				});
 			}
 		});
-		
+
 		Glink.setOnPostedCommentListener(new OnPostedCommentListener() {
 			@Override
 			public void onPostedComment(final int articleId) {
-				PluginWrapper.runOnGLThread(new Runnable() {
+				runOnGLThread(new Runnable() {
 					@Override
 					public void run() {
 						nativeOnPostedComment(articleId);
@@ -97,59 +97,68 @@ public class CafeSdk {
 			}
 		});
 	}
-	
+
 	private static native void nativeOnSdkStarted();
+
 	private static native void nativeOnSdkStopped();
+
 	private static native void nativeOnClickAppSchemeBanner(String appScheme);
+
 	private static native void nativeOnJoined();
+
 	private static native void nativeOnPostedArticle(int menuId);
+
 	private static native void nativeOnPostedComment(int articleId);
-	
-	public void startHome() {
+
+	public static void startHome() {
 		Glink.startHome(getActivity());
 	}
 
-	public void startNotice() {
+	public static void startNotice() {
 		Glink.startNotice(getActivity());
 	}
-	
-	public void startEvent() {
+
+	public static void startEvent() {
 		Glink.startEvent(getActivity());
 	}
-	
-	public void startMenu(int menuId) {
+
+	public static void startMenu(int menuId) {
 		if (menuId == -1) {
-			Glink.startMenu(getActivity());			
+			Glink.startMenu(getActivity());
 		} else {
 			Glink.startMenu(getActivity(), menuId);
 		}
 	}
-	
-	public void startProfile() {
+
+	public static void startProfile() {
 		Glink.startProfile(getActivity());
 	}
-	
-	public void startWrite(int menuId, String subject, String text) {
+
+	public static void startMore() {
+		Glink.startMore(getActivity());
+	}
+
+	public static void startWrite(int menuId, String subject, String text) {
 		Glink.startWrite(getActivity(), menuId, subject, text);
 	}
-	
-	public void startImageWrite(int menuId, String subject, String text, String imageUri) {
+
+	public static void startImageWrite(int menuId, String subject, String text, String imageUri) {
 		Glink.startImageWrite(getActivity(), menuId, subject, text, imageUri);
 	}
-	
-	public void startVideoWrite(int menuId, String subject, String text, String videoUri) {
+
+	public static void startVideoWrite(int menuId, String subject, String text, String videoUri) {
 		Glink.startVideoWrite(getActivity(), menuId, subject, text, videoUri);
 	}
-	
-	public void syncGameUserId(String gameUserId) {
+
+	public static void syncGameUserId(String gameUserId) {
 		Glink.syncGameUserId(getActivity(), gameUserId);
 	}
-	
-	public boolean isShowGlink() {
+
+	public static boolean isShowGlink() {
 		return Glink.isShowGlink(getActivity());
 	}
-	
-	public void showToast(final String text) {
+
+	public static void showToast(final String text) {
 		getActivity().runOnUiThread(new Runnable() {
 			@Override
 			public void run() {

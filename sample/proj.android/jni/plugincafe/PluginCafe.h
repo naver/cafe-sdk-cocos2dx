@@ -39,6 +39,7 @@ public:
     static void startMenu();
     static void startMenu(int menuId);
     static void startProfile();
+    static void startMore();
 
     static void startWrite(int menuId, std::string subject, std::string text);
     static void startImageWrite(int menuId, std::string subject,
@@ -48,8 +49,6 @@ public:
 
     /* 게임 아이디와 카페 아이디를 연동합니다. */
     static void syncGameUserId(std::string gameUserId);
-
-    static bool isShowGlink();
 
     static void showToast(std::string text);
 };

@@ -6,25 +6,89 @@
  */
 
 #include "PluginCafe.h"
-#include "PluginUtils.h"
 #include "PluginJniHelper.h"
-#include "CafeSdkHolder.h"
 
-#define LOG(format, ...)	PluginUtils::outputLog("CafeSdk", format, ##__VA_ARGS__)
+#define SDK AndroidJavaCafeSdk::sharedInstance()
+#define ENV AndroidJavaCafeSdk::sharedInstance()->env_
+
+#define CALL_VOID_METHOD(method, ...) \
+    ENV->CallStaticVoidMethod(SDK->cafeSdkClass_, method.methodID, ##__VA_ARGS__)
 
 using namespace cocos2d;
-using namespace cocos2d::plugin;
 
 namespace cafe {
 
 static CafeListener* gCafeListener = nullptr;
 
-CafeListener::~CafeListener() {
-    // do nothing.
+class AndroidJavaCafeSdk {
+public:
+    static AndroidJavaCafeSdk* sharedInstance();
+
+    AndroidJavaCafeSdk();
+
+    JNIEnv* env_;
+    jclass cafeSdkClass_;
+
+    cocos2d::PluginJniMethodInfo initMethod_;
+    cocos2d::PluginJniMethodInfo sartHomeMethod_;
+    cocos2d::PluginJniMethodInfo startNoticeMethod_;
+    cocos2d::PluginJniMethodInfo startEventMethod_;
+    cocos2d::PluginJniMethodInfo startMenuMethod_;
+    cocos2d::PluginJniMethodInfo startProfileMethod_;
+    cocos2d::PluginJniMethodInfo startMoreMethod_;
+    cocos2d::PluginJniMethodInfo startWriteMethod_;
+    cocos2d::PluginJniMethodInfo startImageWriteMethod_;
+    cocos2d::PluginJniMethodInfo startVideoWriteMethod_;
+    cocos2d::PluginJniMethodInfo syncGameUserIdMethod_;
+    cocos2d::PluginJniMethodInfo showToastMethod_;
+};
+
+AndroidJavaCafeSdk* AndroidJavaCafeSdk::sharedInstance() {
+    static AndroidJavaCafeSdk* sharedInstance_ = nullptr;
+    if (sharedInstance_ == nullptr) {
+        sharedInstance_ = new AndroidJavaCafeSdk();
+    }
+
+    return sharedInstance_;
 }
 
-static CafeSdkHolder* holder() {
-    return CafeSdkHolder::getInstance();
+static bool StaticMethod(PluginJniMethodInfo &methodinfo,
+        const char *methodName, const char *paramCode) {
+    static const char* kCafeSdkClass = "com/naver/cafe/CafeSdk";
+    return PluginJniHelper::getStaticMethodInfo(methodinfo, kCafeSdkClass,
+            methodName, paramCode);
+}
+
+AndroidJavaCafeSdk::AndroidJavaCafeSdk() {
+    StaticMethod(initMethod_, "init",
+            "(Ljava/lang/String;Ljava/lang/String;I)V");
+
+    env_ = initMethod_.env;
+    cafeSdkClass_ = (jclass) env_->NewGlobalRef(initMethod_.classID);
+
+    StaticMethod(sartHomeMethod_, "startHome", "()V");
+    StaticMethod(startNoticeMethod_, "startNotice", "()V");
+    StaticMethod(startEventMethod_, "startEvent", "()V");
+    StaticMethod(startProfileMethod_, "startProfile", "()V");
+    StaticMethod(startMenuMethod_, "startMenu", "(I)V");
+    StaticMethod(startMoreMethod_, "startMore", "()V");
+
+    StaticMethod(startWriteMethod_, "startWrite",
+            "(ILjava/lang/String;Ljava/lang/String;)V");
+
+    StaticMethod(startImageWriteMethod_, "startImageWrite",
+            "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+
+    StaticMethod(startVideoWriteMethod_, "startVideoWrite",
+            "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+
+    StaticMethod(syncGameUserIdMethod_, "syncGameUserId", "(Ljava/lang/String;)V");
+    StaticMethod(showToastMethod_, "showToast", "(Ljava/lang/String;)V");
+}
+
+
+CafeListener::~CafeListener() {
+    // do nothing.
 }
 
 void CafeSdk::setCafeListener(CafeListener* listener) {
@@ -35,16 +99,26 @@ CafeListener* CafeSdk::getCafeListener() {
     return gCafeListener;
 }
 
+void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
+    jstring _clientId = ENV->NewStringUTF(clientId.c_str());
+    jstring _clientSecret = ENV->NewStringUTF(clientSecret.c_str());
+
+    CALL_VOID_METHOD(SDK->initMethod_, _clientId, _clientSecret, cafeId);
+
+    ENV->DeleteLocalRef(_clientId);
+    ENV->DeleteLocalRef(_clientSecret);
+}
+
 void CafeSdk::startHome() {
-    holder()->callJavaMethod("startHome");
+    CALL_VOID_METHOD(SDK->sartHomeMethod_);
 }
 
 void CafeSdk::startNotice() {
-    holder()->callJavaMethod("startNotice");
+    CALL_VOID_METHOD(SDK->startNoticeMethod_);
 }
 
 void CafeSdk::startEvent() {
-    holder()->callJavaMethod("startEvent");
+    CALL_VOID_METHOD(SDK->startEventMethod_);
 }
 
 void CafeSdk::startMenu() {
@@ -52,96 +126,114 @@ void CafeSdk::startMenu() {
 }
 
 void CafeSdk::startMenu(int menuId) {
-    PluginParam _menuId(menuId);
-    holder()->callFuncWithParam("startMenu", &_menuId, NULL);
+    CALL_VOID_METHOD(SDK->startMenuMethod_, menuId);
 }
 
 void CafeSdk::startProfile() {
-    holder()->callJavaMethod("startProfile");
+    CALL_VOID_METHOD(SDK->startProfileMethod_);
 }
 
-void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
-    PluginJniMethodInfo t;
-    if (holder()->getMethodInfo(t, "init",
-            "(Ljava/lang/String;Ljava/lang/String;I)V")) {
-        jstring _clientId = t.env->NewStringUTF(clientId.c_str());
-        jstring _clientSecret = t.env->NewStringUTF(clientSecret.c_str());
-
-        t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, _clientId,
-                _clientSecret, cafeId);
-
-        t.env->DeleteLocalRef(_clientId);
-        t.env->DeleteLocalRef(_clientSecret);
-        t.env->DeleteLocalRef(t.classID);
-    }
+void CafeSdk::startMore() {
+    CALL_VOID_METHOD(SDK->startMoreMethod_);
 }
 
 void CafeSdk::startWrite(int menuId, std::string subject, std::string text) {
-    PluginJniMethodInfo t;
-    if (holder()->getMethodInfo(t, "startWrite",
-            "(ILjava/lang/String;Ljava/lang/String;)V")) {
-        jstring _subject = t.env->NewStringUTF(subject.c_str());
-        jstring _text = t.env->NewStringUTF(text.c_str());
+    jstring _subject = ENV->NewStringUTF(subject.c_str());
+    jstring _text = ENV->NewStringUTF(text.c_str());
 
-        t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, menuId,
-                _subject, _text);
+    CALL_VOID_METHOD(SDK->startWriteMethod_, menuId, _subject, _text);
 
-        t.env->DeleteLocalRef(_subject);
-        t.env->DeleteLocalRef(_text);
-        t.env->DeleteLocalRef(t.classID);
-    }
+    ENV->DeleteLocalRef(_subject);
+    ENV->DeleteLocalRef(_text);
 }
 
 void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text,
         std::string imageUri) {
-    PluginJniMethodInfo t;
-    if (holder()->getMethodInfo(t, "startImageWrite",
-            "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")) {
-        jstring _subject = t.env->NewStringUTF(subject.c_str());
-        jstring _text = t.env->NewStringUTF(text.c_str());
-        jstring _imageUri = t.env->NewStringUTF(imageUri.c_str());
+    jstring _subject = ENV->NewStringUTF(subject.c_str());
+    jstring _text = ENV->NewStringUTF(text.c_str());
+    jstring _imageUri = ENV->NewStringUTF(imageUri.c_str());
 
-        t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, menuId,
-                _subject, _text, _imageUri);
+    CALL_VOID_METHOD(SDK->startImageWriteMethod_, menuId, _subject, _text, _imageUri);
 
-        t.env->DeleteLocalRef(_subject);
-        t.env->DeleteLocalRef(_text);
-        t.env->DeleteLocalRef(_imageUri);
-        t.env->DeleteLocalRef(t.classID);
-    }
+    ENV->DeleteLocalRef(_subject);
+    ENV->DeleteLocalRef(_text);
+    ENV->DeleteLocalRef(_imageUri);
 }
 
 void CafeSdk::startVideoWrite(int menuId, std::string subject, std::string text,
         std::string videoUri) {
-    PluginJniMethodInfo t;
-    if (holder()->getMethodInfo(t, "startVideoWrite",
-            "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")) {
-        jstring _subject = t.env->NewStringUTF(subject.c_str());
-        jstring _text = t.env->NewStringUTF(text.c_str());
-        jstring _videoUri = t.env->NewStringUTF(videoUri.c_str());
+    jstring _subject = ENV->NewStringUTF(subject.c_str());
+    jstring _text = ENV->NewStringUTF(text.c_str());
+    jstring _videoUri = ENV->NewStringUTF(videoUri.c_str());
 
-        t.env->CallVoidMethod(holder()->getJavaObject(), t.methodID, menuId,
-                _subject, _text, _videoUri);
+    CALL_VOID_METHOD(SDK->startVideoWriteMethod_, menuId, _subject, _text, _videoUri);
 
-        t.env->DeleteLocalRef(_subject);
-        t.env->DeleteLocalRef(_text);
-        t.env->DeleteLocalRef(_videoUri);
-        t.env->DeleteLocalRef(t.classID);
-    }
+    ENV->DeleteLocalRef(_subject);
+    ENV->DeleteLocalRef(_text);
+    ENV->DeleteLocalRef(_videoUri);
 }
 
 void CafeSdk::syncGameUserId(std::string gameUserId) {
-    PluginParam _gameUserId(gameUserId.c_str());
-    holder()->callFuncWithParam("syncGameUserId", &_gameUserId, NULL);
-}
+    jstring _gameUserId = ENV->NewStringUTF(gameUserId.c_str());
 
-bool CafeSdk::isShowGlink() {
-    return holder()->callBoolFuncWithParam("isShowGlink", NULL);
+    CALL_VOID_METHOD(SDK->syncGameUserIdMethod_, _gameUserId);
+
+    ENV->DeleteLocalRef(_gameUserId);
 }
 
 void CafeSdk::showToast(std::string text) {
-    PluginParam _text(text.c_str());
-    holder()->callFuncWithParam("showToast", &_text, NULL);
+    jstring _text = ENV->NewStringUTF(text.c_str());
+
+    CALL_VOID_METHOD(SDK->showToastMethod_, _text);
+
+    ENV->DeleteLocalRef(_text);
+}
+
+extern "C" {
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnSdkStarted(JNIEnv* env, jobject thiz) {
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkStarted();
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnSdkStopped(JNIEnv* env, jobject thiz) {
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkStopped();
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnClickAppSchemeBanner(JNIEnv* env, jobject thiz, jstring appScheme) {
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    std::string _appScheme = PluginJniHelper::jstring2string(appScheme);
+    cafeListener->onCafeSdkClickAppSchemeBanner(_appScheme);
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnJoined(JNIEnv* env, jobject thiz) {
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkJoined();
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnPostedArticle(JNIEnv* env, jobject thiz, jstring appScheme, jint menuId) {
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkPostedArticle(menuId);
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnPostedComment(JNIEnv* env, jobject thiz, jint articleId) {
+    auto cafeListener = CafeSdk::getCafeListener();
+    if (cafeListener == nullptr) return;
+    cafeListener->onCafeSdkPostedComment(articleId);
+}
+
 }
 
 } /* namespace cafe */

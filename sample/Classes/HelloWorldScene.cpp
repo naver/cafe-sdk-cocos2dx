@@ -133,7 +133,6 @@ static const std::string gActions[] = {
     "profile",
     "write1",
     "write2",
-    "is show"
 };
 
 void HelloWorld::menuCallback(Ref* pSender) {
@@ -168,8 +167,6 @@ void HelloWorld::menuCallback(Ref* pSender) {
             std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
             cafe::CafeSdk::startImageWrite(5, "subject", "text", imageUri);
         }
-    } else if ("is show" == action) {
-        cafe::CafeSdk::showToast(cafe::CafeSdk::isShowGlink() ? "show" : "hide");
     }
 }
 
