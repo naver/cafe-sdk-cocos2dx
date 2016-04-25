@@ -31,7 +31,6 @@ public:
             int cafeId);
 
     static void setCafeListener(CafeListener* listener);
-    static CafeListener* getCafeListener();
 
     static void startHome();
     static void startNotice();
