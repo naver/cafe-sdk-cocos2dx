@@ -2,6 +2,18 @@
 
 USING_NS_CC;
 
+enum CafeSdkTags
+{
+    kTagCafeHome,
+    kTagCafeNotice,
+    kTagCafeEvent,
+    kTagCafeMenu,
+    kTagCafeMenuById,
+    kTagCafeProfile,
+    kTagCafeWrite1,
+    kTagCafeWrite2,
+};
+
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
@@ -47,8 +59,11 @@ bool HelloWorld::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-    initCafeSdkMenu(menu);
-
+    initCafeSdkButtons(menu);
+    
+    cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
+    cafe::CafeSdk::setCafeListener(this);
+    
     return true;
 }
 
@@ -62,53 +77,41 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 #endif
 }
 
-static const std::string gActions[] = {
-    "home",
-    "notice",
-    "event",
-    "menu",
-    "menu(id:7)",
-    "profile",
-    "write1",
-    "write2",
-};
-
-void HelloWorld::menuCallback(Ref* pSender) {
-    auto item = (MenuItemFont*) pSender;
-    auto action = gActions[item->getTag()];
-
-    if ("home" == action) {
-        cafe::CafeSdk::startHome();
-    } else if ("notice" == action) {
-        cafe::CafeSdk::startNotice();
-    } else if ("event" == action) {
-        cafe::CafeSdk::startEvent();
-    } else if ("menu" == action) {
-        cafe::CafeSdk::startMenu();
-    } else if ("menu(id:7)" == action) {
-        cafe::CafeSdk::startMenu(7);
-    } else if ("profile" == action) {
-        cafe::CafeSdk::startProfile();
-    } else if ("write1" == action) {
-        cafe::CafeSdk::startWrite(-1, "subject", "text");
-    } else if ("write2" == action) {
-        CCSize screenSize = Director::getInstance()->getWinSize();
-        RenderTexture* texture = RenderTexture::create(screenSize.width, screenSize.height);
-        texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
-
-        texture->begin();
-        Director::getInstance()->getRunningScene()->visit();
-        texture->end();
-
-        std::string fileName = "captured_image.png";
-        if (texture->saveToFile(fileName, Image::Format::PNG)) {
-            std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
-            cafe::CafeSdk::startImageWrite(5, "subject", "text", imageUri);
-        }
-    }
+void HelloWorld::initCafeSdkButtons(Menu* menu) {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    auto navercafe = MenuItemImage::create(
+                                           "icon1.png",
+                                           "icon1.png",
+                                           CC_CALLBACK_1(HelloWorld::menuCallback, this));
+    navercafe->setTag(kTagCafeHome);
+    navercafe->setPosition(Vec2(origin.x + navercafe->getContentSize().width,
+                                origin.y + visibleSize.height - navercafe->getContentSize().height));
+    menu->addChild(navercafe);
+    
+    auto screenshot = MenuItemImage::create(
+                                            "icon2.png",
+                                            "icon2.png",
+                                            CC_CALLBACK_1(HelloWorld::menuCallback, this));
+    
+    screenshot->setTag(kTagCafeWrite2);
+    screenshot->setPosition(Vec2(origin.x + screenshot->getContentSize().width,
+                                 origin.y + visibleSize.height - navercafe->getContentSize().height * 2));
+    menu->addChild(screenshot);
 }
 
 void HelloWorld::initCafeSdkMenu(Menu* menu) {
+    std::vector<std::pair<int, const char*> > items;
+    items.push_back(std::make_pair(kTagCafeHome, "home"));
+    items.push_back(std::make_pair(kTagCafeNotice, "notice"));
+    items.push_back(std::make_pair(kTagCafeEvent, "event"));
+    items.push_back(std::make_pair(kTagCafeMenu, "menu"));
+    items.push_back(std::make_pair(kTagCafeMenuById, "menu(id:7)"));
+    items.push_back(std::make_pair(kTagCafeProfile, "profile"));
+    items.push_back(std::make_pair(kTagCafeWrite1, "write1"));
+    items.push_back(std::make_pair(kTagCafeWrite2, "write2"));
+    
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -120,18 +123,69 @@ void HelloWorld::initCafeSdkMenu(Menu* menu) {
 
     float step = 45.0f;
     float beginY = origin.y + visibleSize.height - step;
-
-    int actionCount = sizeof(gActions) / sizeof(std::string);
-    for (int i = 0; i < actionCount; ++i) {
-        std::string action = gActions[i];
-        auto item = MenuItemFont::create(action.c_str(), CC_CALLBACK_1(HelloWorld::menuCallback, this));
-        item->setTag(i);
+    
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        auto item = MenuItemFont::create(it->second, CC_CALLBACK_1(HelloWorld::menuCallback, this));
+        item->setTag(it->first);
+        
+        auto i = std::distance(items.begin(), it);
         item->setPosition(Point(columsPosX[i % 3], beginY - (i / 3) * step));
         menu->addChild(item);
     }
+}
 
-    cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
-    cafe::CafeSdk::setCafeListener(this);
+void HelloWorld::menuCallback(Ref* pSender) {
+    auto item = (MenuItemFont*) pSender;
+    
+    switch (item->getTag()) {
+        case kTagCafeHome:
+            cafe::CafeSdk::startHome();
+            break;
+            
+        case kTagCafeNotice:
+            cafe::CafeSdk::startNotice();
+            break;
+            
+        case kTagCafeEvent:
+            cafe::CafeSdk::startEvent();
+            break;
+            
+        case kTagCafeMenu:
+            cafe::CafeSdk::startMenu();
+            break;
+            
+        case kTagCafeMenuById:
+            cafe::CafeSdk::startMenu(7);
+            break;
+            
+        case kTagCafeProfile:
+            cafe::CafeSdk::startProfile();
+            break;
+            
+        case kTagCafeWrite1:
+            cafe::CafeSdk::startWrite(-1, "subject", "text");
+            break;
+            
+        case kTagCafeWrite2: {
+            CCSize screenSize = Director::getInstance()->getWinSize();
+            RenderTexture* texture = RenderTexture::create(screenSize.width, screenSize.height);
+            texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
+            
+            texture->begin();
+            Director::getInstance()->getRunningScene()->visit();
+            texture->end();
+            
+            std::string fileName = "captured_image.png";
+            if (texture->saveToFile(fileName, Image::Format::PNG)) {
+                std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
+                cafe::CafeSdk::startImageWrite(5, "subject", "text", imageUri);
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 void HelloWorld::onCafeSdkStarted() {

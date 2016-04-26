@@ -17,8 +17,9 @@ public:
     CREATE_FUNC(HelloWorld);
 
 private:
-
+    void initCafeSdkButtons(cocos2d::Menu* menu);
     void initCafeSdkMenu(cocos2d::Menu* menu);
+    
     void menuCallback(Ref* pSender);
 
     void onCafeSdkStarted();
