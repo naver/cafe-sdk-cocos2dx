@@ -47,53 +47,7 @@ bool HelloWorld::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    /////////////////////////////
-    // 3. add your codes below...
-    auto navercafe = MenuItemImage::create(
-                                           "icon1.png",
-                                           "icon1.png",
-                                           CC_CALLBACK_1(HelloWorld::menuNaverCafeSDK, this));
-
-    navercafe->setPosition(Vec2(origin.x + navercafe->getContentSize().width,
-                                origin.y + visibleSize.height - navercafe->getContentSize().height));
-    menu->addChild(navercafe);
-
-    auto screenshot = MenuItemImage::create(
-                                           "icon2.png",
-                                           "icon2.png",
-                                           CC_CALLBACK_1(HelloWorld::menuNaverCafeScreenShot, this));
-
-    screenshot->setPosition(Vec2(origin.x + screenshot->getContentSize().width,
-                                origin.y + visibleSize.height - navercafe->getContentSize().height * 2));
-    menu->addChild(screenshot);
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
-
-    // position the label on the center of the screen
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(label, 1);
-
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
-
-    NativeUtils::sharedInstance();
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    initForAndroid(menu);
-#endif
+    initCafeSdkMenu(menu);
 
     return true;
 }
@@ -107,22 +61,6 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     exit(0);
 #endif
 }
-
-void HelloWorld::menuNaverCafeSDK(Ref* pSender)
-{
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    NativeUtils::sharedInstance().navercafe();
-#endif
-}
-
-void HelloWorld::menuNaverCafeScreenShot(Ref* pSender)
-{
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    NativeUtils::sharedInstance().screenshot();
-#endif
-}
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 
 static const std::string gActions[] = {
     "home",
@@ -170,7 +108,7 @@ void HelloWorld::menuCallback(Ref* pSender) {
     }
 }
 
-void HelloWorld::initForAndroid(Menu* menu) {
+void HelloWorld::initCafeSdkMenu(Menu* menu) {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -219,5 +157,3 @@ void HelloWorld::onCafeSdkPostedArticle(int menuId) {
 void HelloWorld::onCafeSdkPostedComment(int articleId) {
     cafe::CafeSdk::showToast("onCafeSdkPostedComment");
 }
-
-#endif

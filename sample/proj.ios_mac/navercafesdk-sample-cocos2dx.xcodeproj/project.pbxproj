@@ -24,6 +24,8 @@
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
+		4A43A2951CCEFFF800A852E1 /* PluginCafe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A43A2921CCEFFF800A852E1 /* PluginCafe.cpp */; };
+		4A43A2981CCF041C00A852E1 /* NativeUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A43A2971CCF041C00A852E1 /* NativeUtils.mm */; };
 		4A686AB91C96C1FB00F1C97B /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5D181BF2006100700256 /* GameController.framework */; };
 		4AA5BE2D1BFAFB2500D6724F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5BE191BFAFB2500D6724F /* AFHTTPRequestOperation.m */; };
 		4AA5BE2E1BFAFB2500D6724F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5BE1B1BFAFB2500D6724F /* AFHTTPRequestOperationManager.m */; };
@@ -35,7 +37,6 @@
 		4AA5BE341BFAFB2500D6724F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5BE281BFAFB2500D6724F /* AFURLResponseSerialization.m */; };
 		4AA5BE351BFAFB2500D6724F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5BE2A1BFAFB2500D6724F /* AFURLSessionManager.m */; };
 		4AA5BE361BFAFB2500D6724F /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5BE2C1BFAFB2500D6724F /* UIImageView+AFNetworking.m */; };
-		4AA5BE3F1BFB004B00D6724F /* NativeUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5BE3D1BFB004B00D6724F /* NativeUtils.mm */; };
 		4ABA5CCA1BF1F33400700256 /* NaverCafeSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4ABA5CC81BF1F33400700256 /* NaverCafeSDK.bundle */; };
 		4ABA5CCB1BF1F33400700256 /* NaverCafeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CC91BF1F33400700256 /* NaverCafeSDK.framework */; };
 		4ABA5CD21BF1F3EE00700256 /* libNaverLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CCC1BF1F3EE00700256 /* libNaverLogin.a */; };
@@ -141,6 +142,10 @@
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
+		4A43A2921CCEFFF800A852E1 /* PluginCafe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PluginCafe.cpp; sourceTree = "<group>"; };
+		4A43A2931CCEFFF800A852E1 /* PluginCafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginCafe.h; sourceTree = "<group>"; };
+		4A43A2961CCF041C00A852E1 /* NativeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeUtils.h; sourceTree = "<group>"; };
+		4A43A2971CCF041C00A852E1 /* NativeUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeUtils.mm; sourceTree = "<group>"; };
 		4AA5BE181BFAFB2500D6724F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		4AA5BE191BFAFB2500D6724F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		4AA5BE1A1BFAFB2500D6724F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -162,8 +167,6 @@
 		4AA5BE2A1BFAFB2500D6724F /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		4AA5BE2B1BFAFB2500D6724F /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		4AA5BE2C1BFAFB2500D6724F /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		4AA5BE3D1BFB004B00D6724F /* NativeUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NativeUtils.mm; path = ios/NativeUtils.mm; sourceTree = SOURCE_ROOT; };
-		4AA5BE3E1BFB004B00D6724F /* NativeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeUtils.h; path = ios/NativeUtils.h; sourceTree = SOURCE_ROOT; };
 		4ABA5CC81BF1F33400700256 /* NaverCafeSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NaverCafeSDK.bundle; sourceTree = "<group>"; };
 		4ABA5CC91BF1F33400700256 /* NaverCafeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NaverCafeSDK.framework; sourceTree = "<group>"; };
 		4ABA5CCC1BF1F3EE00700256 /* libNaverLogin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNaverLogin.a; sourceTree = "<group>"; };
@@ -285,8 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				5087E77117EB970100C73F5D /* Icons */,
-				4AA5BE3E1BFB004B00D6724F /* NativeUtils.h */,
-				4AA5BE3D1BFB004B00D6724F /* NativeUtils.mm */,
 				503AE0FA17EB989F00D1A890 /* AppController.h */,
 				503AE0FB17EB989F00D1A890 /* AppController.mm */,
 				503AE0FC17EB989F00D1A890 /* main.m */,
@@ -383,6 +384,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4A43A28D1CCEFFF800A852E1 /* plugincafe */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
@@ -390,6 +392,33 @@
 			);
 			name = Classes;
 			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		4A43A28D1CCEFFF800A852E1 /* plugincafe */ = {
+			isa = PBXGroup;
+			children = (
+				4A43A28E1CCEFFF800A852E1 /* platform */,
+				4A43A2931CCEFFF800A852E1 /* PluginCafe.h */,
+			);
+			path = plugincafe;
+			sourceTree = "<group>";
+		};
+		4A43A28E1CCEFFF800A852E1 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				4A43A2911CCEFFF800A852E1 /* ios */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		4A43A2911CCEFFF800A852E1 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				4A43A2961CCF041C00A852E1 /* NativeUtils.h */,
+				4A43A2971CCF041C00A852E1 /* NativeUtils.mm */,
+				4A43A2921CCEFFF800A852E1 /* PluginCafe.cpp */,
+			);
+			path = ios;
 			sourceTree = "<group>";
 		};
 		4AA5BE171BFAFB2500D6724F /* AFNetworking-2.6.1 */ = {
@@ -634,6 +663,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A43A2951CCEFFF800A852E1 /* PluginCafe.cpp in Sources */,
 				4AA5BE351BFAFB2500D6724F /* AFURLSessionManager.m in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
@@ -641,6 +671,7 @@
 				4ABA5CD41BF1F3EF00700256 /* NLoginThirdPartyOAuth20InAppBrowserViewController.m in Sources */,
 				4AA5BE321BFAFB2500D6724F /* AFURLConnectionOperation.m in Sources */,
 				4AA5BE2F1BFAFB2500D6724F /* AFHTTPSessionManager.m in Sources */,
+				4A43A2981CCF041C00A852E1 /* NativeUtils.mm in Sources */,
 				4AA5BE331BFAFB2500D6724F /* AFURLRequestSerialization.m in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -648,7 +679,6 @@
 				4AA5BE361BFAFB2500D6724F /* UIImageView+AFNetworking.m in Sources */,
 				4AA5BE2E1BFAFB2500D6724F /* AFHTTPRequestOperationManager.m in Sources */,
 				4AA5BE311BFAFB2500D6724F /* AFSecurityPolicy.m in Sources */,
-				4AA5BE3F1BFB004B00D6724F /* NativeUtils.mm in Sources */,
 				4AA5BE341BFAFB2500D6724F /* AFURLResponseSerialization.m in Sources */,
 				4AA5BE2D1BFAFB2500D6724F /* AFHTTPRequestOperation.m in Sources */,
 			);

@@ -11,12 +11,12 @@ LOCAL_MODULE := cocos2dcpp_shared
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
-                   plugincafe/PluginCafe.cpp \
+                   ../../Classes/plugincafe/platform/android/PluginCafe.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/HelloWorldScene.cpp \
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
-                    $(LOCAL_PATH)/plugincafe \
+                    $(LOCAL_PATH)/../../Classes/plugincafe \
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END

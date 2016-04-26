@@ -16,6 +16,18 @@ NativeUtils& NativeUtils::sharedInstance()
     return instance;
 }
 
+void NativeUtils::init(std::string clientId, std::string clientSecret, int cafeId)
+{
+    NSString *_clientId = [NSString stringWithUTF8String:clientId.c_str()];
+    NSString *_clientSecret = [NSString stringWithUTF8String:clientSecret.c_str()];
+
+    [[NCSDKManager getSharedInstance] setNaverLoginClientId:_clientId
+                                     naverLoginClientSecret:_clientSecret
+                                                     cafeId:cafeId];
+
+    [[NCSDKManager getSharedInstance] setOrientationIsLandscape:YES];
+}
+
 void NativeUtils::navercafe()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)

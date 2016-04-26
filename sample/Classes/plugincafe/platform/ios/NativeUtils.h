@@ -6,6 +6,7 @@ public:
     static NativeUtils& sharedInstance();
     NativeUtils();
     
+    void init(std::string clientId, std::string clientSecret, int cafeId);
     void navercafe();
     void screenshot();
 };
