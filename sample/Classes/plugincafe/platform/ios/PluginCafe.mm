@@ -69,7 +69,7 @@ void CafeSdk::startMenu() {
 void CafeSdk::startMenu(int menuId) {
     UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
     [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
-    [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:menuId];
+    [[NCSDKManager getSharedInstance] presentArticleListViewControllerWithMenuId:menuId];
 }
 
 void CafeSdk::startProfile() {
