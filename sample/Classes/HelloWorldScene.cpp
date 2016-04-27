@@ -59,8 +59,8 @@ bool HelloWorld::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-    initCafeSdkButtons(menu);
-    
+//    initCafeSdkButtons(menu);
+    initCafeSdkMenu(menu);
     cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
     cafe::CafeSdk::setCafeListener(this);
     
@@ -177,8 +177,8 @@ void HelloWorld::menuCallback(Ref* pSender) {
             
             std::string fileName = "captured_image.png";
             if (texture->saveToFile(fileName, Image::Format::PNG)) {
-                std::string imageUri = "file://" + FileUtils::getInstance()->getWritablePath() + fileName;
-                cafe::CafeSdk::startImageWrite(5, "subject", "text", imageUri);
+                std::string imageUri = "" + FileUtils::getInstance()->getWritablePath() + fileName;
+                cafe::CafeSdk::startImageWrite(6, "subject", "text", imageUri);
             }
         }
             break;
@@ -205,9 +205,9 @@ void HelloWorld::onCafeSdkJoined() {
 }
 
 void HelloWorld::onCafeSdkPostedArticle(int menuId) {
-    cafe::CafeSdk::showToast("onCafeSdkPostedArticle");
+    cafe::CafeSdk::showToast("onCafeSdkPostedArticle " + StringUtils::format("%d", menuId));
 }
 
 void HelloWorld::onCafeSdkPostedComment(int articleId) {
-    cafe::CafeSdk::showToast("onCafeSdkPostedComment");
+    cafe::CafeSdk::showToast("onCafeSdkPostedComment " + StringUtils::format("%d", articleId));
 }

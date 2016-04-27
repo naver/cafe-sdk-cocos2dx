@@ -24,8 +24,6 @@
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
-		4A43A2951CCEFFF800A852E1 /* PluginCafe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A43A2921CCEFFF800A852E1 /* PluginCafe.cpp */; };
-		4A43A2981CCF041C00A852E1 /* NativeUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A43A2971CCF041C00A852E1 /* NativeUtils.mm */; };
 		4A686AB91C96C1FB00F1C97B /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5D181BF2006100700256 /* GameController.framework */; };
 		4AA5BE2D1BFAFB2500D6724F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5BE191BFAFB2500D6724F /* AFHTTPRequestOperation.m */; };
 		4AA5BE2E1BFAFB2500D6724F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5BE1B1BFAFB2500D6724F /* AFHTTPRequestOperationManager.m */; };
@@ -50,6 +48,8 @@
 		4ACA561B1CA8FF9A00DB2E81 /* NaverAuth.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4ACA561A1CA8FF9A00DB2E81 /* NaverAuth.bundle */; };
 		4AF6ED341BF4798E00080F13 /* icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AF6ED321BF4798E00080F13 /* icon1.png */; };
 		4AF6ED351BF4798E00080F13 /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AF6ED331BF4798E00080F13 /* icon2.png */; };
+		4AFFF8E61CD0CD7E00C3B280 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFFF8E51CD0CD7E00C3B280 /* UIKit.framework */; };
+		4AFFF8E81CD0D55100C3B280 /* PluginCafe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF8E71CD0D55100C3B280 /* PluginCafe.mm */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -143,10 +143,7 @@
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
-		4A43A2921CCEFFF800A852E1 /* PluginCafe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PluginCafe.cpp; sourceTree = "<group>"; };
 		4A43A2931CCEFFF800A852E1 /* PluginCafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginCafe.h; sourceTree = "<group>"; };
-		4A43A2961CCF041C00A852E1 /* NativeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeUtils.h; sourceTree = "<group>"; };
-		4A43A2971CCF041C00A852E1 /* NativeUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeUtils.mm; sourceTree = "<group>"; };
 		4AA5BE181BFAFB2500D6724F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		4AA5BE191BFAFB2500D6724F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		4AA5BE1A1BFAFB2500D6724F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -186,6 +183,8 @@
 		4ACA561A1CA8FF9A00DB2E81 /* NaverAuth.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NaverAuth.bundle; sourceTree = "<group>"; };
 		4AF6ED321BF4798E00080F13 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.png; sourceTree = "<group>"; };
 		4AF6ED331BF4798E00080F13 /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
+		4AFFF8E51CD0CD7E00C3B280 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		4AFFF8E71CD0D55100C3B280 /* PluginCafe.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PluginCafe.mm; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -239,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AFFF8E61CD0CD7E00C3B280 /* UIKit.framework in Frameworks */,
 				4A686AB91C96C1FB00F1C97B /* GameController.framework in Frameworks */,
 				4ABA5D171BF1FA9A00700256 /* SystemConfiguration.framework in Frameworks */,
 				4ABA5CF91BF1F55000700256 /* CoreMedia.framework in Frameworks */,
@@ -336,6 +336,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AFFF8E51CD0CD7E00C3B280 /* UIKit.framework */,
 				4AA5BE171BFAFB2500D6724F /* AFNetworking-2.6.1 */,
 				4ABA5D181BF2006100700256 /* GameController.framework */,
 				4ABA5CF81BF1F55000700256 /* CoreMedia.framework */,
@@ -416,9 +417,7 @@
 		4A43A2911CCEFFF800A852E1 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				4A43A2961CCF041C00A852E1 /* NativeUtils.h */,
-				4A43A2971CCF041C00A852E1 /* NativeUtils.mm */,
-				4A43A2921CCEFFF800A852E1 /* PluginCafe.cpp */,
+				4AFFF8E71CD0D55100C3B280 /* PluginCafe.mm */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -667,7 +666,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A43A2951CCEFFF800A852E1 /* PluginCafe.cpp in Sources */,
 				4AA5BE351BFAFB2500D6724F /* AFURLSessionManager.m in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
@@ -675,11 +673,11 @@
 				4ABA5CD41BF1F3EF00700256 /* NLoginThirdPartyOAuth20InAppBrowserViewController.m in Sources */,
 				4AA5BE321BFAFB2500D6724F /* AFURLConnectionOperation.m in Sources */,
 				4AA5BE2F1BFAFB2500D6724F /* AFHTTPSessionManager.m in Sources */,
-				4A43A2981CCF041C00A852E1 /* NativeUtils.mm in Sources */,
 				4AA5BE331BFAFB2500D6724F /* AFURLRequestSerialization.m in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				4AFFF8E81CD0D55100C3B280 /* PluginCafe.mm in Sources */,
 				4AA5BE361BFAFB2500D6724F /* UIImageView+AFNetworking.m in Sources */,
 				4AA5BE2E1BFAFB2500D6724F /* AFHTTPRequestOperationManager.m in Sources */,
 				4AA5BE311BFAFB2500D6724F /* AFSecurityPolicy.m in Sources */,
