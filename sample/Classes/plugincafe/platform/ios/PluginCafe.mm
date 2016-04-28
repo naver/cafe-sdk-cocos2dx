@@ -31,7 +31,6 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     [[NCSDKManager getSharedInstance] setNaverLoginClientId:_clientId
                                      naverLoginClientSecret:_clientSecret
                                                      cafeId:cafeId];
-    [[NCSDKManager getSharedInstance] setNcSDKDelegate:cafeCallbackObject];
     [[NCSDKManager getSharedInstance] setOrientationIsLandscape:YES];
 }
 
@@ -42,39 +41,39 @@ void CafeSdk::setCafeListener(CafeListener* listener) {
     gCafeListener = listener;
 }
 
-void CafeSdk::startHome() {
+void setParentViewController() {
     UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
     [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    [[NCSDKManager getSharedInstance] setNcSDKDelegate:cafeCallbackObject];
+}
+    
+void CafeSdk::startHome() {
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentMainViewController];
 }
 
 void CafeSdk::startNotice() {
-    UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
-    [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:1];
 }
 
 void CafeSdk::startEvent() {
-    UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
-    [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:2];
 }
 
 void CafeSdk::startMenu() {
-    UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
-    [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:3];
 }
 
 void CafeSdk::startMenu(int menuId) {
-    UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
-    [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentArticleListViewControllerWithMenuId:menuId];
 }
 
 void CafeSdk::startProfile() {
-    UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
-    [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:4];
 }
 
@@ -83,8 +82,7 @@ void CafeSdk::startMore() {
 }
 
 void CafeSdk::startWrite(int menuId, std::string subject, std::string text) {
-    UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
-    [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentArticlePostViewControllerWithMenuId:menuId
                                                                          subject:[NSString stringWithUTF8String:subject.c_str()]
                                                                          content:[NSString stringWithUTF8String:text.c_str()]];
@@ -92,8 +90,7 @@ void CafeSdk::startWrite(int menuId, std::string subject, std::string text) {
 
 void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text,
         std::string imageUri) {
-    UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
-    [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentArticlePostViewControllerWithType:kGLArticlePostTypeImage
                                                                         menuId:menuId
                                                                        subject:[NSString stringWithUTF8String:subject.c_str()]
@@ -104,8 +101,7 @@ void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text,
 
 void CafeSdk::startVideoWrite(int menuId, std::string subject, std::string text,
         std::string videoUri) {
-    UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
-    [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];
+    setParentViewController();
     [[NCSDKManager getSharedInstance] presentArticlePostViewControllerWithType:kGLArticlePostTypeVideo
                                                                         menuId:menuId
                                                                        subject:[NSString stringWithUTF8String:subject.c_str()]
