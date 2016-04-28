@@ -177,7 +177,7 @@ void HelloWorld::menuCallback(Ref* pSender) {
             
             std::string fileName = "captured_image.png";
             if (texture->saveToFile(fileName, Image::Format::PNG)) {
-                std::string imageUri = "" + FileUtils::getInstance()->getWritablePath() + fileName;
+                std::string imageUri = FileUtils::getInstance()->getWritablePath() + fileName;
                 cafe::CafeSdk::startImageWrite(6, "subject", "text", imageUri);
             }
         }

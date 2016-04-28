@@ -141,13 +141,23 @@ public class CafeSdk {
 	public static void startWrite(int menuId, String subject, String text) {
 		Glink.startWrite(getActivity(), menuId, subject, text);
 	}
-
+	
+	private static String addFileScheme(String filePath) {
+		final String scheme = "file://";
+		
+		if (filePath != null && !filePath.startsWith(scheme)) {
+			return scheme + filePath;
+		} else {
+			return filePath;
+		}
+	}
+	
 	public static void startImageWrite(int menuId, String subject, String text, String imageUri) {
-		Glink.startImageWrite(getActivity(), menuId, subject, text, imageUri);
+		Glink.startImageWrite(getActivity(), menuId, subject, text, addFileScheme(imageUri));
 	}
 
 	public static void startVideoWrite(int menuId, String subject, String text, String videoUri) {
-		Glink.startVideoWrite(getActivity(), menuId, subject, text, videoUri);
+		Glink.startVideoWrite(getActivity(), menuId, subject, text, addFileScheme(videoUri));
 	}
 
 	public static void syncGameUserId(String gameUserId) {
