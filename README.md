@@ -5,16 +5,14 @@
 Cafe SDK에 대하여 자세히 알고싶으시면 [네이버 CafeSDK 공식카페](http://cafe.naver.com/navercafesdk)를 참조해 주세요.
 
 
-
-v.1.4.0
+v.1.5.0
 -------------
-####updated
-1. 프로필 화면에서 작성한 글, 댓글단 글, 좋아요 한 글을 볼 수 있습니다.
-2. 카페 SDK 로고를 터치하면 카페 SDK 버전을 확인 할 수 있습니다
-3. 글쓰기, 댓글쓰기, 카페가입 리스너를 등록하여 이벤트를 받아 사용할 수 있습니다.
+ - Unity Package 1.5.0 에는 다음과 같은 NaverCafeSDK 를 포함하고 있습니다.
 
-####fixed
-1. 알려진 버그 수정
+ NaverCafeSDK For Android 1.5.0
+ 
+ NaverCafeSDK For iOS 1.5.0
+
 
 폴더 구조
 -------------
@@ -40,7 +38,7 @@ README.md   | readme 파일
 
 라이선스
 -------------
-NAVER Cafe SDK for iOS
+NAVER Cafe SDK for cocos2dx
 
 Copyright 2015 NAVER Corp.
 All rights reserved.
