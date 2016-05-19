@@ -21,6 +21,7 @@ public:
     virtual void onCafeSdkJoined() = 0;
     virtual void onCafeSdkPostedArticle(int menuId) = 0;
     virtual void onCafeSdkPostedComment(int articleId) = 0;
+    virtual void onCafeSdkWidgetScreenshotClick() = 0;
     virtual ~CafeListener();
 };
 

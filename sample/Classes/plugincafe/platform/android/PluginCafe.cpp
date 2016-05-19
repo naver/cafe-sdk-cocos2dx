@@ -214,6 +214,12 @@ Java_com_naver_cafe_CafeSdk_nativeOnPostedComment(JNIEnv* env, jobject thiz, jin
     gCafeListener->onCafeSdkPostedComment(articleId);
 }
 
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnWidgetScreenshotClick(JNIEnv* env, jobject thiz) {
+    if (gCafeListener == nullptr) return;
+    gCafeListener->onCafeSdkWidgetScreenshotClick();
+}
+
 }
 
 } /* namespace cafe */
