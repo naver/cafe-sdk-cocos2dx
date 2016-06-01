@@ -42,7 +42,7 @@ README.md   | readme 파일
 -------------
 NAVER Cafe SDK for cocos2dx
 
-Copyright 2015 NAVER Corp.
+Copyright 2016 NAVER Corp.
 All rights reserved.
 
 Unauthorized use, modification and redistribution of this software are strongly prohibited.
