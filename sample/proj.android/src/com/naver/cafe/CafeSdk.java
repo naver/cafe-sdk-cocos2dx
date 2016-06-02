@@ -9,6 +9,7 @@ import com.naver.glink.android.sdk.Glink.OnPostedArticleListener;
 import com.naver.glink.android.sdk.Glink.OnPostedCommentListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStartedListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStoppedListener;
+import com.naver.glink.android.sdk.Glink.OnWidgetScreenshotClickListener;
 
 import android.widget.Toast;
 
@@ -96,6 +97,18 @@ public class CafeSdk {
 				});
 			}
 		});
+		
+		Glink.setOnWidgetScreenshotClickListener(new OnWidgetScreenshotClickListener() {
+			@Override
+			public void onScreenshotClick() {
+				runOnGLThread(new Runnable() {
+					@Override
+					public void run() {
+						nativeOnWidgetScreenshotClick();
+					}
+				});
+			}
+		});
 	}
 
 	private static native void nativeOnSdkStarted();
@@ -109,6 +122,8 @@ public class CafeSdk {
 	private static native void nativeOnPostedArticle(int menuId);
 
 	private static native void nativeOnPostedComment(int articleId);
+	
+	private static native void nativeOnWidgetScreenshotClick();
 
 	public static void startHome() {
 		Glink.startHome(getActivity());

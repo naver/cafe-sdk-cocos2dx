@@ -211,3 +211,21 @@ void HelloWorld::onCafeSdkPostedArticle(int menuId) {
 void HelloWorld::onCafeSdkPostedComment(int articleId) {
     cafe::CafeSdk::showToast("onCafeSdkPostedComment " + StringUtils::format("%d", articleId));
 }
+
+void HelloWorld::onCafeSdkWidgetScreenshotClick() {
+    CCSize screenSize = Director::getInstance()->getWinSize();
+    RenderTexture* texture = RenderTexture::create(screenSize.width,
+            screenSize.height);
+    texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
+
+    texture->begin();
+    Director::getInstance()->getRunningScene()->visit();
+    texture->end();
+
+    std::string fileName = "captured_image.png";
+    if (texture->saveToFile(fileName, Image::Format::PNG)) {
+        std::string imageUri = FileUtils::getInstance()->getWritablePath()
+                + fileName;
+        cafe::CafeSdk::startImageWrite(-1, "", "", imageUri);
+    }
+}

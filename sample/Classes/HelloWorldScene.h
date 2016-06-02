@@ -28,6 +28,7 @@ private:
     void onCafeSdkJoined();
     void onCafeSdkPostedArticle(int menuId);
     void onCafeSdkPostedComment(int articleId);
+    void onCafeSdkWidgetScreenshotClick();
 };
 
 #endif // __HELLOWORLD_SCENE_H__
