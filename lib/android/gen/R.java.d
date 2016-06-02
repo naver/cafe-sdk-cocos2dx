@@ -5,6 +5,8 @@
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/anim/fab_slide_in_from_right.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/anim/fab_slide_out_to_left.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/anim/fab_slide_out_to_right.xml \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/anim/widget_alpha_left.xml \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/anim/widget_alpha_right.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/anim/widget_half_left.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/anim/widget_half_right.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/color/menu_item_color.xml \
