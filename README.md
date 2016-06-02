@@ -5,13 +5,14 @@
 Cafe SDK에 대하여 자세히 알고싶으시면 [네이버 CafeSDK 공식카페](http://cafe.naver.com/navercafesdk)를 참조해 주세요.
 
 
-v.1.5.0
+v.1.6.0
 -------------
- - Cocos2d-x 1.0.0 에는 다음과 같은 NaverCafeSDK 를 포함하고 있습니다.
+####updated
+1. 카페 위젯을 지원하여 게임내 어디서든 카페를 이용 할 수 있습니다.
+![Overviw](/guide/images/widget_screenshot.gif)
 
- NaverCafeSDK For Android 1.5.0
- 
- NaverCafeSDK For iOS 1.5.0
+####fixed
+1. 게시글 간 이동이 자연스럽게 보이도록 수정
 
 
 폴더 구조
