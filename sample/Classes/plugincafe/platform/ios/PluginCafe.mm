@@ -6,8 +6,9 @@
  */
 
 #import <NaverCafeSDK/NCSDKManager.h>
+#import <NaverCafeSDK/NCWidget.h>
 
-@interface CafeCallbackObject : NSObject <NCSDKManagerDelegate>
+@interface CafeCallbackObject : NSObject <NCSDKManagerDelegate, NCWidgetDelegate>
 @end
 
 #include "PluginCafe.h"
@@ -126,6 +127,9 @@ void CafeSdk::showToast(std::string text) {
     cafe::gCafeListener->onCafeSdkStarted();
 }
 - (void)ncSDKViewDidUnLoad {
+    [[NCWidget getSharedInstance] setNcWidgetDelegate:self];
+    [[NCSDKManager getSharedInstance] startWidget];
+    
     cafe::gCafeListener->onCafeSdkStopped();
 }
 - (void)ncSDKJoinedCafeMember {
@@ -140,5 +144,15 @@ void CafeSdk::showToast(std::string text) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         cafe::gCafeListener->onCafeSdkPostedComment((int)articleId);
     });
+}
+#pragma mark - NCWidgetDelegate
+- (void)ncWidgetPostArticle {
+    cafe::CafeSdk::startWrite(10, "subject", "text");
+}
+- (void)ncWidtetExecuteGLink {
+    cafe::CafeSdk::startHome();
+}
+- (void)ncWidgetPostArticleWithImage {
+    cafe::gCafeListener->onCafeSdkWidgetScreenshotClick();
 }
 @end
