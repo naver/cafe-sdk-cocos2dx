@@ -26,9 +26,11 @@ private:
     void onCafeSdkStopped();
     void onCafeSdkClickAppSchemeBanner(const std::string& appScheme);
     void onCafeSdkJoined();
-    void onCafeSdkPostedArticle(int menuId);
+    void onCafeSdkPostedArticle(int menuId, int imageCount, int videoCount);
     void onCafeSdkPostedComment(int articleId);
+    void onCafeSdkDidVote(int articleId);
     void onCafeSdkWidgetScreenshotClick();
+    void onCafeSdkOnRecordFinished(const std::string& fileUrl);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

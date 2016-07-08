@@ -19,9 +19,11 @@ public:
     virtual void onCafeSdkClickAppSchemeBanner(
             const std::string& appScheme) = 0;
     virtual void onCafeSdkJoined() = 0;
-    virtual void onCafeSdkPostedArticle(int menuId) = 0;
+    virtual void onCafeSdkPostedArticle(int menuId, int imageCount, int videoCount) = 0;
     virtual void onCafeSdkPostedComment(int articleId) = 0;
+    virtual void onCafeSdkDidVote(int articleId) = 0;
     virtual void onCafeSdkWidgetScreenshotClick() = 0;
+    virtual void onCafeSdkOnRecordFinished(const std::string& fileUrl) = 0;
     virtual ~CafeListener();
 };
 
@@ -49,6 +51,10 @@ public:
 
     /* 게임 아이디와 카페 아이디를 연동합니다. */
     static void syncGameUserId(std::string gameUserId);
+
+    static void showWidgetWhenUnloadSdk(bool use);
+    static void stopWidget();
+    static void setUseVideoRecord(bool use);
 
     static void showToast(std::string text);
 };

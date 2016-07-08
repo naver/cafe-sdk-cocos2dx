@@ -163,6 +163,30 @@ void CafeSdk::syncGameUserId(std::string gameUserId) {
     }
 }
 
+void CafeSdk::showWidgetWhenUnloadSdk(bool use) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "showWidgetWhenUnloadSdk", "(Z)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void CafeSdk::stopWidget() {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "stopWidget", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void CafeSdk::setUseVideoRecord(bool use) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "setUseVideoRecord", "(Z)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
 void CafeSdk::showToast(std::string text) {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "showToast", "(Ljava/lang/String;)V")) {
@@ -203,9 +227,9 @@ Java_com_naver_cafe_CafeSdk_nativeOnJoined(JNIEnv* env, jobject thiz) {
 }
 
 JNIEXPORT void JNICALL
-Java_com_naver_cafe_CafeSdk_nativeOnPostedArticle(JNIEnv* env, jobject thiz, jstring appScheme, jint menuId) {
+Java_com_naver_cafe_CafeSdk_nativeOnPostedArticle(JNIEnv* env, jobject thiz, jint menuId, jint imageCount, jint videoCount) {
     if (gCafeListener == nullptr) return;
-    gCafeListener->onCafeSdkPostedArticle(menuId);
+    gCafeListener->onCafeSdkPostedArticle(menuId, imageCount, videoCount);
 }
 
 JNIEXPORT void JNICALL
@@ -215,9 +239,22 @@ Java_com_naver_cafe_CafeSdk_nativeOnPostedComment(JNIEnv* env, jobject thiz, jin
 }
 
 JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnVoted(JNIEnv* env, jobject thiz, jint articleId) {
+    if (gCafeListener == nullptr) return;
+    gCafeListener->onCafeSdkDidVote(articleId);
+}
+
+JNIEXPORT void JNICALL
 Java_com_naver_cafe_CafeSdk_nativeOnWidgetScreenshotClick(JNIEnv* env, jobject thiz) {
     if (gCafeListener == nullptr) return;
     gCafeListener->onCafeSdkWidgetScreenshotClick();
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnRecordFinished(JNIEnv* env, jobject thiz, jstring fileUri) {
+    if (gCafeListener == nullptr) return;
+    std::string _fileUri = PluginJniHelper::jstring2string(fileUri);
+    gCafeListener->onCafeSdkOnRecordFinished(_fileUri);
 }
 
 }

@@ -12,6 +12,7 @@ enum CafeSdkTags
     kTagCafeProfile,
     kTagCafeWrite1,
     kTagCafeWrite2,
+    kTagShowRecord,
 };
 
 Scene* HelloWorld::createScene()
@@ -111,6 +112,7 @@ void HelloWorld::initCafeSdkMenu(Menu* menu) {
     items.push_back(std::make_pair(kTagCafeProfile, "profile"));
     items.push_back(std::make_pair(kTagCafeWrite1, "write1"));
     items.push_back(std::make_pair(kTagCafeWrite2, "write2"));
+    items.push_back(std::make_pair(kTagShowRecord, "show record"));
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -182,7 +184,11 @@ void HelloWorld::menuCallback(Ref* pSender) {
             }
         }
             break;
-            
+
+        case kTagShowRecord:
+            cafe::CafeSdk::setUseVideoRecord(true);
+            break;
+
         default:
             break;
     }
@@ -204,12 +210,16 @@ void HelloWorld::onCafeSdkJoined() {
     cafe::CafeSdk::showToast("onCafeSdkJoined");
 }
 
-void HelloWorld::onCafeSdkPostedArticle(int menuId) {
-    cafe::CafeSdk::showToast("onCafeSdkPostedArticle " + StringUtils::format("%d", menuId));
+void HelloWorld::onCafeSdkPostedArticle(int menuId, int imageCount, int videoCount) {
+    cafe::CafeSdk::showToast("onCafeSdkPostedArticle " + StringUtils::format("%d, %d, %d", menuId, imageCount, videoCount));
 }
 
 void HelloWorld::onCafeSdkPostedComment(int articleId) {
     cafe::CafeSdk::showToast("onCafeSdkPostedComment " + StringUtils::format("%d", articleId));
+}
+
+void HelloWorld::onCafeSdkDidVote(int articleId) {
+    cafe::CafeSdk::showToast("onCafeSdkDidVote " + StringUtils::format("%d", articleId));
 }
 
 void HelloWorld::onCafeSdkWidgetScreenshotClick() {
@@ -228,4 +238,8 @@ void HelloWorld::onCafeSdkWidgetScreenshotClick() {
                 + fileName;
         cafe::CafeSdk::startImageWrite(-1, "", "", imageUri);
     }
+}
+
+void HelloWorld::onCafeSdkOnRecordFinished(const std::string& fileUrl) {
+    cafe::CafeSdk::startVideoWrite(-1, "", "", fileUrl);
 }
