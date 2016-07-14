@@ -6,9 +6,8 @@
  */
 
 #import <NaverCafeSDK/NCSDKManager.h>
-#import <NaverCafeSDK/NCWidget.h>
 
-@interface CafeCallbackObject : NSObject <NCSDKManagerDelegate, NCWidgetDelegate>
+@interface CafeCallbackObject : NSObject <NCSDKManagerDelegate>
 @end
 
 #include "PluginCafe.h"
@@ -115,6 +114,16 @@ void CafeSdk::syncGameUserId(std::string gameUserId) {
     [[NCSDKManager getSharedInstance] syncGameUserId:[NSString stringWithUTF8String:gameUserId.c_str()]];
 }
 
+void CafeSdk::showWidgetWhenUnloadSdk(bool use) {
+    [[NCSDKManager getSharedInstance] setShowWidgetWhenUnloadSDK:use];
+}
+void CafeSdk::stopWidget() {
+    [[NCSDKManager getSharedInstance] stopWidget];
+}
+void CafeSdk::setUseVideoRecord(bool use) {
+    [[NCSDKManager getSharedInstance] setUseWidgetVideoRecord:use];
+}
+
 void CafeSdk::showToast(std::string text) {
     [[NCSDKManager getSharedInstance] showToast:[NSString stringWithUTF8String:text.c_str()]];
 }
@@ -127,17 +136,16 @@ void CafeSdk::showToast(std::string text) {
     cafe::gCafeListener->onCafeSdkStarted();
 }
 - (void)ncSDKViewDidUnLoad {
-    [[NCWidget getSharedInstance] setNcWidgetDelegate:self];
-    [[NCSDKManager getSharedInstance] startWidget];
-    
     cafe::gCafeListener->onCafeSdkStopped();
 }
 - (void)ncSDKJoinedCafeMember {
     cafe::gCafeListener->onCafeSdkJoined();
 }
-- (void)ncSDKPostedArticleAtMenu:(NSInteger)menuId {
+- (void)ncSDKPostedArticleAtMenu:(NSInteger)menuId
+                attachImageCount:(NSInteger)imageCount
+                attachVideoCount:(NSInteger)videoCount {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        cafe::gCafeListener->onCafeSdkPostedArticle((int)menuId);
+        cafe::gCafeListener->onCafeSdkPostedArticle((int)menuId, (int)imageCount, (int)videoCount);
     });
 }
 - (void)ncSDKPostedCommentAtArticle:(NSInteger)articleId {
@@ -145,6 +153,20 @@ void CafeSdk::showToast(std::string text) {
         cafe::gCafeListener->onCafeSdkPostedComment((int)articleId);
     });
 }
+- (void)ncSDKRequestScreenShot {
+    cafe::gCafeListener->onCafeSdkWidgetScreenshotClick();
+}
+- (void)ncSDKDidVoteAtArticle:(NSInteger)articleId {
+    cafe::gCafeListener->onCafeSdkDidVote((int)articleId);
+}
+
+- (void)ncSDKWidgetPostArticleWithImage {
+    cafe::gCafeListener->onCafeSdkWidgetScreenshotClick();
+}
+- (void)ncSDKWidgetSuccessVideoRecord {
+    cafe::gCafeListener->onCafeSdkOnRecordFinished(nil);
+}
+
 #pragma mark - NCWidgetDelegate
 - (void)ncWidgetPostArticle {
     cafe::CafeSdk::startWrite(10, "subject", "text");

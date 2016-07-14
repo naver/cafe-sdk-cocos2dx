@@ -24,6 +24,7 @@
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
+		4A291E951D375B8100C0DFD5 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A291E941D375B8100C0DFD5 /* ReplayKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4A686AB91C96C1FB00F1C97B /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5D181BF2006100700256 /* GameController.framework */; };
 		4ABA5CED1BF1F50C00700256 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CEC1BF1F50B00700256 /* MobileCoreServices.framework */; };
 		4ABA5CEF1BF1F51200700256 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CEE1BF1F51100700256 /* Security.framework */; };
@@ -141,6 +142,7 @@
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
+		4A291E941D375B8100C0DFD5 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ReplayKit.framework; sourceTree = DEVELOPER_DIR; };
 		4A43A2931CCEFFF800A852E1 /* PluginCafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginCafe.h; sourceTree = "<group>"; };
 		4ABA5CEC1BF1F50B00700256 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		4ABA5CEE1BF1F51100700256 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -234,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A291E951D375B8100C0DFD5 /* ReplayKit.framework in Frameworks */,
 				4AFFF8E61CD0CD7E00C3B280 /* UIKit.framework in Frameworks */,
 				4A686AB91C96C1FB00F1C97B /* GameController.framework in Frameworks */,
 				4ABA5D171BF1FA9A00700256 /* SystemConfiguration.framework in Frameworks */,
@@ -336,6 +339,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A291E941D375B8100C0DFD5 /* ReplayKit.framework */,
 				4AFFF8E51CD0CD7E00C3B280 /* UIKit.framework */,
 				4ABA5D181BF2006100700256 /* GameController.framework */,
 				4ABA5CF81BF1F55000700256 /* CoreMedia.framework */,
