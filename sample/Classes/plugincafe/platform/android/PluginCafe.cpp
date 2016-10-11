@@ -45,6 +45,24 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     }
 }
 
+void CafeSdk::initGlobal(std::string clientId, int cafeId,
+        std::string defaultCafeLangCode) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "initGlobal",
+            "(Ljava/lang/String;ILjava/lang/String;)V")) {
+        jstring _clientId = t.env->NewStringUTF(clientId.c_str());
+        jstring _defaultCafeLangCode = t.env->NewStringUTF(
+                defaultCafeLangCode.c_str());
+
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId, cafeId,
+                _defaultCafeLangCode);
+
+        t.env->DeleteLocalRef(_clientId);
+        t.env->DeleteLocalRef(_defaultCafeLangCode);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
 void CafeSdk::startHome() {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "startHome", "()V")) {

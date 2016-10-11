@@ -19,7 +19,8 @@ public:
     virtual void onCafeSdkClickAppSchemeBanner(
             const std::string& appScheme) = 0;
     virtual void onCafeSdkJoined() = 0;
-    virtual void onCafeSdkPostedArticle(int menuId, int imageCount, int videoCount) = 0;
+    virtual void onCafeSdkPostedArticle(int menuId, int imageCount,
+            int videoCount) = 0;
     virtual void onCafeSdkPostedComment(int articleId) = 0;
     virtual void onCafeSdkDidVote(int articleId) = 0;
     virtual void onCafeSdkWidgetScreenshotClick() = 0;
@@ -32,6 +33,9 @@ public:
     /* 네아로 정보와 카페 아이디로 sdk 초기화 합니다. */
     static void init(std::string clientId, std::string clientSecret,
             int cafeId);
+
+    static void initGlobal(std::string clientId, int cafeId,
+            std::string defaultCafeLangCode);
 
     static void setCafeListener(CafeListener* listener);
 

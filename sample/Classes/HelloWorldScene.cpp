@@ -63,6 +63,7 @@ bool HelloWorld::init()
 //    initCafeSdkButtons(menu);
     initCafeSdkMenu(menu);
     cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
+    cafe::CafeSdk::initGlobal("7WROsNhGXM6F0qeCk5vK", 1013314, "");
     cafe::CafeSdk::setCafeListener(this);
     
     return true;
