@@ -12,6 +12,23 @@
 
 namespace cafe {
 
+/* 글로벌 언어 코드 상수 */
+static const std::string kLangCodeNone = ""; // 서버에서 설정한 디폴트 언어 사용.
+static const std::string kLangCodeEnglish = "en";
+static const std::string kLangCodeJapanese = "ja";
+static const std::string kLangCodeChineseSimplified = "zh_CN";
+static const std::string kLangCodeChineseTraditional = "zh_TW";
+static const std::string kLangCodeThai = "th";
+static const std::string kLangCodeSpanish = "es";
+static const std::string kLangCodeGerman = "de";
+static const std::string kLangCodeFrench = "fr";
+static const std::string kLangCodeRussian = "ru";
+static const std::string kLangCodeIndonesian = "id";
+static const std::string kLangCodeVietnamese = "vi";
+static const std::string kLangCodeItalian = "it";
+static const std::string kLangCodePortuguese = "pt";
+static const std::string kLangCodeTurkish = "tr";
+
 class CafeListener {
 public:
     virtual void onCafeSdkStarted() = 0;
