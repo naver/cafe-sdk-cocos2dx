@@ -197,37 +197,37 @@ void HelloWorld::menuCallback(Ref* pSender) {
 }
 
 void HelloWorld::onCafeSdkStarted() {
-    cafe::CafeSdk::showToast("onCafeSdkStarted");
+//    cafe::CafeSdk::showToast("onCafeSdkStarted");
 }
 
 void HelloWorld::onCafeSdkStopped() {
-    cafe::CafeSdk::showToast("onCafeSdkStopped");
+//    cafe::CafeSdk::showToast("onCafeSdkStopped");
 }
 
 void HelloWorld::onCafeSdkClickAppSchemeBanner(const std::string& appScheme) {
-    cafe::CafeSdk::showToast(appScheme);
+//    cafe::CafeSdk::showToast(appScheme);
 }
 
 void HelloWorld::onCafeSdkJoined() {
-    cafe::CafeSdk::showToast("onCafeSdkJoined");
+//    cafe::CafeSdk::showToast("onCafeSdkJoined");
 }
 
 void HelloWorld::onCafeSdkPostedArticle(int menuId, int imageCount,
         int videoCount) {
-    cafe::CafeSdk::showToast(
-            "onCafeSdkPostedArticle "
-                    + StringUtils::format("%d, %d, %d", menuId, imageCount,
-                            videoCount));
+//    cafe::CafeSdk::showToast(
+//            "onCafeSdkPostedArticle "
+//                    + StringUtils::format("%d, %d, %d", menuId, imageCount,
+//                            videoCount));
 }
 
 void HelloWorld::onCafeSdkPostedComment(int articleId) {
-    cafe::CafeSdk::showToast(
-            "onCafeSdkPostedComment " + StringUtils::format("%d", articleId));
+//    cafe::CafeSdk::showToast(
+//            "onCafeSdkPostedComment " + StringUtils::format("%d", articleId));
 }
 
 void HelloWorld::onCafeSdkDidVote(int articleId) {
-    cafe::CafeSdk::showToast(
-            "onCafeSdkDidVote " + StringUtils::format("%d", articleId));
+//    cafe::CafeSdk::showToast(
+//            "onCafeSdkDidVote " + StringUtils::format("%d", articleId));
 }
 
 void HelloWorld::onCafeSdkWidgetScreenshotClick() {
