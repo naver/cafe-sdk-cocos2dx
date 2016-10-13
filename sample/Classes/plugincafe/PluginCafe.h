@@ -14,6 +14,7 @@ namespace cafe {
 
 /* 글로벌 언어 코드 상수 */
 static const std::string kLangCodeNone = ""; // 서버에서 설정한 디폴트 언어 사용.
+static const std::string kLangCodeKorean = "ko"; // 국내 카페로 초기화 된다.
 static const std::string kLangCodeEnglish = "en";
 static const std::string kLangCodeJapanese = "ja";
 static const std::string kLangCodeChineseSimplified = "zh_CN";
