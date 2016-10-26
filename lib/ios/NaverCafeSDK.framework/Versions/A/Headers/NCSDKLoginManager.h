@@ -14,73 +14,80 @@
  */
 @property (nonatomic, weak) UIViewController *rootViewController;
 
-/*
- NCSDKLoginManager 싱글톤 객체
- */
 + (NCSDKLoginManager *)getSharedInstance;
 + (void)resetSharedInstance;
+- (void)initLoginManager;
+
+#pragma mark -
+#pragma mark Login
+#pragma mark -
 
 /*
- AppDelegate URL Scheme 처리
+ Request Login
  */
-- (BOOL)finishNaverLoginWithURL:(NSURL *)url;
-
-/*
- 네아로 로그인 요청 및 콜백
- */
-- (void)loginWithFinish:(void (^)(BOOL successACToken))finish;
-- (void)loginWithFinish:(void (^)(BOOL successACToken))finish
+- (void)loginWithFinish:(void (^)(void))finish;
+- (void)loginWithFinish:(void (^)(void))finish
                 failure:(void (^)(NSError *error))failure;
 
 
 /*
- 네아로 로그아웃 요청
+ Request Logout
  */
 - (void)logout;//delete local accesstoken
 
 /*
- 네아로 로그인 확인 및 토큰 만료시 갱신 및 콜백
+ Check Login With Refresh Token
  */
 - (void)isLoginWithFinish:(void (^)(BOOL successACToken))finish
                   failure:(void (^)(NSError *error))failure;
 
-/*
- 네아로 토큰 갱신 및 콜백
- */
-- (void)refreshAccessTokenWithFinish:(void (^)(BOOL successACToken))finish;
+
+
+#pragma mark -
+#pragma mark Naver Login
+#pragma mark -
 
 /*
- 네아로 토큰 갱신
+ AppDelegate URL Scheme
+ */
+- (BOOL)finishNaverLoginWithURL:(NSURL *)url;
+
+/*
+ Refresh Token in Naver Login with Call back
+ */
+- (void)refreshAccessTokenWithFinish:(void (^)(void))finish
+                             failure:(void (^)(NSError *error))failure;
+
+/*
+ Refresh Token in Naver Login
  */
 - (void)refreshAccessToken;
 
 /*
- 네아로 인증 서버로 부터 삭제
+ Delete Token in Naver Login
  */
 - (void)requestDeleteToken;//delete server authorization
 
 /*
- 네아로 토큰 확인
+ Check Naver Login Token
  */
 - (BOOL)isValidAccessTokenExpireTimeNow;
 
 /*
- 네아로 토큰
+ Naver Login Token
  */
 - (NSString *)accessToken;
 
-/*
- 네아로 토큰 만료 시간
- */
 - (NSString *)accessTokenExpireTime;
 
 /*
- 네아로 로그인 인앱 사용 여부
+ Use Inapp Login(Naver Login)
  */
 - (void)setIsInAppOauthEnable:(BOOL)enable;
 
 /*
- 네아로 로그인 네이버앱 사용 여부
+ Use Naver App Login(Naver Login)
  */
 - (void)setIsNaverAppOauthEnable:(BOOL)enable;
+
 @end

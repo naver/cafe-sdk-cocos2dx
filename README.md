@@ -6,22 +6,17 @@ Cafe SDK에 대하여 자세히 알고싶으시면 [네이버 CafeSDK 공식카�
 
 ![Overviw](/guide/images/widget_screenshot.gif)
 
-v.1.7.2
+v.2.0.0
 -------------
 ####updated
-1. 동영상 녹화 시 권한 획득을 위해 얼럿 창을 띄웁니다. (구글 피처드)
+1. 영어, 중국어, 일본어, 태국어 채널 지원.
 
+####fixed####
+1. iOS 10 관련 이슈 수정.
 
-####fixed
-1. 세로모드 배너 사이즈 늘어나 보이던 이슈 수정
-2. 기타 버그 수정
-
-
-v.1.7.0
--------------
-####updated
-1. 위젯을 통하여 동영상 녹확 기능을 제공합니다.
-2. 콜백 API 개선 (투표 완료 콜백을 제공합니다)
+####issue####
+1. 세로모드 2.0.1에서 지원 예정.
+2. 언어 설정 중국어인 경우 위젯 동영상 녹화 기능 안되는 이슈.
 
 폴더 구조
 -------------
@@ -42,8 +37,10 @@ README.md   | readme 파일
 -------------
 
 1. [네이버 아이디 로그인-4.0.7](https://nid.naver.com/devcenter/docs.nhn?menu=IOS)
-2. [AFNetworking](https://github.com/AFNetworking/AFNetworking)(UIImageView+AFNetworking)
-<br>1.x ~ 2.x 모두 사용 가능하며 2.6.3에서 테스트 진행했습니다.
+2. [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+<br>2.x 모두 사용 가능하며 2.6.3에서 테스트 진행했습니다.
+3. [SDWebImage-3.8.2](https://github.com/rs/SDWebImage)
+4. [FLAnimatedImage-1.0.12](https://github.com/Flipboard/FLAnimatedImage)
 
 
 의존 라이브러리 Android
