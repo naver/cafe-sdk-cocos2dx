@@ -6,6 +6,20 @@ Cafe SDK에 대하여 자세히 알고싶으시면 [네이버 CafeSDK 공식카�
 
 ![Overviw](/guide/images/widget_screenshot.gif)
 
+v.2.0.1
+####fixed iOS####
+- 채널 정보 조회하는 api 추가. 
+  (NSString *)currentCountry; 
+- 한국어로 실행했을때 채널 변경 버튼이 노출되지 않는 이슈 수정 
+
+####fixed Android####
+- 채널 정보 설정하는 api 추가. 
+  Glink#setCafeLangCode(String cafeLangCode);
+- 채널 정보 조회하는 api 추가.
+  Glink#getCafeLangCode();
+- 국내 카페만 설정할 경우 크래쉬 발생하는 이슈 가드 처리.
+
+
 v.2.0.0
 -------------
 ####updated
