@@ -63,6 +63,33 @@ void CafeSdk::initGlobal(std::string clientId, int cafeId,
     }
 }
 
+void CafeSdk::setCafeLangCode(std::string cafeLangCode) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "setCafeLangCode", "(Ljava/lang/String;)V")) {
+        jstring _cafeLangCode = t.env->NewStringUTF(cafeLangCode.c_str());
+
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _cafeLangCode);
+
+        t.env->DeleteLocalRef(_cafeLangCode);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+std::string CafeSdk::getCafeLangCode() {
+    std::string result;
+
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "getCafeLangCode", "()Ljava/lang/String;")) {
+        jstring jresult = (jstring) t.env->CallStaticObjectMethod(t.classID, t.methodID);
+        result = PluginJniHelper::jstring2string(jresult);
+
+        t.env->DeleteLocalRef(jresult);
+        t.env->DeleteLocalRef(t.classID);
+    }
+
+    return result;
+}
+
 void CafeSdk::startHome() {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "startHome", "()V")) {

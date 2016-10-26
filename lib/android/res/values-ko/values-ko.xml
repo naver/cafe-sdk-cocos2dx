@@ -104,7 +104,7 @@
     <string name="unable_load_images">이미지를 불러올 수 없습니다.</string>
     <string name="unable_load_videos">동영상을 불러올 수 없습니다.</string>
     <string name="under_construction">준비 중입니다.</string>
-    <string name="version">현재 버전 2.0.0</string>
+    <string name="version">현재 버전 2.0.1</string>
     <string name="waiting_join_apply_message">가입 신청 중입니다.</string>
     <string name="want_cafe_member">회원으로 가입하시겠습니까?</string>
     <string name="widget_button_cafe">게임 카페</string>

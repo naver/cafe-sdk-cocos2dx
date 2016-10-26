@@ -104,7 +104,7 @@
     <string name="unable_load_images">ไม่สามารถโหลดรูปภาพได้</string>
     <string name="unable_load_videos">ไม่สามารถโหลดวิดีโอได้</string>
     <string name="under_construction">อยู่ในระหว่างปรับปรุง</string>
-    <string name="version">เวอร์ชั่นปัจจุบัน 2.0.0</string>
+    <string name="version">เวอร์ชั่นปัจจุบัน 2.0.1</string>
     <string name="waiting_join_apply_message">กำลังเข้าร่วมคาเฟ่...</string>
     <string name="want_cafe_member">ต้องการเข้าร่วมคาเฟ่นี้หรือไม่?</string>
     <string name="widget_button_cafe">เกมคาเฟ่</string>

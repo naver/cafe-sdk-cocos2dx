@@ -55,6 +55,9 @@ public:
     static void initGlobal(std::string clientId, int cafeId,
             std::string defaultCafeLangCode);
 
+    static void setCafeLangCode(std::string cafeLangCode);
+    static std::string getCafeLangCode();
+
     static void setCafeListener(CafeListener* listener);
 
     static void startHome();
