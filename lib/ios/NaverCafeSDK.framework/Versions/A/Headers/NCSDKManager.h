@@ -61,7 +61,7 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
     국가 설정
  */
 - (void)setCountry:(NSString *)aCountry;
-
+- (NSString *)currentCountry;
 - (void)syncGameUserId:(NSString *)gameUserId;
 
 - (void)disableTransparentSlider:(BOOL)disable;
