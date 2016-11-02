@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NCSDKLanguage.h"
 
 typedef NS_ENUM(NSUInteger, GLArticlePostType) {
     kGLArticlePostTypeImage = 1,
@@ -24,83 +25,76 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
 
 @interface NCSDKManager : NSObject
 
-/*
- 네이버 카페 NCSDKManagerDelegate
- */
+#pragma mark - SDK property
 @property (nonatomic, weak) id<NCSDKManagerDelegate> ncSDKDelegate;
-/*
- 네이버 카페를 띄울 ViewController
- */
 @property (nonatomic, weak) id parentViewController;
+@property (nonatomic, assign) BOOL orientationIsLandscape;
 
-/*
- NCSDKManager 싱글톤 객체
- */
+#pragma mark - Widget property
+@property (nonatomic, assign) BOOL showWidgetWhenUnloadSDK;
+@property (nonatomic, assign) BOOL useWidgetVideoRecord;
+
+#pragma mark - class
 + (NCSDKManager *)getSharedInstance;
++ (void)clearSharedInstance;
 
+#pragma mark - setting
 /*
- NCSDKManager 객체 삭제
- */
-+ (void)resetSharedInstance;
-
-- (void)setOrientationIsLandscape:(BOOL)orientationIsLandscape;
-
-/*
- 네이버 카페 Root ViewController
- */
-- (id)navercafeRootViewController;
-
-/*
- 네이버 카페 실행전 
- 생성된 네아로 ClientId, ClientSecret, 카페 ID 세팅
+ (국내) 네이버 카페 실행정보 설정
+ 1. 네아로 ClientId
+ 2. 네아로 ClientSecret
+ 3. 카페 ID 세팅
  */
 - (void)setNaverLoginClientId:(NSString *)naverLoginClientId
        naverLoginClientSecret:(NSString *)naverLoginClientSecret
                        cafeId:(NSInteger)cafeId;
 
 /*
- 네이버ID와 게임사용자ID 연동을 위해 사용자 게임사용자ID 세팅
+ (해외) PLUG 실행전
+  1. neoId ConsumerKey 
+  2. 카페 ID
  */
-- (void)syncGameUserId:(NSString *)gameUserId;
+- (void)setNeoIdConsumerKey:(NSString *)neoIdConsumerKey
+                 globalCafeId:(NSInteger)cafeId;
+
 /*
- 투명도 조절 기능 제거
+    국가 설정
  */
+- (void)setCountry:(NSString *)aCountry;
+- (NSString *)currentCountry;
+- (void)syncGameUserId:(NSString *)gameUserId;
+
 - (void)disableTransparentSlider:(BOOL)disable;
 
-#pragma mark - present
+#pragma mark - Start SDK function
 /*
- 네이버 카페 Root ViewController에 다른 ViewController를 실행
- */
-- (void)presentViewController:(id)viewController;
-
-/*
- 네이버 카페 메인 실행
+ Start SDK
  */
 - (void)presentMainViewController;
 
 /*
- 네이버 카페 메인 종료
+ Dismiss SDK
  */
 - (void)dismissMainViewController;
 
 /*
- 네이버 카페 메인 TabIndex로 실행
+ Start With Tab Index
  */
 - (void)presentMainViewControllerWithTabIndex:(NSUInteger)tabIndex;
 
 /*
- 네이버 카페 게시글로 이동, 게시글 ID
+ Start With Article
  */
 - (void)presentMainViewControllerWithArticleId:(NSUInteger)articleId;
 
 /*
- 네이버 카페 글쓰기 화면 실행
+ Start With Article Post
  */
 - (void)presentArticlePostViewControllerWithMenuId:(NSInteger)menuId
                                            subject:(NSString *)subject
                                            content:(NSString *)content;
 /*
- 네이버 카페 글쓰기 화면 실행
+ Start With Article Post
  */
 - (void)presentArticlePostViewControllerWithType:(GLArticlePostType)type
                                           menuId:(NSInteger)menuId
@@ -109,33 +103,27 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
                                         filePath:(NSString *)filePath;
 
 /*
- 네이버 카페 게시글 리스트 실행
+ Start With Article List
  */
 - (void)presentArticleListViewControllerWithMenuId:(NSInteger)menuId;
 
-#pragma mark - dismiss
+#pragma mark - Widget function
 /*
- 네이버 카페 ViewController에 실행된 다른 ViewController 제거
- */
-- (void)dismissViewController:(id)viewController;
-
-/*
- 네이버 카페 ViewController에 제일 상단 ViewController 제거
- */
-- (void)dismissTopViewController;
-
-/*
- 위젯실행
+ Start Widget
  */
 - (void)startWidget;
+/*
+ End Widget
+ */
 - (void)stopWidget;
 
-@property (nonatomic, assign) BOOL showWidgetWhenUnloadSDK;
-@property (nonatomic, assign) BOOL useWidgetVideoRecord;
 
-/*
- 테스트용
- */
+
+#pragma mark - private function
+- (id)navercafeRootViewController;
+- (void)dismissViewController:(id)viewController;
+- (void)dismissTopViewController;
+- (void)presentViewController:(id)viewController;
 - (void)showToast:(NSString *)str;
 - (void)presentEtc;
 @end
@@ -143,11 +131,11 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
 @protocol NCSDKManagerDelegate <NSObject>
 @optional
 /*
- 네이버 카페 실행 콜백
+ Started SDK
  */
 - (void)ncSDKViewDidLoad;
 /*
- 네이버 카페 종료 콜백
+ Ended SDK
  */
 - (void)ncSDKViewDidUnLoad;
 

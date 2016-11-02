@@ -33,6 +33,15 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
                                                      cafeId:cafeId];
     [[NCSDKManager getSharedInstance] setOrientationIsLandscape:YES];
 }
+    
+void CafeSdk::initGlobal(std::string clientId, int cafeId, std::string defaultCafeLangCode) {
+    NSString *_clientId = [NSString stringWithUTF8String:clientId.c_str()];
+    NSString *_defaultCafeLangCode = [NSString stringWithUTF8String:defaultCafeLangCode.c_str()];
+    
+    [[NCSDKManager getSharedInstance] setCountry:_defaultCafeLangCode];
+    [[NCSDKManager getSharedInstance] setNeoIdConsumerKey:_clientId
+                                             globalCafeId:cafeId];
+}
 
 static CafeListener* gCafeListener = nullptr;
 
