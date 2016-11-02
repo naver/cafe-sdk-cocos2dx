@@ -7,6 +7,7 @@
     android:paddingTop="10dp"
     android:paddingLeft="22dp"
     android:paddingRight="22dp"
+    android:background="@color/white1"
     android:textColor="@color/black2"
     android:textIsSelectable="true"
     android:textSize="15dp"

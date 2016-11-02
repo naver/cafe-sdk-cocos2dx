@@ -6,6 +6,7 @@
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:baselineAligned="false"
       android:orientation="horizontal">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,6 +18,7 @@
           android:id="@+id/cafe_background_img"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
+          android:scaleType="centerCrop"
           android:background="@color/green1"/>
 
       <FrameLayout

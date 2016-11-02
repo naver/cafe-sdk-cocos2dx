@@ -8,6 +8,7 @@
     <string name="article_save_complete_message">已張貼文章。</string>
     <string name="article_save_fail_message">無法張貼文章。</string>
     <string name="article_save_progress_message">張貼文章中…</string>
+    <string name="article_search_placeholder">恢復</string>
     <string name="article_video_alert_message">若以3G/LTE連線，可能需負擔數據費用。</string>
     <string name="article_video_encoding_message">影片編碼中，請於編碼完成後再試一次。</string>
     <string name="attachment_add_fail_message">無法夾帶圖片或影片。</string>
@@ -104,7 +105,7 @@
     <string name="unable_load_images">無法載入圖片。</string>
     <string name="unable_load_videos">無法載入影片。</string>
     <string name="under_construction">準備中。</string>
-    <string name="version">目前版本 2.0.1</string>
+    <string name="version">目前版本 %s</string>
     <string name="waiting_join_apply_message">申請加入中。</string>
     <string name="want_cafe_member">要加入會員嗎？</string>
     <string name="widget_button_cafe">遊戲Cafe</string>

@@ -8,6 +8,7 @@
     <string name="article_save_complete_message">投稿が完了しました。</string>
     <string name="article_save_fail_message">投稿できませんでした。</string>
     <string name="article_save_progress_message">投稿を保存中…</string>
+    <string name="article_search_placeholder">検索</string>
     <string name="article_video_alert_message">3G/LTEで接続する場合、データ通信料が発生する可能性があります。</string>
     <string name="article_video_encoding_message">動画をエンコードしています。エンコード完了後にもう一度お試しください。</string>
     <string name="attachment_add_fail_message">画像、動画は添付できません。</string>
@@ -104,7 +105,7 @@
     <string name="unable_load_images">画像を読み込めません。</string>
     <string name="unable_load_videos">動画を読み込めません。</string>
     <string name="under_construction">準備中です。</string>
-    <string name="version">現在バージョン 2.0.1</string>
+    <string name="version">現在バージョン %s</string>
     <string name="waiting_join_apply_message">入会申請中です。</string>
     <string name="want_cafe_member">会員登録しますか？</string>
     <string name="widget_button_cafe">ゲームCafe</string>

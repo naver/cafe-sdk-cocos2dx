@@ -7,6 +7,7 @@
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:baselineAligned="false"
       android:orientation="horizontal">
 
     <RelativeLayout
@@ -25,16 +26,16 @@
 
       <FrameLayout
           android:id="@+id/thumbnail_image"
-          android:layout_width="64dp"
-          android:layout_height="64dp"
+          android:layout_width="62dp"
+          android:layout_height="62dp"
           android:layout_marginTop="23dp"
           android:layout_marginLeft="22dp">
 
 
         <ImageView
             android:id="@+id/cafe_icon_img"
-            android:layout_width="59dp"
-            android:layout_height="59dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
         />
 
@@ -46,35 +47,54 @@
             android:layout_gravity="center"/>
       </FrameLayout>
 
-
       <TextView
           android:id="@+id/cafe_name"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
           android:layout_marginLeft="22dp"
           android:layout_marginRight="22dp"
-          android:layout_marginTop="0dp"
-          android:maxLines="2"
-          android:ellipsize="end"
-          android:textSize="24dp"
-          android:textColor="@color/white1"
-          android:textStyle="bold"
           android:layout_below="@+id/thumbnail_image"
-          android:text="cafe name"/>
+          android:textSize="15dp"
+          android:textStyle="bold"
+          android:maxLines="2"
+          android:textColor="@color/white1"/>
+
+      <TextView
+          android:id="@+id/cafe_url"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:layout_marginLeft="22dp"
+          android:layout_marginRight="22dp"
+          android:layout_below="@+id/cafe_name"
+          android:textSize="10dp"
+          android:textColor="@color/white1"/>
+
+      <View
+          android:id="@+id/cafe_info_line"
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginTop="12dp"
+          android:layout_marginLeft="22dp"
+          android:layout_marginRight="22dp"
+          android:background="@color/white1"
+          android:layout_below="@+id/cafe_url"/>
 
 
       <TextView
-          android:id="@+id/cafe_member_count"
-          android:layout_width="wrap_content"
+          android:id="@+id/cafe_info"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
           android:layout_marginLeft="22dp"
-          android:layout_marginTop="9dp"
-          android:maxLines="2"
-          android:ellipsize="end"
+          android:layout_marginRight="22dp"
+          android:layout_below="@+id/cafe_info_line"
+          android:layout_above="@+id/copyright"
           android:textSize="12dp"
           android:textColor="@color/white1"
-          android:layout_below="@+id/cafe_name"
-          android:text="@string/member_count_format"/>
+          android:ellipsize="end"
+          android:maxLines="3"/>
 
       <TextView
           android:id="@+id/btn_logout"
@@ -83,7 +103,7 @@
           android:layout_marginLeft="22dp"
           android:layout_marginRight="22dp"
           android:layout_marginBottom="23dp"
-          android:minWidth="72dp"
+          android:minWidth="88dp"
           android:background="@drawable/gl_profile_cafe_join_logout"
           android:drawablePadding="4dp"
           android:gravity="center"
@@ -127,6 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:gravity="center"
+            android:baselineAligned="false"
             android:orientation="horizontal">
 
           <LinearLayout

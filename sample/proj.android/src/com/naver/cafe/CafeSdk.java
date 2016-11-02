@@ -9,6 +9,7 @@ import com.naver.glink.android.sdk.Glink.OnPostedCommentListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStartedListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStoppedListener;
 import com.naver.glink.android.sdk.Glink.OnWidgetScreenshotClickListener;
+import com.naver.glink.android.sdk.Statistics;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 public class CafeSdk {
@@ -245,6 +246,14 @@ public class CafeSdk {
 
 	public static void setUseVideoRecord(boolean use) {
 		Glink.setUseVideoRecord(getActivity(), use);
+	}
+
+	public static void sendNewUser(String gameUserId) {
+		Statistics.sendNewUser(gameUserId);
+	}
+
+	public static void sendPayUser(String gameUserId, double pay, String productCode, String currency, String market) {
+		Statistics.sendPayUser(gameUserId, pay, productCode, currency, market);
 	}
 
 	public static void showToast(final String text) {

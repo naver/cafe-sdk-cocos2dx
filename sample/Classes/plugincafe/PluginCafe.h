@@ -84,6 +84,24 @@ public:
     static void showToast(std::string text);
 };
 
+/* 통계 관련 상수. */
+static const std::string kCurrencyNone = "NONE";
+static const std::string kCurrencyWon = "WON";
+static const std::string kCurrencyDollar = "DOLLAR";
+
+static const std::string kMarketNone = "NONE";
+static const std::string kMarketOne = "ONE";
+static const std::string kMarketGoogle = "GOOGLE";
+static const std::string kMarketApple = "APPLE";
+
+class Statistics {
+public:
+
+    static void sendNewUser(std::string gameUserId);
+
+    static void sendPayUser(std::string gameUserId, double pay,
+            std::string productCode, std::string currency, std::string market);
+};
 } /* namespace cafe */
 
 #endif /* JNI_PLUGINCAFE_PLUGINCAFE_H_ */

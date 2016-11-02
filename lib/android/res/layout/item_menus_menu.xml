@@ -16,12 +16,12 @@
       android:maxLines="1"/>
 
   <ImageView
-      android:id="@+id/newImage"
+      android:id="@+id/new_image"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_toRightOf="@+id/name"
       android:layout_centerVertical="true"
-      android:paddingLeft="4dp"
+      android:layout_marginLeft="4dp"
       android:src="@drawable/gl_icon_menu_new"/>
 
   <ImageView

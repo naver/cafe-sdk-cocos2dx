@@ -37,7 +37,7 @@
           android:textColor="@color/black2"
           android:textColorHint="#80999999"
           android:textSize="16dp"
-          android:hint="@string/search_hint"/>
+          android:hint="@string/article_search_placeholder"/>
 
       <Button
           android:id="@+id/show_histories_button"

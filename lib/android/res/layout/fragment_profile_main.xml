@@ -11,12 +11,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:baselineAligned="false"
         android:orientation="vertical">
       <RelativeLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:background="@color/white1"
-          android:layout_weight="1">
+          android:layout_weight="3">
         <include layout="@layout/item_profile_myinfo"/>
       </RelativeLayout>
 
@@ -26,9 +27,15 @@
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:orientation="vertical"
-          android:background="@color/gray5"
+          android:background="@color/white1"
           android:paddingLeft="1dp"
-          android:layout_weight="1">
+          android:layout_weight="2">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="@color/gray5"
+            android:layout_alignParentTop="true"/>
 
         <RelativeLayout
             android:id="@+id/profile_articles_post_layout"
@@ -38,11 +45,6 @@
             android:focusable="true"
             android:clickable="true"
             android:layout_weight="1">
-          <View
-              android:layout_width="match_parent"
-              android:layout_height="1dp"
-              android:background="@color/gray5"
-              android:layout_alignParentTop="true"/>
 
           <TextView
               android:id="@+id/icon_post_profile"
@@ -191,6 +193,12 @@
               android:layout_centerVertical="true"/>
 
           <View
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:background="@color/gray5"
+              android:layout_alignParentBottom="true"/>
+
+          <View
               android:id="@+id/profile_articles_like_blank"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -220,7 +228,25 @@
               android:background="@color/white2"/>
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/transparent">
+          <ImageView
+              android:id="@+id/copyright"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginRight="22dp"
+              android:layout_marginBottom="12dp"
+              android:src="@drawable/gl_with_naver_cafe"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+
       </LinearLayout>
+
 
     </LinearLayout>
 

@@ -12,6 +12,8 @@ enum CafeSdkTags {
     kTagCafeWrite1,
     kTagCafeWrite2,
     kTagShowRecord,
+    kTagSendNewUser,
+    kTagSendPayUser,
 };
 
 Scene* HelloWorld::createScene() {
@@ -114,6 +116,8 @@ void HelloWorld::initCafeSdkMenu(Menu* menu) {
     items.push_back(std::make_pair(kTagCafeWrite1, "write1"));
     items.push_back(std::make_pair(kTagCafeWrite2, "write2"));
     items.push_back(std::make_pair(kTagShowRecord, "show record"));
+    items.push_back(std::make_pair(kTagSendNewUser, "send NU"));
+    items.push_back(std::make_pair(kTagSendPayUser, "send PU"));
 
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -189,6 +193,15 @@ void HelloWorld::menuCallback(Ref* pSender) {
 
     case kTagShowRecord:
         cafe::CafeSdk::setUseVideoRecord(true);
+        break;
+
+    case kTagSendNewUser:
+        cafe::Statistics::sendNewUser("user");
+        break;
+
+    case kTagSendPayUser:
+        cafe::Statistics::sendPayUser("user", 1.f, "product1",
+                cafe::kCurrencyWon, cafe::kMarketOne);
         break;
 
     default:

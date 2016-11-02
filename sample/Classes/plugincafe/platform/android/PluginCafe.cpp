@@ -80,7 +80,8 @@ std::string CafeSdk::getCafeLangCode() {
 
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "getCafeLangCode", "()Ljava/lang/String;")) {
-        jstring jresult = (jstring) t.env->CallStaticObjectMethod(t.classID, t.methodID);
+        jstring jresult = (jstring) t.env->CallStaticObjectMethod(t.classID,
+                t.methodID);
         result = PluginJniHelper::jstring2string(jresult);
 
         t.env->DeleteLocalRef(jresult);
@@ -240,6 +241,39 @@ void CafeSdk::showToast(std::string text) {
         t.env->CallStaticVoidMethod(t.classID, t.methodID, _text);
 
         t.env->DeleteLocalRef(_text);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void Statistics::sendNewUser(std::string gameUserId) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "sendNewUser", "(Ljava/lang/String;)V")) {
+        jstring _gameUserId = t.env->NewStringUTF(gameUserId.c_str());
+
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _gameUserId);
+
+        t.env->DeleteLocalRef(_gameUserId);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void Statistics::sendPayUser(std::string gameUserId, double pay,
+        std::string productCode, std::string currency, std::string market) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "sendPayUser",
+            "(Ljava/lang/String;DLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")) {
+        jstring _gameUserId = t.env->NewStringUTF(gameUserId.c_str());
+        jstring _productCode = t.env->NewStringUTF(productCode.c_str());
+        jstring _currency = t.env->NewStringUTF(currency.c_str());
+        jstring _market = t.env->NewStringUTF(market.c_str());
+
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _gameUserId, pay,
+                _productCode, _currency, _market);
+
+        t.env->DeleteLocalRef(_gameUserId);
+        t.env->DeleteLocalRef(_productCode);
+        t.env->DeleteLocalRef(_currency);
+        t.env->DeleteLocalRef(_market);
         t.env->DeleteLocalRef(t.classID);
     }
 }

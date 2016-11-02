@@ -34,6 +34,7 @@
     <color name="gray5">#efefef</color>
     <color name="gray6">#d8d8d8</color>
     <color name="gray7">#666666</color>
+    <color name="gray8">#e6777777</color>
     <color name="green1">#00C73C</color>
     <color name="green1_10">#5b00C73C</color>
     <color name="list_selector_color">#e9ecef</color>
@@ -93,6 +94,7 @@
     <string name="article_save_complete_message">The post has been published.</string>
     <string name="article_save_fail_message">Publishing a post failed.</string>
     <string name="article_save_progress_message">Publishing a post…</string>
+    <string name="article_search_placeholder">Search</string>
     <string name="article_video_alert_message">You may be charged extra fees if you turn on the cellular data such as 3G or LTE.</string>
     <string name="article_video_encoding_message">Encoding a video… Please try again after it is completed.</string>
     <string name="attachment_add_fail_message">Uploading an image or video failed.</string>
@@ -189,7 +191,7 @@
     <string name="unable_load_images">Unable to load images.</string>
     <string name="unable_load_videos">Unable to load videos.</string>
     <string name="under_construction">Preparing</string>
-    <string name="version">Current version 2.0.1</string>
+    <string name="version">Current version %s</string>
     <string name="waiting_join_apply_message">Waiting for joining the Cafe…</string>
     <string name="want_cafe_member">Do you want to join the Cafe?</string>
     <string name="widget_button_cafe">Game Cafe</string>

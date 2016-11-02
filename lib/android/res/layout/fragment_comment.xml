@@ -19,33 +19,17 @@
         android:layout_height="1dp"
         android:background="@color/black2_opacity_10"/>
 
-    <LinearLayout
+    <com.naver.glink.android.sdk.ui.widget.PreImeKeyListeningEditText
+        android:id="@+id/comment_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-      <TextView
-          android:id="@+id/mention_nickname"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center_vertical"
-          android:paddingLeft="14dp"
-          android:textColor="@color/black2"
-          android:textSize="16dp"/>
-
-      <com.naver.glink.android.sdk.ui.widget.PreImeKeyListeningEditText
-          android:id="@+id/comment_edit"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:background="@null"
-          android:hint="@string/comment_hint"
-          android:maxHeight="80dp"
-          android:padding="14dp"
-          android:textColor="@color/black1"
-          android:textSize="16dp"
-          android:imeOptions="flagNoExtractUi"/>
-    </LinearLayout>
+        android:background="@null"
+        android:hint="@string/comment_hint"
+        android:maxHeight="80dp"
+        android:padding="14dp"
+        android:textColor="@color/black1"
+        android:textSize="16dp"
+        android:imeOptions="flagNoExtractUi"/>
   </LinearLayout>
 
   <Button

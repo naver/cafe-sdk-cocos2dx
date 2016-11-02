@@ -8,6 +8,7 @@
     <string name="article_save_complete_message">帖子已上传。</string>
     <string name="article_save_fail_message">未能上传帖子。</string>
     <string name="article_save_progress_message">正在上传...</string>
+    <string name="article_search_placeholder">恢复</string>
     <string name="article_video_alert_message">连接到G/LTE可能会产生无线数据费用。</string>
     <string name="article_video_encoding_message">视频编码。请完成编码后重试。</string>
     <string name="attachment_add_fail_message">不能添加图片或视频。</string>
@@ -104,7 +105,7 @@
     <string name="unable_load_images">无法加载图片。</string>
     <string name="unable_load_videos">无法加载视频。</string>
     <string name="under_construction">正在准备中</string>
-    <string name="version">当前版本 2.0.1</string>
+    <string name="version">当前版本 %s</string>
     <string name="waiting_join_apply_message">正在申请注册。</string>
     <string name="want_cafe_member">注册会员？</string>
     <string name="widget_button_cafe">游戏Café</string>

@@ -8,6 +8,7 @@
     <string name="article_save_complete_message">โพสต์ถูกเขียนแล้ว</string>
     <string name="article_save_fail_message">การเขียนโพสต์ล้มเหลว</string>
     <string name="article_save_progress_message">กำลังเขียนโพสต์...</string>
+    <string name="article_search_placeholder">การแก้ไข</string>
     <string name="article_video_alert_message">อาจมีค่าใช้จ่ายพิเศษ หากเปิดใช้สัญญาณข้อมูล เช่น 3G หรือ LTE</string>
     <string name="article_video_encoding_message">กำลังเข้ารหัสวิดีโอ... กรุณาลองอีกครั้งหลังเสร็จสิ้น</string>
     <string name="attachment_add_fail_message">การอัพโหลดรูปภาพหรือวิดีโอล้มเหลว</string>
@@ -104,7 +105,7 @@
     <string name="unable_load_images">ไม่สามารถโหลดรูปภาพได้</string>
     <string name="unable_load_videos">ไม่สามารถโหลดวิดีโอได้</string>
     <string name="under_construction">อยู่ในระหว่างปรับปรุง</string>
-    <string name="version">เวอร์ชั่นปัจจุบัน 2.0.1</string>
+    <string name="version">เวอร์ชั่นปัจจุบัน %s</string>
     <string name="waiting_join_apply_message">กำลังเข้าร่วมคาเฟ่...</string>
     <string name="want_cafe_member">ต้องการเข้าร่วมคาเฟ่นี้หรือไม่?</string>
     <string name="widget_button_cafe">เกมคาเฟ่</string>
