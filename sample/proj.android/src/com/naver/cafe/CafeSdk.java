@@ -248,8 +248,8 @@ public class CafeSdk {
 		Glink.setUseVideoRecord(getActivity(), use);
 	}
 
-	public static void sendNewUser(String gameUserId) {
-		Statistics.sendNewUser(gameUserId);
+	public static void sendNewUser(String gameUserId, String market) {
+		Statistics.sendNewUser(gameUserId, market);
 	}
 
 	public static void sendPayUser(String gameUserId, double pay, String productCode, String currency, String market) {

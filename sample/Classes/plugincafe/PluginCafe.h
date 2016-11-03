@@ -97,7 +97,7 @@ static const std::string kMarketApple = "APPLE";
 class Statistics {
 public:
 
-    static void sendNewUser(std::string gameUserId);
+    static void sendNewUser(std::string gameUserId, std::string market);
 
     static void sendPayUser(std::string gameUserId, double pay,
             std::string productCode, std::string currency, std::string market);

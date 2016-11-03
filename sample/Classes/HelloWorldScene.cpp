@@ -196,7 +196,7 @@ void HelloWorld::menuCallback(Ref* pSender) {
         break;
 
     case kTagSendNewUser:
-        cafe::Statistics::sendNewUser("user");
+        cafe::Statistics::sendNewUser("user", cafe::kMarketOne);
         break;
 
     case kTagSendPayUser:

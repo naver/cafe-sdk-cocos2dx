@@ -245,14 +245,16 @@ void CafeSdk::showToast(std::string text) {
     }
 }
 
-void Statistics::sendNewUser(std::string gameUserId) {
+void Statistics::sendNewUser(std::string gameUserId, std::string market) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "sendNewUser", "(Ljava/lang/String;)V")) {
+    if (getStaticMethod(t, "sendNewUser", "(Ljava/lang/String;Ljava/lang/String;)V")) {
         jstring _gameUserId = t.env->NewStringUTF(gameUserId.c_str());
+        jstring _market = t.env->NewStringUTF(market.c_str());
 
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _gameUserId);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _gameUserId, _market);
 
         t.env->DeleteLocalRef(_gameUserId);
+        t.env->DeleteLocalRef(_market);
         t.env->DeleteLocalRef(t.classID);
     }
 }
