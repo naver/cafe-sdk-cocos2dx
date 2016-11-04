@@ -5,6 +5,10 @@
     <string name="article_count_txt">โพสต์แล้ว</string>
     <string name="article_read_count">%,dอ่าน</string>
     <string name="article_read_count_format">ค้นหา %1$,d</string>
+    <string name="article_report_alert_message">ต้องการรายงานคอนเท้นท์หรือไม่?</string>
+    <string name="article_report_already_reported">ถูกรายงานเรียบร้อยแล้ว</string>
+    <string name="article_report_completed">รายงานสำเร็จแล้ว</string>
+    <string name="article_report_menu">รายงาน</string>
     <string name="article_save_complete_message">โพสต์ถูกเขียนแล้ว</string>
     <string name="article_save_fail_message">การเขียนโพสต์ล้มเหลว</string>
     <string name="article_save_progress_message">กำลังเขียนโพสต์...</string>
@@ -49,6 +53,7 @@
     <string name="member_count_format">สมาชิก %1$,d คน</string>
     <string name="menu_change_channel">ต้องการเปลี่ยนภาษาหรือไม่?\nการเปลี่ยนภาษาจะทำให้คอนเท้นท์ภายในเปลี่ยนแปลงด้วย</string>
     <string name="modify_complete_message">ได้รับการปรับปรุงแล้ว</string>
+    <string name="more_actions">ดูเพิ่มเติม</string>
     <string name="movie_over_limit_size_message">วิดีโอที่เลือกมีขนาดใหญ่\nเกินข้อจำกัด</string>
     <string name="movie_permission_setting_message">คุณไม่ได้รับอนุญาตให้แนบไฟล์วิดีโอ\nกรุณาตรวจสอบสิทธิ์การบันทึกในเกมซึ่งสามารถเข้าถึงได้จาก [ตั้งค่า > แอพ]</string>
     <string name="need_login">กรุณาเข้าสู่ระบบ</string>

@@ -35,6 +35,8 @@
       android:layout_height="wrap_content"
       android:layout_toRightOf="@+id/writer_profile_image"
       android:layout_marginLeft="8dp"
+      android:maxLines="1"
+      android:ellipsize="end"
       android:textColor="@color/black2"
       android:textStyle="bold"
       android:textSize="15dp"/>
@@ -54,7 +56,7 @@
       android:layout_height="wrap_content"
       android:layout_alignTop="@+id/writer_level"
       android:layout_toRightOf="@+id/writer_level"
-      android:paddingLeft="6dp"
+      android:layout_marginLeft="6dp"
       android:drawableLeft="@drawable/oval_gray"
       android:drawablePadding="6dp"
       android:textColor="@color/gray4"

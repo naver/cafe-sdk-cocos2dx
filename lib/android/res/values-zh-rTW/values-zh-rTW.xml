@@ -5,6 +5,10 @@
     <string name="article_count_txt">撰寫的文章</string>
     <string name="article_read_count">%,d已讀</string>
     <string name="article_read_count_format">搜尋 %1$,d</string>
+    <string name="article_report_alert_message">要檢舉嗎？</string>
+    <string name="article_report_already_reported">已檢舉的貼文。</string>
+    <string name="article_report_completed">已檢舉</string>
+    <string name="article_report_menu">檢舉</string>
     <string name="article_save_complete_message">已張貼文章。</string>
     <string name="article_save_fail_message">無法張貼文章。</string>
     <string name="article_save_progress_message">張貼文章中…</string>
@@ -49,6 +53,7 @@
     <string name="member_count_format">會員人數 %1$,d名</string>
     <string name="menu_change_channel">要變更為所選頻道嗎？\n變更頻道時內容將一同變更。</string>
     <string name="modify_complete_message">已修改。</string>
+    <string name="more_actions">もっと見る</string>
     <string name="movie_over_limit_size_message">所選影片\n超過上傳容量上限。</string>
     <string name="movie_permission_setting_message">沒有權限，無法夾帶影片。\n請於[設定 > APP]確認該儲存權限。</string>
     <string name="need_login">請登入。</string>
