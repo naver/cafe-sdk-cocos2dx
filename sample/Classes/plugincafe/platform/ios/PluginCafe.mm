@@ -42,7 +42,14 @@ void CafeSdk::initGlobal(std::string clientId, int cafeId, std::string defaultCa
     [[NCSDKManager getSharedInstance] setNeoIdConsumerKey:_clientId
                                              globalCafeId:cafeId];
 }
-
+    
+void CafeSdk::setCafeLangCode(std::string cafeLangCode) {
+    [[NCSDKManager getSharedInstance] setCountry:[NSString stringWithUTF8String:cafeLangCode.c_str()]];
+}
+    
+std::string CafeSdk::getCafeLangCode() {
+    return [[NCSDKManager getSharedInstance].currentCountry UTF8String];
+}
 static CafeListener* gCafeListener = nullptr;
 
 void CafeSdk::setCafeListener(CafeListener* listener) {
