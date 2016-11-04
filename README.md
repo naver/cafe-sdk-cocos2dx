@@ -6,31 +6,10 @@ Cafe SDK에 대하여 자세히 알고싶으시면 [네이버 CafeSDK 공식카�
 
 ![Overviw](/guide/images/widget_screenshot.gif)
 
-v.2.0.1
-####fixed iOS####
-- 채널 정보 조회하는 api 추가. 
-  (NSString *)currentCountry; 
-- 한국어로 실행했을때 채널 변경 버튼이 노출되지 않는 이슈 수정 
-
-####fixed Android####
-- 채널 정보 설정하는 api 추가. 
-  Glink#setCafeLangCode(String cafeLangCode);
-- 채널 정보 조회하는 api 추가.
-  Glink#getCafeLangCode();
-- 국내 카페만 설정할 경우 크래쉬 발생하는 이슈 가드 처리.
-
-
-v.2.0.0
--------------
+# v.2.1.0
 ####updated
-1. 영어, 중국어, 일본어, 태국어 채널 지원.
+1. 세로모드 지원
 
-####fixed####
-1. iOS 10 관련 이슈 수정.
-
-####issue####
-1. 세로모드 2.0.1에서 지원 예정.
-2. 언어 설정 중국어인 경우 위젯 동영상 녹화 기능 안되는 이슈.
 
 폴더 구조
 -------------

@@ -6,7 +6,7 @@
  */
 
 #import <NaverCafeSDK/NCSDKManager.h>
-
+#import <NaverCafeSDK/NCSDKStatistics.h>
 @interface CafeCallbackObject : NSObject <NCSDKManagerDelegate>
 @end
 
@@ -136,8 +136,22 @@ void CafeSdk::setUseVideoRecord(bool use) {
 void CafeSdk::showToast(std::string text) {
     [[NCSDKManager getSharedInstance] showToast:[NSString stringWithUTF8String:text.c_str()]];
 }
-    
+
+void Statistics::sendNewUser(std::string gameUserId, std::string market) {
+    [NCSDKStatistics sendNewUser:[NSString stringWithUTF8String:gameUserId.c_str()]
+                       andMarket:[NSString stringWithUTF8String:market.c_str()]];
+}
+
+void Statistics::sendPayUser(std::string gameUserId, double pay,
+                             std::string productCode, std::string currency, std::string market) {
+    [NCSDKStatistics sendPayUser:[NSString stringWithUTF8String:gameUserId.c_str()]
+                          andPay:pay
+                  andProductCode:[NSString stringWithUTF8String:productCode.c_str()]
+                     andCurrency:[NSString stringWithUTF8String:currency.c_str()]
+                       andMarket:[NSString stringWithUTF8String:market.c_str()]];
+}
 } /* namespace cafe */
+
 
 @implementation CafeCallbackObject
 #pragma mark - NCSDKDelegate

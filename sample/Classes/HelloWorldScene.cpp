@@ -67,7 +67,7 @@ bool HelloWorld::init() {
     cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
 
     // 글로벌 카페 초기화. 국내 카페만 사용할 경우 initGlobal을 하지 않아도 됩니다.
-    //cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329, cafe::kLangCodeNone);
+    cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329, cafe::kLangCodeNone);
     cafe::CafeSdk::setCafeListener(this);
 
     return true;

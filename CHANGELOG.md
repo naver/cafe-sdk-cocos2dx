@@ -1,4 +1,10 @@
+v.2.1.0
+-------------
+####updated
+1. 세로모드 지원
+
 v.2.0.1
+-------------
 ####fixed iOS####
 - 채널 정보 조회하는 api 추가. 
   (NSString *)currentCountry; 

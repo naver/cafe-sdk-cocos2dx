@@ -90,4 +90,8 @@
  */
 - (void)setIsNaverAppOauthEnable:(BOOL)enable;
 
+/*
+ URLScheme
+ */
+- (void)setNaverLoginURLScheme:(NSString *)urlScheme;
 @end
