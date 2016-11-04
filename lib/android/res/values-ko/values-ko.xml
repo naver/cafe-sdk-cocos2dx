@@ -5,6 +5,10 @@
     <string name="article_count_txt">작성한 글</string>
     <string name="article_read_count">%,d 읽음</string>
     <string name="article_read_count_format">조회 %1$,d</string>
+    <string name="article_report_alert_message">신고하시겠습니까?</string>
+    <string name="article_report_already_reported">이미 신고한 게시글입니다.</string>
+    <string name="article_report_completed">신고 완료</string>
+    <string name="article_report_menu">신고</string>
     <string name="article_save_complete_message">게시글이 등록되었습니다.</string>
     <string name="article_save_fail_message">게시글을 등록하지 못했습니다.</string>
     <string name="article_save_progress_message">게시글 등록 중...</string>
@@ -49,6 +53,7 @@
     <string name="member_count_format">회원수 %1$,d명</string>
     <string name="menu_change_channel">선택한 채널로 변경하시겠습니까?\n채널을 변경하면 콘텐츠도 함께 변경됩니다.</string>
     <string name="modify_complete_message">수정되었습니다.</string>
+    <string name="more_actions">더보기</string>
     <string name="movie_over_limit_size_message">선택한 동영상의 용량이\n최대 업로드 용량을 초과했습니다.</string>
     <string name="movie_permission_setting_message">권한이 없어 동영상을 첨부할 수 없습니다.\n[설정 > 앱]의 해당 게임에서 저장 권한을 확인해 주세요.</string>
     <string name="need_login">로그인하세요.</string>

@@ -91,6 +91,10 @@
     <string name="article_count_txt">Posted</string>
     <string name="article_read_count">%,d Read</string>
     <string name="article_read_count_format">Search %1$,d</string>
+    <string name="article_report_alert_message">Are you sure you want to report the content?</string>
+    <string name="article_report_already_reported">It has been already reported.</string>
+    <string name="article_report_completed">Report completed</string>
+    <string name="article_report_menu">Report</string>
     <string name="article_save_complete_message">The post has been published.</string>
     <string name="article_save_fail_message">Publishing a post failed.</string>
     <string name="article_save_progress_message">Publishing a post…</string>
@@ -135,6 +139,7 @@
     <string name="member_count_format">Members %1$,d</string>
     <string name="menu_change_channel">Do you want to change the language?\nChanging the language will also change the content inside.</string>
     <string name="modify_complete_message">It has been modified.</string>
+    <string name="more_actions">More</string>
     <string name="movie_over_limit_size_message">The size limit of selected video\nis exceeded.</string>
     <string name="movie_permission_setting_message">You do not have permission to attach a video.\nPlease check your permission to save in the game which can be accessed from [Settings > App]. </string>
     <string name="need_login">Please log in.</string>

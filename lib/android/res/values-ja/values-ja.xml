@@ -5,6 +5,10 @@
     <string name="article_count_txt">投稿</string>
     <string name="article_read_count">%,d 既読</string>
     <string name="article_read_count_format">閲覧 %1$,d</string>
+    <string name="article_report_alert_message">通報しますか？</string>
+    <string name="article_report_already_reported">既に通報済みです。</string>
+    <string name="article_report_completed">通報完了</string>
+    <string name="article_report_menu">通報</string>
     <string name="article_save_complete_message">投稿が完了しました。</string>
     <string name="article_save_fail_message">投稿できませんでした。</string>
     <string name="article_save_progress_message">投稿を保存中…</string>
@@ -49,6 +53,7 @@
     <string name="member_count_format">会員数%1$,d名</string>
     <string name="menu_change_channel">選択したチャンネルに変更しますか？\nチャンネルを変更するとコンテンツも同時に変更されます。</string>
     <string name="modify_complete_message">修正しました。</string>
+    <string name="more_actions">查看更多</string>
     <string name="movie_over_limit_size_message">選択した動画のサイズが\nアップロードサイズの上限を越えています。</string>
     <string name="movie_permission_setting_message">権限がないため動画を添付できません。\n[設定＞アプリ]にてゲームの保存権限を確認してください</string>
     <string name="need_login">ログインしてください。</string>

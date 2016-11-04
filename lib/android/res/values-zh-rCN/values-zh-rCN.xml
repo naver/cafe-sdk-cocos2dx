@@ -5,6 +5,10 @@
     <string name="article_count_txt">编写的文章</string>
     <string name="article_read_count">%,d已读</string>
     <string name="article_read_count_format">查询%1$,d</string>
+    <string name="article_report_alert_message">要举报吗？</string>
+    <string name="article_report_already_reported">已举报过该文章。</string>
+    <string name="article_report_completed">举报完毕</string>
+    <string name="article_report_menu">举报</string>
     <string name="article_save_complete_message">帖子已上传。</string>
     <string name="article_save_fail_message">未能上传帖子。</string>
     <string name="article_save_progress_message">正在上传...</string>
@@ -49,6 +53,7 @@
     <string name="member_count_format">会员数%1$,d名</string>
     <string name="menu_change_channel">是否更改为选定的频道？\n更改频道后，内容也会一起更改。</string>
     <string name="modify_complete_message">已修改。</string>
+    <string name="more_actions">更多</string>
     <string name="movie_over_limit_size_message">所选的视频容量超过了\n最大上传容量范围。</string>
     <string name="movie_permission_setting_message">没有权限，不能添加视频。\n请在【设置 > 应用程序】的相关游戏中确认保存权限。</string>
     <string name="need_login">请登录。</string>
