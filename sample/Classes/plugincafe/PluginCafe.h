@@ -30,6 +30,11 @@ static const std::string kLangCodeItalian = "it";
 static const std::string kLangCodePortuguese = "pt";
 static const std::string kLangCodeTurkish = "tr";
 
+/* SDK 종료 버튼 타입 */
+enum XButtonType {
+    kXButtonTypeMinimize = 0, kXButtonTypeClose = 1
+};
+
 class CafeListener {
 public:
     virtual void onCafeSdkStarted() = 0;
@@ -58,7 +63,13 @@ public:
     static void setCafeLangCode(std::string cafeLangCode);
     static std::string getCafeLangCode();
 
+    static void setThemeColor(std::string themeColorCSSString);
+    static void setThemeColor(std::string themeColorCSSString,
+            std::string tabBackgroundColorCSSString);
+
     static void setCafeListener(CafeListener* listener);
+
+    static void setXButtonType(XButtonType type);
 
     static void startHome();
     static void startNotice();

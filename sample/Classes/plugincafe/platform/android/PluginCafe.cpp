@@ -91,6 +91,42 @@ std::string CafeSdk::getCafeLangCode() {
     return result;
 }
 
+void CafeSdk::setThemeColor(std::string themeColorCSSString) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "setThemeColor", "(Ljava/lang/String;)V")) {
+        jstring _themeColorCSSString = t.env->NewStringUTF(
+                themeColorCSSString.c_str());
+
+        t.env->CallStaticVoidMethod(t.classID, t.methodID,
+                _themeColorCSSString);
+
+        t.env->DeleteLocalRef(_themeColorCSSString);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void CafeSdk::setThemeColor(std::string themeColorCSSString,
+        std::string tabBackgroundColorCSSString) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "setThemeColor", "(Ljava/lang/String;Ljava/lang/String;)V")) {
+        jstring _themeColorCSSString = t.env->NewStringUTF(
+                themeColorCSSString.c_str());
+        jstring _tabBackgroundColorCSSString = t.env->NewStringUTF(
+                tabBackgroundColorCSSString.c_str());
+
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _themeColorCSSString,
+                _tabBackgroundColorCSSString);
+
+        t.env->DeleteLocalRef(_themeColorCSSString);
+        t.env->DeleteLocalRef(_tabBackgroundColorCSSString);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void CafeSdk::setXButtonType(XButtonType type) {
+    // TODO:
+}
+
 void CafeSdk::startHome() {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "startHome", "()V")) {
@@ -247,11 +283,13 @@ void CafeSdk::showToast(std::string text) {
 
 void Statistics::sendNewUser(std::string gameUserId, std::string market) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "sendNewUser", "(Ljava/lang/String;Ljava/lang/String;)V")) {
+    if (getStaticMethod(t, "sendNewUser",
+            "(Ljava/lang/String;Ljava/lang/String;)V")) {
         jstring _gameUserId = t.env->NewStringUTF(gameUserId.c_str());
         jstring _market = t.env->NewStringUTF(market.c_str());
 
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _gameUserId, _market);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _gameUserId,
+                _market);
 
         t.env->DeleteLocalRef(_gameUserId);
         t.env->DeleteLocalRef(_market);

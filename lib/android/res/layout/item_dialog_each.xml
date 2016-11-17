@@ -12,13 +12,14 @@
       android:layout_height="match_parent"
       android:layout_weight="1"
       android:gravity="center_vertical"
-      android:textColor="@color/menu_item_color"
       android:textSize="14dp"
       android:singleLine="true"/>
 
   <ImageView
+      android:id="@+id/check_icon"
       android:layout_width="18dp"
       android:layout_height="18dp"
       android:layout_gravity="center_vertical"
+      android:scaleType="center"
       android:src="@drawable/menu_item_check_icon"/>
 </LinearLayout>

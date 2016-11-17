@@ -60,15 +60,25 @@ bool HelloWorld::init() {
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-//    initCafeSdkButtons(menu);
+    // initCafeSdkButtons(menu);
     initCafeSdkMenu(menu);
 
     // 국내 카페 초기화.
     cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
 
     // 글로벌 카페 초기화. 국내 카페만 사용할 경우 initGlobal을 하지 않아도 됩니다.
-    cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329, cafe::kLangCodeNone);
+    cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329,
+            cafe::kLangCodeNone);
+
     cafe::CafeSdk::setCafeListener(this);
+
+    /*
+     * 테마 설정.
+     * - theme color는 css color 포맷으로 설정하시면 됩니다.
+     * - 다만, theme color에 alpha값이 없어야 합니다.
+     */
+    cafe::CafeSdk::setThemeColor("#2e65d9", "#44484e");
+    cafe::CafeSdk::setXButtonType(cafe::kXButtonTypeMinimize);
 
     return true;
 }

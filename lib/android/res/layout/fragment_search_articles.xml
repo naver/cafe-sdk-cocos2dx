@@ -23,7 +23,8 @@
         android:divider="@null"
         android:dividerHeight="0dp"
         android:listSelector="@drawable/gl_list_selector"
-        android:cacheColorHint="@android:color/transparent"/>
+        android:cacheColorHint="@android:color/transparent"
+        android:choiceMode="singleChoice"/>
   </LinearLayout>
 
   <LinearLayout

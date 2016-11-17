@@ -160,6 +160,14 @@ public class CafeSdk {
 		return Glink.getCafeLangCode();
 	}
 
+	public static void setThemeColor(String themeColorCSSString) {
+		Glink.setThemeColor(themeColorCSSString);
+	}
+
+	public static void setThemeColor(String themeColorCSSString, String tabBackgroundColorCSSString) {
+		Glink.setThemeColor(themeColorCSSString, tabBackgroundColorCSSString);
+	}
+
 	private static native void nativeOnSdkStarted();
 
 	private static native void nativeOnSdkStopped();

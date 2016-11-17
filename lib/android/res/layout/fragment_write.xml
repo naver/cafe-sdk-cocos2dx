@@ -30,16 +30,7 @@
       android:layout_marginBottom="8dp"
       android:layout_marginRight="12dp">
 
-    <TextView
-        android:id="@+id/pick_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gl_btn_flpic"/>
-
-    <TextView
-        android:id="@+id/pick_movie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gl_btn_flmov"/>
+    <include android:id="@+id/pick_image" layout="@layout/view_floating_button"/>
+    <include android:id="@+id/pick_movie" layout="@layout/view_floating_button"/>
   </LinearLayout>
 </RelativeLayout>

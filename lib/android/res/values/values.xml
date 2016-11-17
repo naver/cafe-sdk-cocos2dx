@@ -28,6 +28,7 @@
     <color name="default_title_indicator_text_color">#BBFFFFFF</color>
     <color name="default_underline_indicator_selected_color">#FF33B5E5</color>
     <color name="gray1">#cccccc</color>
+    <color name="gray10">#aaaaaa</color>
     <color name="gray2">#c1c1c1</color>
     <color name="gray3">#c7c8ca</color>
     <color name="gray4">#999999</color>
@@ -35,6 +36,7 @@
     <color name="gray6">#d8d8d8</color>
     <color name="gray7">#666666</color>
     <color name="gray8">#e6777777</color>
+    <color name="gray9">#d5d5d5</color>
     <color name="green1">#00C73C</color>
     <color name="green1_10">#5b00C73C</color>
     <color name="list_selector_color">#e9ecef</color>
@@ -211,6 +213,7 @@
     <item name="android:paddingRight">16dip</item>
     <item name="android:thumbOffset">8dip</item>
     <item name="android:layout_marginLeft">0dip</item>
+    <item name="android:theme">@style/Theme.glink.seekbar</item>
     <item name="android:thumb">@drawable/seekbar_control_selector</item>
     <item name="android:progressDrawable">@drawable/seekbar_progress_background</item>
     <item name="android:indeterminateOnly">false</item>
@@ -218,6 +221,9 @@
     <item name="android:maxHeight">13dip</item>
     <item name="android:minWidth">103dip</item>
     <item name="android:focusable">true</item>
+  </style>
+    <style name="Theme.glink.seekbar" parent="@android:style/Theme.Black">
+
   </style>
     <style name="notitle_defaultdialog_msg" parent="@android:style/Theme.Holo.Light.Dialog">
     <item name="android:background">@android:color/transparent</item>

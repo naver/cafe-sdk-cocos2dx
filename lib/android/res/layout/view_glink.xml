@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
+
       <com.naver.glink.android.sdk.ui.widget.TransparentGlinkLayout
           android:id="@+id/transparent_glink"
           android:layout_width="wrap_content"
@@ -79,6 +80,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_alignLeft="@+id/transparent_glink"
+          android:layout_alignRight="@+id/transparent_glink"
           android:layout_marginRight="22dp"
           android:layout_marginLeft="22dp">
         <Button
@@ -89,6 +91,18 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/stop_close_test"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="21dp"
+            android:layout_toLeftOf="@+id/close"
+            android:layout_centerInParent="true"
+            android:text="끄기"
+            android:textColor="@color/white1"
+            android:textSize="17dp"
+            android:visibility="visible"/>
 
         <SeekBar
             android:id="@+id/transparent_seekbar"
