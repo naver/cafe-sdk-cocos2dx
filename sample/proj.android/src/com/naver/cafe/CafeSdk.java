@@ -168,6 +168,10 @@ public class CafeSdk {
 		Glink.setThemeColor(themeColorCSSString, tabBackgroundColorCSSString);
 	}
 
+	public static void setXButtonTypeClose(boolean use) {
+		Glink.setXButtonTypeClose(getActivity(), use);
+	}
+
 	private static native void nativeOnSdkStarted();
 
 	private static native void nativeOnSdkStopped();

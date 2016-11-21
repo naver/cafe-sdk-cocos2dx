@@ -124,7 +124,13 @@ void CafeSdk::setThemeColor(std::string themeColorCSSString,
 }
 
 void CafeSdk::setXButtonType(XButtonType type) {
-    // TODO:
+    bool use = type == XButtonType::kXButtonTypeClose;
+
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "setXButtonTypeClose", "(Z)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
+        t.env->DeleteLocalRef(t.classID);
+    }
 }
 
 void CafeSdk::startHome() {

@@ -35,6 +35,8 @@
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_btn_imagethumbdelete.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_btn_imagethumbmov.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_btn_keypad.xml \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_btn_photo_crop.xml \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_btn_photo_rotate.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_btn_popuplistclose.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_btn_wj_rec_play.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_btn_wj_rec_stop.xml \
@@ -99,6 +101,12 @@
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_keypad_normal.9.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_keypad_pressed.9.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_personal_profile_setting_camera.png \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_photo_cancel.png \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_photo_crop_normal.png \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_photo_crop_press.png \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_photo_done.png \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_photo_rotation_normal.png \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_photo_rotation_press.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_popuplistclose_dimmed.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_popuplistclose_normal.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_popuplistclose_pressed.png \
