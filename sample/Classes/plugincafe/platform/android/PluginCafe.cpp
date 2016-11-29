@@ -45,7 +45,7 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     }
 }
 
-void CafeSdk::initGlobal(std::string clientId, int plugId,
+void CafeSdk::initGlobal(std::string clientId, int communityId,
         std::string defaultChannelCode) {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "initGlobal",
@@ -54,8 +54,8 @@ void CafeSdk::initGlobal(std::string clientId, int plugId,
         jstring _defaultChannelCode = t.env->NewStringUTF(
                 defaultChannelCode.c_str());
 
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId, plugId,
-                _defaultChannelCode);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId,
+                communityId, _defaultChannelCode);
 
         t.env->DeleteLocalRef(_clientId);
         t.env->DeleteLocalRef(_defaultChannelCode);

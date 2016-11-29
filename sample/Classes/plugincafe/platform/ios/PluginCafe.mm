@@ -34,13 +34,13 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     [[NCSDKManager getSharedInstance] setOrientationIsLandscape:YES];
 }
     
-void CafeSdk::initGlobal(std::string clientId, int plugId, std::string defaultChannelCode) {
+void CafeSdk::initGlobal(std::string clientId, int communityId, std::string defaultChannelCode) {
     NSString *_clientId = [NSString stringWithUTF8String:clientId.c_str()];
     NSString *_defaultChannelCode = [NSString stringWithUTF8String:defaultChannelCode.c_str()];
     
     [[NCSDKManager getSharedInstance] setCountry:_defaultChannelCode];
     [[NCSDKManager getSharedInstance] setNeoIdConsumerKey:_clientId
-                                             globalCafeId:plugId];
+                                             globalCafeId:communityId];
 }
     
 void CafeSdk::setChannelCode(std::string channelCode) {

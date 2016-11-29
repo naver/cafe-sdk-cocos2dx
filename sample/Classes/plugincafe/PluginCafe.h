@@ -57,7 +57,7 @@ public:
     static void init(std::string clientId, std::string clientSecret,
             int cafeId);
 
-    static void initGlobal(std::string clientId, int plugId,
+    static void initGlobal(std::string clientId, int communityId,
             std::string defaultChannelCode);
 
     static void setChannelCode(std::string channelCode);
