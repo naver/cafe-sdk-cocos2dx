@@ -34,20 +34,20 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     [[NCSDKManager getSharedInstance] setOrientationIsLandscape:YES];
 }
     
-void CafeSdk::initGlobal(std::string clientId, int cafeId, std::string defaultCafeLangCode) {
+void CafeSdk::initGlobal(std::string clientId, int plugId, std::string defaultChannelCode) {
     NSString *_clientId = [NSString stringWithUTF8String:clientId.c_str()];
-    NSString *_defaultCafeLangCode = [NSString stringWithUTF8String:defaultCafeLangCode.c_str()];
+    NSString *_defaultChannelCode = [NSString stringWithUTF8String:defaultChannelCode.c_str()];
     
-    [[NCSDKManager getSharedInstance] setCountry:_defaultCafeLangCode];
+    [[NCSDKManager getSharedInstance] setCountry:_defaultChannelCode];
     [[NCSDKManager getSharedInstance] setNeoIdConsumerKey:_clientId
-                                             globalCafeId:cafeId];
+                                             globalCafeId:plugId];
 }
     
-void CafeSdk::setCafeLangCode(std::string cafeLangCode) {
-    [[NCSDKManager getSharedInstance] setCountry:[NSString stringWithUTF8String:cafeLangCode.c_str()]];
+void CafeSdk::setChannelCode(std::string channelCode) {
+    [[NCSDKManager getSharedInstance] setCountry:[NSString stringWithUTF8String:channelCode.c_str()]];
 }
     
-std::string CafeSdk::getCafeLangCode() {
+std::string CafeSdk::getChannelCode() {
     return [[NCSDKManager getSharedInstance].currentCountry UTF8String];
 }
 static CafeListener* gCafeListener = nullptr;

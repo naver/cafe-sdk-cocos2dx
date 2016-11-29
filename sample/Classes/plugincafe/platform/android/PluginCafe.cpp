@@ -45,41 +45,41 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     }
 }
 
-void CafeSdk::initGlobal(std::string clientId, int cafeId,
-        std::string defaultCafeLangCode) {
+void CafeSdk::initGlobal(std::string clientId, int plugId,
+        std::string defaultChannelCode) {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "initGlobal",
             "(Ljava/lang/String;ILjava/lang/String;)V")) {
         jstring _clientId = t.env->NewStringUTF(clientId.c_str());
-        jstring _defaultCafeLangCode = t.env->NewStringUTF(
-                defaultCafeLangCode.c_str());
+        jstring _defaultChannelCode = t.env->NewStringUTF(
+                defaultChannelCode.c_str());
 
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId, cafeId,
-                _defaultCafeLangCode);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId, plugId,
+                _defaultChannelCode);
 
         t.env->DeleteLocalRef(_clientId);
-        t.env->DeleteLocalRef(_defaultCafeLangCode);
+        t.env->DeleteLocalRef(_defaultChannelCode);
         t.env->DeleteLocalRef(t.classID);
     }
 }
 
-void CafeSdk::setCafeLangCode(std::string cafeLangCode) {
+void CafeSdk::setChannelCode(std::string channelCode) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "setCafeLangCode", "(Ljava/lang/String;)V")) {
-        jstring _cafeLangCode = t.env->NewStringUTF(cafeLangCode.c_str());
+    if (getStaticMethod(t, "setChannelCode", "(Ljava/lang/String;)V")) {
+        jstring _channelCode = t.env->NewStringUTF(channelCode.c_str());
 
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _cafeLangCode);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _channelCode);
 
-        t.env->DeleteLocalRef(_cafeLangCode);
+        t.env->DeleteLocalRef(_channelCode);
         t.env->DeleteLocalRef(t.classID);
     }
 }
 
-std::string CafeSdk::getCafeLangCode() {
+std::string CafeSdk::getChannelCode() {
     std::string result;
 
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "getCafeLangCode", "()Ljava/lang/String;")) {
+    if (getStaticMethod(t, "getChannelCode", "()Ljava/lang/String;")) {
         jstring jresult = (jstring) t.env->CallStaticObjectMethod(t.classID,
                 t.methodID);
         result = PluginJniHelper::jstring2string(jresult);
@@ -108,7 +108,8 @@ void CafeSdk::setThemeColor(std::string themeColorCSSString) {
 void CafeSdk::setThemeColor(std::string themeColorCSSString,
         std::string tabBackgroundColorCSSString) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "setThemeColor", "(Ljava/lang/String;Ljava/lang/String;)V")) {
+    if (getStaticMethod(t, "setThemeColor",
+            "(Ljava/lang/String;Ljava/lang/String;)V")) {
         jstring _themeColorCSSString = t.env->NewStringUTF(
                 themeColorCSSString.c_str());
         jstring _tabBackgroundColorCSSString = t.env->NewStringUTF(

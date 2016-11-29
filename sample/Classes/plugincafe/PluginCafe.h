@@ -12,23 +12,23 @@
 
 namespace cafe {
 
-/* 글로벌 언어 코드 상수 */
-static const std::string kLangCodeNone = ""; // 서버에서 설정한 디폴트 언어 사용.
-static const std::string kLangCodeKorean = "ko"; // 국내 카페로 초기화 된다.
-static const std::string kLangCodeEnglish = "en";
-static const std::string kLangCodeJapanese = "ja";
-static const std::string kLangCodeChineseSimplified = "zh_CN";
-static const std::string kLangCodeChineseTraditional = "zh_TW";
-static const std::string kLangCodeThai = "th";
-static const std::string kLangCodeSpanish = "es";
-static const std::string kLangCodeGerman = "de";
-static const std::string kLangCodeFrench = "fr";
-static const std::string kLangCodeRussian = "ru";
-static const std::string kLangCodeIndonesian = "id";
-static const std::string kLangCodeVietnamese = "vi";
-static const std::string kLangCodeItalian = "it";
-static const std::string kLangCodePortuguese = "pt";
-static const std::string kLangCodeTurkish = "tr";
+/* 글로벌 채널 코드 상수 */
+static const std::string kChannelCodeNone = ""; // 서버에서 설정한 디폴트 언어 사용.
+static const std::string kChannelCodeKorean = "ko"; // 국내 카페로 초기화 된다.
+static const std::string kChannelCodeEnglish = "en";
+static const std::string kChannelCodeJapanese = "ja";
+static const std::string kChannelCodeChineseSimplified = "zh_CN";
+static const std::string kChannelCodeChineseTraditional = "zh_TW";
+static const std::string kChannelCodeThai = "th";
+static const std::string kChannelCodeSpanish = "es";
+static const std::string kChannelCodeGerman = "de";
+static const std::string kChannelCodeFrench = "fr";
+static const std::string kChannelCodeRussian = "ru";
+static const std::string kChannelCodeIndonesian = "id";
+static const std::string kChannelCodeVietnamese = "vi";
+static const std::string kChannelCodeItalian = "it";
+static const std::string kChannelCodePortuguese = "pt";
+static const std::string kChannelCodeTurkish = "tr";
 
 /* SDK 종료 버튼 타입 */
 enum XButtonType {
@@ -57,11 +57,11 @@ public:
     static void init(std::string clientId, std::string clientSecret,
             int cafeId);
 
-    static void initGlobal(std::string clientId, int cafeId,
-            std::string defaultCafeLangCode);
+    static void initGlobal(std::string clientId, int plugId,
+            std::string defaultChannelCode);
 
-    static void setCafeLangCode(std::string cafeLangCode);
-    static std::string getCafeLangCode();
+    static void setChannelCode(std::string channelCode);
+    static std::string getChannelCode();
 
     static void setThemeColor(std::string themeColorCSSString);
     static void setThemeColor(std::string themeColorCSSString,

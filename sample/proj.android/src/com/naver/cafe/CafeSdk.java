@@ -29,8 +29,8 @@ public class CafeSdk {
 		initListeners();
 	}
 
-	public static void initGlobal(String clientId, int cafeId, String defaultCafeLangCode) {
-		Glink.initGlobal(getActivity(), clientId, cafeId, defaultCafeLangCode);
+	public static void initGlobal(String clientId, int plugId, String defaultChannelCode) {
+		Glink.initGlobal(getActivity(), clientId, plugId, defaultChannelCode);
 		initListeners();
 	}
 
@@ -152,12 +152,12 @@ public class CafeSdk {
 		});
 	}
 
-	public static void setCafeLangCode(String cafeLangCode) {
-		Glink.setCafeLangCode(cafeLangCode);
+	public static void setChannelCode(String channelCode) {
+		Glink.setChannelCode(channelCode);
 	}
 
-	public static String getCafeLangCode() {
-		return Glink.getCafeLangCode();
+	public static String getChannelCode() {
+		return Glink.getChannelCode();
 	}
 
 	public static void setThemeColor(String themeColorCSSString) {
