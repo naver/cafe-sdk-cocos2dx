@@ -90,7 +90,6 @@
           android:layout_marginLeft="22dp"
           android:layout_marginRight="22dp"
           android:layout_marginBottom="22dp"
-          android:src="@drawable/gl_with_naver_cafe_white"
           android:layout_alignParentBottom="true"/>
 
 
@@ -114,6 +113,7 @@
           android:orientation="vertical">
 
         <TextView
+            android:id="@+id/join_cafe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/join_cafe"
@@ -122,6 +122,7 @@
             android:textSize="24dp"/>
 
         <TextView
+            android:id="@+id/profile_cafe_information"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

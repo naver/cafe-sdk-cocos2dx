@@ -214,10 +214,6 @@ public class CafeSdk {
 		Glink.startProfile(getActivity());
 	}
 
-	public static void startMore() {
-		Glink.startMore(getActivity());
-	}
-
 	public static void startWrite(int menuId, String subject, String text) {
 		Glink.startWrite(getActivity(), menuId, subject, text);
 	}

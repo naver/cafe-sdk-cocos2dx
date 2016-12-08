@@ -18,6 +18,7 @@
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/articles_article_background.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/channel_name_background.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/empty_rectangle_background.xml \
+/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/empty_rectangle_background_pressed.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/floating_button_background.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_article_header_text_color.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_black_text.xml \
@@ -45,7 +46,6 @@
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_img_nickname_input.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_img_searchbar.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_list_selector.xml \
-/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_ls_boards_btn_move.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_ls_btn_comment_selector.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_ls_icon_check.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable/gl_ls_navi_1.xml \
@@ -199,8 +199,6 @@
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_scrubber_video_gray.9.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_scrubber_video_primary.9.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_thumb_personal_profile_stroke.png \
-/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_with_naver_cafe.png \
-/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_with_naver_cafe_white.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/icon_comments.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/icon_likes.png \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/icon_posts.png \
@@ -209,7 +207,6 @@
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/layout/dialog_loading.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/layout/fragment_article.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/layout/fragment_articles.xml \
-/Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/layout/fragment_blank.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/layout/fragment_comment.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/layout/fragment_full_image.xml \
 /Users/naver/dev/dev-cocos2d/cocos2dx-public/lib/android/res/layout/fragment_home.xml \
