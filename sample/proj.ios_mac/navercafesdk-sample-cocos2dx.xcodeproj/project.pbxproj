@@ -25,6 +25,10 @@
 		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		4A291E951D375B8100C0DFD5 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A291E941D375B8100C0DFD5 /* ReplayKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4A4F435B1DF923480000CBFF /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F43571DF923480000CBFF /* CHANGELOG.md */; };
+		4A4F435C1DF923480000CBFF /* NAVER-COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 4A4F43581DF923480000CBFF /* NAVER-COPYING */; };
+		4A4F435D1DF923480000CBFF /* NOTICE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A4F43591DF923480000CBFF /* NOTICE.txt */; };
+		4A4F435E1DF923480000CBFF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F435A1DF923480000CBFF /* README.md */; };
 		4A686AB91C96C1FB00F1C97B /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5D181BF2006100700256 /* GameController.framework */; };
 		4A97BBE41DACDF0200822E42 /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97BBC11DACDF0200822E42 /* FLAnimatedImage.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4A97BBE51DACDF0200822E42 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97BBC31DACDF0200822E42 /* FLAnimatedImageView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -163,6 +167,10 @@
 		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		4A291E941D375B8100C0DFD5 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ReplayKit.framework; sourceTree = DEVELOPER_DIR; };
 		4A43A2931CCEFFF800A852E1 /* PluginCafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginCafe.h; sourceTree = "<group>"; };
+		4A4F43571DF923480000CBFF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
+		4A4F43581DF923480000CBFF /* NAVER-COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "NAVER-COPYING"; path = "../../NAVER-COPYING"; sourceTree = "<group>"; };
+		4A4F43591DF923480000CBFF /* NOTICE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NOTICE.txt; path = ../../NOTICE.txt; sourceTree = "<group>"; };
+		4A4F435A1DF923480000CBFF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		4A97BBC01DACDF0200822E42 /* FLAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImage.h; sourceTree = "<group>"; };
 		4A97BBC11DACDF0200822E42 /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
 		4A97BBC21DACDF0200822E42 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
@@ -379,6 +387,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				4A4F43571DF923480000CBFF /* CHANGELOG.md */,
+				4A4F43581DF923480000CBFF /* NAVER-COPYING */,
+				4A4F43591DF923480000CBFF /* NOTICE.txt */,
+				4A4F435A1DF923480000CBFF /* README.md */,
 				4A97BBBF1DACDF0200822E42 /* FLAnimatedImage-1.0.12 */,
 				4A97BBC41DACDF0200822E42 /* SDWebImage-3.8.2 */,
 				4AFFF9721CD8746E00C3B280 /* AFNetworking-2.6.3 */,
@@ -722,6 +734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AFFF9701CD8745800C3B280 /* NaverCafeSDK.bundle in Resources */,
+				4A4F435C1DF923480000CBFF /* NAVER-COPYING in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
@@ -738,6 +751,7 @@
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				4A4F435D1DF923480000CBFF /* NOTICE.txt in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
@@ -775,6 +789,7 @@
 				4A97BBF21DACDF0200822E42 /* UIImageView+HighlightedWebCache.m in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				4A4F435E1DF923480000CBFF /* README.md in Sources */,
 				4AFFF9921CD8746E00C3B280 /* AFNetworkReachabilityManager.m in Sources */,
 				4A97BBEC1DACDF0200822E42 /* SDWebImageManager.m in Sources */,
 				4A97BBE91DACDF0200822E42 /* SDWebImageDecoder.m in Sources */,
@@ -795,6 +810,7 @@
 				4A97BBEA1DACDF0200822E42 /* SDWebImageDownloader.m in Sources */,
 				4AFFF99B1CD8746E00C3B280 /* NLoginThirdPartyOAuth20InAppBrowserViewController.m in Sources */,
 				4AFFF8E81CD0D55100C3B280 /* PluginCafe.mm in Sources */,
+				4A4F435B1DF923480000CBFF /* CHANGELOG.md in Sources */,
 				4A97BBF01DACDF0200822E42 /* UIImage+MultiFormat.m in Sources */,
 				4A97BBEE1DACDF0200822E42 /* UIButton+WebCache.m in Sources */,
 				4AFFF9981CD8746E00C3B280 /* UIImageView+AFNetworking.m in Sources */,
@@ -872,6 +888,7 @@
 					"$(_COCOS_LIB_IOS_END)",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.navercorp.plug.sample.navercafesdk-sample";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -917,6 +934,7 @@
 					"$(_COCOS_LIB_IOS_END)",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.navercorp.plug.sample.navercafesdk-sample";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";

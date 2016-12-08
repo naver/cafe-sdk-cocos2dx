@@ -38,18 +38,27 @@ void CafeSdk::initGlobal(std::string clientId, int communityId, std::string defa
     NSString *_clientId = [NSString stringWithUTF8String:clientId.c_str()];
     NSString *_defaultChannelCode = [NSString stringWithUTF8String:defaultChannelCode.c_str()];
     
-    [[NCSDKManager getSharedInstance] setCountry:_defaultChannelCode];
+    [[NCSDKManager getSharedInstance] setChannelCode:_defaultChannelCode];
     [[NCSDKManager getSharedInstance] setNeoIdConsumerKey:_clientId
-                                             globalCafeId:communityId];
+                                              communityId:communityId];
 }
     
 void CafeSdk::setChannelCode(std::string channelCode) {
-    [[NCSDKManager getSharedInstance] setCountry:[NSString stringWithUTF8String:channelCode.c_str()]];
+    [[NCSDKManager getSharedInstance] setChannelCode:[NSString stringWithUTF8String:channelCode.c_str()]];
 }
     
 std::string CafeSdk::getChannelCode() {
-    return [[NCSDKManager getSharedInstance].currentCountry UTF8String];
+    return [[NCSDKManager getSharedInstance].currentChannelCode UTF8String];
 }
+void CafeSdk::setThemeColor(std::string themeColorCSSString) {
+    [[NCSDKManager getSharedInstance] setThemeColor:[NSString stringWithUTF8String:themeColorCSSString.c_str()]];
+}
+void CafeSdk::setThemeColor(std::string themeColorCSSString,
+                            std::string tabBackgroundColorCSSString) {
+    [[NCSDKManager getSharedInstance] setThemeColor:[NSString stringWithUTF8String:themeColorCSSString.c_str()]
+                              andTabBackgroundColor:[NSString stringWithUTF8String:tabBackgroundColorCSSString.c_str()]];
+}
+    
 static CafeListener* gCafeListener = nullptr;
 
 void CafeSdk::setCafeListener(CafeListener* listener) {
@@ -57,6 +66,11 @@ void CafeSdk::setCafeListener(CafeListener* listener) {
     gCafeListener = listener;
 }
 
+void CafeSdk::setXButtonType(XButtonType type) {
+    GLXButtonType buttonXtype = type == kXButtonTypeMinimize ? kGLXButtonTypeMinimize : kGLXButtonTypeClose;
+    [[NCSDKManager getSharedInstance] setXButtonType:buttonXtype];
+}
+    
 void setParentViewController() {
     UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
     [[NCSDKManager getSharedInstance] setParentViewController:window.rootViewController];

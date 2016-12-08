@@ -13,7 +13,7 @@
 namespace cafe {
 
 /* 글로벌 채널 코드 상수 */
-static const std::string kChannelCodeNone = ""; // 서버에서 설정한 디폴트 언어 사용.
+static const std::string kChannelCodeNone = ""; // 디바이스 언어로 세팅
 static const std::string kChannelCodeKorean = "ko"; // 국내 카페로 초기화 된다.
 static const std::string kChannelCodeEnglish = "en";
 static const std::string kChannelCodeJapanese = "ja";

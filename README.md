@@ -6,16 +6,16 @@ Cafe SDK에 대하여 자세히 알고싶으시면 [네이버 CafeSDK 공식카�
 
 ![Overviw](/guide/images/widget_screenshot.gif)
 
-# v.2.1.1
-fixed
+v.2.2.0
+-------------
+####updated####
+1. PLUG에 테마 color 적용 가능
+2. PLUG 접기 기능 추가
+3. 프로필 사진 업데이트 기능 추가
+4. default channel이 device 지정 언어에 따라가도록 변경
 
-1. 처음 로그인할 경우, 오류 페이지가 노출되는 현상 수정.
-
-
-# v.2.1.0
-####updated
-1. 세로모드 지원
-
+####fixed####
+1. 알려진 버그 수정
 
 폴더 구조
 -------------

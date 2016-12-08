@@ -179,7 +179,7 @@ void HelloWorld::menuCallback(Ref* pSender) {
         break;
 
     case kTagCafeWrite1:
-        cafe::CafeSdk::startWrite(-1, "subject", "text");
+        cafe::CafeSdk::startWrite(-1, "", "");
         break;
 
     case kTagCafeWrite2: {
@@ -196,7 +196,7 @@ void HelloWorld::menuCallback(Ref* pSender) {
         if (texture->saveToFile(fileName, Image::Format::PNG)) {
             std::string imageUri = FileUtils::getInstance()->getWritablePath()
                     + fileName;
-            cafe::CafeSdk::startImageWrite(6, "subject", "text", imageUri);
+            cafe::CafeSdk::startImageWrite(-1, "", "", imageUri);
         }
     }
         break;
