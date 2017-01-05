@@ -87,9 +87,19 @@
             android:id="@+id/close"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/gl_btn_close"
+            android:background="@drawable/gl_ls_btn_close"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/collapse"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="12dp"
+            android:layout_toLeftOf="@id/close"
+            android:layout_centerInParent="true"
+            android:background="@drawable/gl_ls_btn_minimize"
             android:visibility="gone"/>
 
         <SeekBar

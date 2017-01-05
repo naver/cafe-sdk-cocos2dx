@@ -26,7 +26,6 @@
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/gl_btn_boardcancel.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/gl_btn_boardlistmenu.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/gl_btn_cancel.xml \
-/Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/gl_btn_close.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/gl_btn_confirm1.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/gl_btn_default_big.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/gl_btn_flmov.xml \
@@ -73,6 +72,7 @@
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/widget_record_timer.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable/widget_trash_rectangle.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-land/gl_btn_profile_modify_ok.xml \
+/Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-land/gl_menu_language_selector_background.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-land/menu_list_divider.xml \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-land-xhdpi-v4/gl_img_plate.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_alphacontrol_normal.png \
@@ -85,9 +85,6 @@
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_cancel_dimmed.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_cancel_normal.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_cancel_pressed.png \
-/Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_close_dimmed.png \
-/Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_close_normal.png \
-/Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_close_pressed.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_confirm1_dimmed.9.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_confirm1_normal.9.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_btn_confirm1_pressed.9.png \
@@ -149,9 +146,11 @@
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_boards_btn_move_on.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_back.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_back_pr.png \
+/Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_close.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_comment.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_comment_pressed.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_login_back.png \
+/Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_minimize.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_mov.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_mov_pressed.png \
 /Users/naver/dev/plug-publics/cocos2dx-public/lib/android/res/drawable-xhdpi-v4/gl_ls_btn_photo.png \
