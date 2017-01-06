@@ -4,11 +4,14 @@ import android.widget.Toast;
 import com.naver.glink.android.sdk.Glink;
 import com.naver.glink.android.sdk.Glink.OnClickAppSchemeBannerListener;
 import com.naver.glink.android.sdk.Glink.OnJoinedListener;
+import com.naver.glink.android.sdk.Glink.OnLoggedInListener;
 import com.naver.glink.android.sdk.Glink.OnPostedArticleListener;
 import com.naver.glink.android.sdk.Glink.OnPostedCommentListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStartedListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStoppedListener;
 import com.naver.glink.android.sdk.Glink.OnWidgetScreenshotClickListener;
+import com.naver.glink.android.sdk.NaverIdLogin;
+import com.naver.glink.android.sdk.NaverIdLogin.OnGetProfileListener;
 import com.naver.glink.android.sdk.Statistics;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
@@ -29,8 +32,8 @@ public class CafeSdk {
 		initListeners();
 	}
 
-	public static void initGlobal(String clientId, int plugId, String defaultChannelCode) {
-		Glink.initGlobal(getActivity(), clientId, plugId, defaultChannelCode);
+	public static void initGlobal(String clientId, int plugId) {
+		Glink.initGlobal(getActivity(), clientId, plugId);
 		initListeners();
 	}
 
@@ -168,24 +171,6 @@ public class CafeSdk {
 		Glink.setThemeColor(themeColorCSSString, tabBackgroundColorCSSString);
 	}
 
-	private static native void nativeOnSdkStarted();
-
-	private static native void nativeOnSdkStopped();
-
-	private static native void nativeOnClickAppSchemeBanner(String appScheme);
-
-	private static native void nativeOnJoined();
-
-	private static native void nativeOnPostedArticle(int menuId, int imageCount, int videoCount);
-
-	private static native void nativeOnPostedComment(int articleId);
-
-	private static native void nativeOnVoted(int articleId);
-
-	private static native void nativeOnWidgetScreenshotClick();
-
-	private static native void nativeOnRecordFinished(String uri);
-
 	public static void startHome() {
 		Glink.startHome(getActivity());
 	}
@@ -198,20 +183,16 @@ public class CafeSdk {
 		Glink.startEvent(getActivity());
 	}
 
-	public static void startMenu(int menuId) {
-		if (menuId == -1) {
-			Glink.startMenu(getActivity());
-		} else {
-			Glink.startMenu(getActivity(), menuId);
-		}
+	public static void startMenu() {
+		Glink.startMenu(getActivity());
 	}
 
 	public static void startProfile() {
 		Glink.startProfile(getActivity());
 	}
 
-	public static void startWrite(int menuId, String subject, String text) {
-		Glink.startWrite(getActivity(), menuId, subject, text);
+	public static void startWrite() {
+		Glink.startWrite(getActivity());
 	}
 
 	private static String addFileScheme(String filePath) {
@@ -224,12 +205,12 @@ public class CafeSdk {
 		}
 	}
 
-	public static void startImageWrite(int menuId, String subject, String text, String imageUri) {
-		Glink.startImageWrite(getActivity(), menuId, subject, text, addFileScheme(imageUri));
+	public static void startImageWrite(String imageUri) {
+		Glink.startImageWrite(getActivity(), addFileScheme(imageUri));
 	}
 
-	public static void startVideoWrite(int menuId, String subject, String text, String videoUri) {
-		Glink.startVideoWrite(getActivity(), menuId, subject, text, addFileScheme(videoUri));
+	public static void startVideoWrite(String videoUri) {
+		Glink.startVideoWrite(getActivity(), addFileScheme(videoUri));
 	}
 
 	public static void syncGameUserId(String gameUserId) {
@@ -240,16 +221,54 @@ public class CafeSdk {
 		return Glink.isShowGlink(getActivity());
 	}
 
-	public static void showWidgetWhenUnloadSdk(boolean use) {
-		Glink.showWidgetWhenUnloadSdk(getActivity(), use);
+	public static void startArticle(int articleId) {
+		Glink.startArticle(getActivity(), articleId);
+	}
+
+	public static void startWidget() {
+		Glink.startWidget(getActivity());
 	}
 
 	public static void stopWidget() {
 		Glink.stopWidget(getActivity());
 	}
 
+	public static void showWidgetWhenUnloadSdk(boolean use) {
+		Glink.showWidgetWhenUnloadSdk(getActivity(), use);
+	}
+
 	public static void setUseVideoRecord(boolean use) {
 		Glink.setUseVideoRecord(getActivity(), use);
+	}
+
+	public static void setCompanyName(String companyName) {
+		Glink.setCompanyName(companyName);
+	}
+
+	public static void login() {
+		NaverIdLogin.login(getActivity(), new OnLoggedInListener() {
+			@Override
+			public void onLoggedIn(boolean success) {
+				nativeOnLoggedIn(success);
+			}
+		});
+	}
+
+	public static void logout() {
+		NaverIdLogin.logout(getActivity());
+	}
+
+	public static boolean isLogin() {
+		return NaverIdLogin.isLogin(getActivity());
+	}
+
+	public static void getProfile() {
+		NaverIdLogin.getProfile(getActivity(), new OnGetProfileListener() {
+			@Override
+			public void onResult(String jsonString) {
+				nativeOnGetProfileResult(jsonString);
+			}
+		});
 	}
 
 	public static void sendNewUser(String gameUserId, String market) {
@@ -268,4 +287,26 @@ public class CafeSdk {
 			}
 		});
 	}
+
+	private static native void nativeOnSdkStarted();
+
+	private static native void nativeOnSdkStopped();
+
+	private static native void nativeOnClickAppSchemeBanner(String appScheme);
+
+	private static native void nativeOnJoined();
+
+	private static native void nativeOnPostedArticle(int menuId, int imageCount, int videoCount);
+
+	private static native void nativeOnPostedComment(int articleId);
+
+	private static native void nativeOnVoted(int articleId);
+
+	private static native void nativeOnWidgetScreenshotClick();
+
+	private static native void nativeOnRecordFinished(String uri);
+
+	private static native void nativeOnLoggedIn(boolean success);
+
+	private static native void nativeOnGetProfileResult(String jsonString);
 }

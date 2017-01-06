@@ -4,7 +4,10 @@
 #include "cocos2d.h"
 #include "PluginCafe.h"
 
-class HelloWorld: public cocos2d::Layer, cafe::CafeListener {
+class HelloWorld: public cocos2d::Layer,
+        cafe::CafeListener,
+        cafe::NaverIdLoginListener,
+        cafe::NaverIdLoginGetProfileListener {
 public:
     static cocos2d::Scene* createScene();
 
@@ -19,7 +22,7 @@ public:
 private:
     void initCafeSdkButtons(cocos2d::Menu* menu);
     void initCafeSdkMenu(cocos2d::Menu* menu);
-    
+
     void menuCallback(Ref* pSender);
 
     void onCafeSdkStarted();
@@ -31,6 +34,9 @@ private:
     void onCafeSdkDidVote(int articleId);
     void onCafeSdkWidgetScreenshotClick();
     void onCafeSdkOnRecordFinished(const std::string& fileUrl);
+
+    void onNaverIdLoggedIn(bool success);
+    void onNaverIdProfileResult(std::string jsonString);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -45,20 +45,15 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     }
 }
 
-void CafeSdk::initGlobal(std::string clientId, int communityId,
-        std::string defaultChannelCode) {
+void CafeSdk::initGlobal(std::string clientId, int communityId) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "initGlobal",
-            "(Ljava/lang/String;ILjava/lang/String;)V")) {
+    if (getStaticMethod(t, "initGlobal", "(Ljava/lang/String;I)V")) {
         jstring _clientId = t.env->NewStringUTF(clientId.c_str());
-        jstring _defaultChannelCode = t.env->NewStringUTF(
-                defaultChannelCode.c_str());
 
         t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId,
-                communityId, _defaultChannelCode);
+                communityId);
 
         t.env->DeleteLocalRef(_clientId);
-        t.env->DeleteLocalRef(_defaultChannelCode);
         t.env->DeleteLocalRef(t.classID);
     }
 }
@@ -124,16 +119,6 @@ void CafeSdk::setThemeColor(std::string themeColorCSSString,
     }
 }
 
-void CafeSdk::setXButtonType(XButtonType type) {
-    bool use = type == XButtonType::kXButtonTypeClose;
-
-    PluginJniMethodInfo t;
-    if (getStaticMethod(t, "setXButtonTypeClose", "(Z)V")) {
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
-        t.env->DeleteLocalRef(t.classID);
-    }
-}
-
 void CafeSdk::startHome() {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "startHome", "()V")) {
@@ -159,13 +144,9 @@ void CafeSdk::startEvent() {
 }
 
 void CafeSdk::startMenu() {
-    startMenu(-1);
-}
-
-void CafeSdk::startMenu(int menuId) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "startMenu", "(I)V")) {
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, menuId);
+    if (getStaticMethod(t, "startMenu", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
         t.env->DeleteLocalRef(t.classID);
     }
 }
@@ -178,6 +159,14 @@ void CafeSdk::startProfile() {
     }
 }
 
+void CafeSdk::startArticle(int articleId) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "startArticle", "(I)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, articleId);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
 void CafeSdk::startMore() {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "startMore", "()V")) {
@@ -186,55 +175,29 @@ void CafeSdk::startMore() {
     }
 }
 
-void CafeSdk::startWrite(int menuId, std::string subject, std::string text) {
+void CafeSdk::startWrite() {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "startWrite",
-            "(ILjava/lang/String;Ljava/lang/String;)V")) {
-        jstring _subject = t.env->NewStringUTF(subject.c_str());
-        jstring _text = t.env->NewStringUTF(text.c_str());
-
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, menuId, _subject,
-                _text);
-
-        t.env->DeleteLocalRef(_subject);
-        t.env->DeleteLocalRef(_text);
+    if (getStaticMethod(t, "startWrite", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
         t.env->DeleteLocalRef(t.classID);
     }
 }
 
-void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text,
-        std::string imageUri) {
+void CafeSdk::startImageWrite(std::string imageUri) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "startImageWrite",
-            "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")) {
-        jstring _subject = t.env->NewStringUTF(subject.c_str());
-        jstring _text = t.env->NewStringUTF(text.c_str());
+    if (getStaticMethod(t, "startImageWrite", "(Ljava/lang/String;)V")) {
         jstring _imageUri = t.env->NewStringUTF(imageUri.c_str());
-
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, menuId, _subject,
-                _text, _imageUri);
-
-        t.env->DeleteLocalRef(_subject);
-        t.env->DeleteLocalRef(_text);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _imageUri);
         t.env->DeleteLocalRef(_imageUri);
         t.env->DeleteLocalRef(t.classID);
     }
 }
 
-void CafeSdk::startVideoWrite(int menuId, std::string subject, std::string text,
-        std::string videoUri) {
+void CafeSdk::startVideoWrite(std::string videoUri) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "startVideoWrite",
-            "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")) {
-        jstring _subject = t.env->NewStringUTF(subject.c_str());
-        jstring _text = t.env->NewStringUTF(text.c_str());
+    if (getStaticMethod(t, "startVideoWrite", "(Ljava/lang/String;)V")) {
         jstring _videoUri = t.env->NewStringUTF(videoUri.c_str());
-
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, menuId, _subject,
-                _text, _videoUri);
-
-        t.env->DeleteLocalRef(_subject);
-        t.env->DeleteLocalRef(_text);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _videoUri);
         t.env->DeleteLocalRef(_videoUri);
         t.env->DeleteLocalRef(t.classID);
     }
@@ -252,10 +215,10 @@ void CafeSdk::syncGameUserId(std::string gameUserId) {
     }
 }
 
-void CafeSdk::showWidgetWhenUnloadSdk(bool use) {
+void CafeSdk::startWidget() {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "showWidgetWhenUnloadSdk", "(Z)V")) {
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
+    if (getStaticMethod(t, "startWidget", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
         t.env->DeleteLocalRef(t.classID);
     }
 }
@@ -268,10 +231,30 @@ void CafeSdk::stopWidget() {
     }
 }
 
+void CafeSdk::showWidgetWhenUnloadSdk(bool use) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "showWidgetWhenUnloadSdk", "(Z)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
 void CafeSdk::setUseVideoRecord(bool use) {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "setUseVideoRecord", "(Z)V")) {
         t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void CafeSdk::setCompanyName(std::string companyName) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "setCompanyName", "(Ljava/lang/String;)V")) {
+        jstring _companyName = t.env->NewStringUTF(companyName.c_str());
+
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _companyName);
+
+        t.env->DeleteLocalRef(_companyName);
         t.env->DeleteLocalRef(t.classID);
     }
 }
@@ -288,6 +271,68 @@ void CafeSdk::showToast(std::string text) {
     }
 }
 
+/**
+ * 네이버 아이디 로그인.
+ */
+
+static NaverIdLoginListener* gNaverIdLoginListener = nullptr;
+static NaverIdLoginGetProfileListener* gNaverIdLoginGetProfileListener = nullptr;
+
+NaverIdLoginListener::~NaverIdLoginListener() {
+    // do nothing.
+}
+
+NaverIdLoginGetProfileListener::~NaverIdLoginGetProfileListener() {
+    // do nothing.
+}
+
+void NaverIdLogin::init(std::string clientId, std::string clientSecret) {
+    CafeSdk::init(clientId, clientSecret, -1);
+}
+
+void NaverIdLogin::login(NaverIdLoginListener* listener) {
+    gNaverIdLoginListener = listener;
+
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "login", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void NaverIdLogin::logout() {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "logout", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+bool NaverIdLogin::isLogin() {
+    bool result = false;
+
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "isLogin", "()Z")) {
+        result = (bool) t.env->CallStaticBooleanMethod(t.classID, t.methodID);
+        t.env->DeleteLocalRef(t.classID);
+    }
+
+    return result;
+}
+
+void NaverIdLogin::getProfile(NaverIdLoginGetProfileListener* listener) {
+    gNaverIdLoginGetProfileListener = listener;
+
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "getProfile", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+/**
+ * 웹툰 통계 기능.
+ */
 void Statistics::sendNewUser(std::string gameUserId, std::string market) {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "sendNewUser",
@@ -381,6 +426,19 @@ Java_com_naver_cafe_CafeSdk_nativeOnRecordFinished(JNIEnv* env, jobject thiz, js
     if (gCafeListener == nullptr) return;
     std::string _fileUri = PluginJniHelper::jstring2string(fileUri);
     gCafeListener->onCafeSdkOnRecordFinished(_fileUri);
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnLoggedIn(JNIEnv* env, jobject thiz, jboolean success) {
+    if (gNaverIdLoginListener == nullptr) return;
+    gNaverIdLoginListener->onNaverIdLoggedIn(success);
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnGetProfileResult(JNIEnv* env, jobject thiz, jstring jsonString) {
+    if (gNaverIdLoginGetProfileListener == nullptr) return;
+    std::string _jsonString = PluginJniHelper::jstring2string(jsonString);
+    gNaverIdLoginGetProfileListener->onNaverIdProfileResult(_jsonString);
 }
 
 }

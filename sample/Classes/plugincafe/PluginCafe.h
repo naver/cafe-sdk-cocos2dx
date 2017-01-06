@@ -30,11 +30,6 @@ static const std::string kChannelCodeItalian = "it";
 static const std::string kChannelCodePortuguese = "pt";
 static const std::string kChannelCodeTurkish = "tr";
 
-/* SDK 종료 버튼 타입 */
-enum XButtonType {
-    kXButtonTypeMinimize = 0, kXButtonTypeClose = 1
-};
-
 class CafeListener {
 public:
     virtual void onCafeSdkStarted() = 0;
@@ -57,8 +52,7 @@ public:
     static void init(std::string clientId, std::string clientSecret,
             int cafeId);
 
-    static void initGlobal(std::string clientId, int communityId,
-            std::string defaultChannelCode);
+    static void initGlobal(std::string clientId, int communityId);
 
     static void setChannelCode(std::string channelCode);
     static std::string getChannelCode();
@@ -69,31 +63,64 @@ public:
 
     static void setCafeListener(CafeListener* listener);
 
-    static void setXButtonType(XButtonType type);
-
     static void startHome();
     static void startNotice();
     static void startEvent();
     static void startMenu();
-    static void startMenu(int menuId);
     static void startProfile();
+    static void startArticle(int articleId);
     static void startMore();
 
-    static void startWrite(int menuId, std::string subject, std::string text);
-    static void startImageWrite(int menuId, std::string subject,
-            std::string text, std::string imageUri);
-    static void startVideoWrite(int menuId, std::string subject,
-            std::string text, std::string videoUri);
+    static void startWrite();
+    static void startImageWrite(std::string imageUri);
+    static void startVideoWrite(std::string videoUri);
 
     /* 게임 아이디와 카페 아이디를 연동합니다. */
     static void syncGameUserId(std::string gameUserId);
 
-    static void showWidgetWhenUnloadSdk(bool use);
+    static void startWidget();
     static void stopWidget();
+    static void showWidgetWhenUnloadSdk(bool use);
+
     static void setUseVideoRecord(bool use);
+    static void setCompanyName(std::string companyName);
 
     static void showToast(std::string text);
 };
+
+
+/**
+ * 네이버 아이디 로그인.
+ *
+ * docs: https://developers.naver.com/docs/login/overview
+ */
+class NaverIdLoginListener {
+public:
+    virtual void onNaverIdLoggedIn(bool success) = 0;
+    virtual ~NaverIdLoginListener();
+};
+
+class NaverIdLoginGetProfileListener {
+public:
+    virtual void onNaverIdProfileResult(std::string jsonString) = 0;
+    virtual ~NaverIdLoginGetProfileListener();
+};
+
+class NaverIdLogin {
+public:
+    static void init(std::string clientId, std::string clientSecret);
+    static void login(NaverIdLoginListener* listener);
+    static void logout();
+    static bool isLogin();
+
+    /* docs: https://developers.naver.com/docs/login/profile */
+    static void getProfile(NaverIdLoginGetProfileListener* listener);
+};
+
+
+/**
+ * 웹툰 통계 기능.
+ */
 
 /* 통계 관련 상수. */
 static const std::string kCurrencyNone = "NONE";

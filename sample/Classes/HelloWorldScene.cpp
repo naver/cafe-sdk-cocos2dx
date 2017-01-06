@@ -3,18 +3,26 @@
 USING_NS_CC;
 
 enum CafeSdkTags {
-    kTagCafeHome,
-    kTagCafeNotice,
-    kTagCafeEvent,
-    kTagCafeMenu,
-    kTagCafeMenuById,
-    kTagCafeProfile,
-    kTagCafeWrite1,
-    kTagCafeWrite2,
+    kTagHome,
+    kTagNotice,
+    kTagEvent,
+    kTagMenu,
+    kTagProfile,
+    kTagArticle,
+    kTagWrite1,
+    kTagWrite2,
+    kTagLogin,
+    kTagLogout,
+    kTagIsLogin,
+    kTagGetProfile,
     kTagShowRecord,
     kTagSendNewUser,
     kTagSendPayUser,
 };
+
+static void showToast(std::string text) {
+    // cafe::CafeSdk::showToast(text);
+}
 
 Scene* HelloWorld::createScene() {
     // 'scene' is an autorelease object
@@ -67,8 +75,7 @@ bool HelloWorld::init() {
     cafe::CafeSdk::init("197CymaStozo7X5r2qR5", "evCgKH1kJL", 28290504);
 
     // 글로벌 카페 초기화. 국내 카페만 사용할 경우 initGlobal을 하지 않아도 됩니다.
-    cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329,
-            cafe::kChannelCodeNone);
+    cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329);
 
     cafe::CafeSdk::setCafeListener(this);
 
@@ -78,7 +85,6 @@ bool HelloWorld::init() {
      * - 다만, theme color에 alpha값이 없어야 합니다.
      */
     cafe::CafeSdk::setThemeColor("#2e65d9", "#44484e");
-    cafe::CafeSdk::setXButtonType(cafe::kXButtonTypeMinimize);
 
     return true;
 }
@@ -97,7 +103,7 @@ void HelloWorld::initCafeSdkButtons(Menu* menu) {
 
     auto navercafe = MenuItemImage::create("icon1.png", "icon1.png",
             CC_CALLBACK_1(HelloWorld::menuCallback, this));
-    navercafe->setTag(kTagCafeHome);
+    navercafe->setTag(kTagHome);
     navercafe->setPosition(
             Vec2(origin.x + navercafe->getContentSize().width,
                     origin.y + visibleSize.height
@@ -107,7 +113,7 @@ void HelloWorld::initCafeSdkButtons(Menu* menu) {
     auto screenshot = MenuItemImage::create("icon2.png", "icon2.png",
             CC_CALLBACK_1(HelloWorld::menuCallback, this));
 
-    screenshot->setTag(kTagCafeWrite2);
+    screenshot->setTag(kTagWrite2);
     screenshot->setPosition(
             Vec2(origin.x + screenshot->getContentSize().width,
                     origin.y + visibleSize.height
@@ -117,14 +123,18 @@ void HelloWorld::initCafeSdkButtons(Menu* menu) {
 
 void HelloWorld::initCafeSdkMenu(Menu* menu) {
     std::vector < std::pair<int, const char*> > items;
-    items.push_back(std::make_pair(kTagCafeHome, "home"));
-    items.push_back(std::make_pair(kTagCafeNotice, "notice"));
-    items.push_back(std::make_pair(kTagCafeEvent, "event"));
-    items.push_back(std::make_pair(kTagCafeMenu, "menu"));
-    items.push_back(std::make_pair(kTagCafeMenuById, "menu(id:7)"));
-    items.push_back(std::make_pair(kTagCafeProfile, "profile"));
-    items.push_back(std::make_pair(kTagCafeWrite1, "write1"));
-    items.push_back(std::make_pair(kTagCafeWrite2, "write2"));
+    items.push_back(std::make_pair(kTagHome, "home"));
+    items.push_back(std::make_pair(kTagNotice, "notice"));
+    items.push_back(std::make_pair(kTagEvent, "event"));
+    items.push_back(std::make_pair(kTagMenu, "menu"));
+    items.push_back(std::make_pair(kTagProfile, "profile"));
+    items.push_back(std::make_pair(kTagArticle, "article"));
+    items.push_back(std::make_pair(kTagWrite1, "write1"));
+    items.push_back(std::make_pair(kTagWrite2, "write2"));
+    items.push_back(std::make_pair(kTagLogin, "login"));
+    items.push_back(std::make_pair(kTagLogout, "logout"));
+    items.push_back(std::make_pair(kTagIsLogin, "is login"));
+    items.push_back(std::make_pair(kTagGetProfile, "get profile"));
     items.push_back(std::make_pair(kTagShowRecord, "show record"));
     items.push_back(std::make_pair(kTagSendNewUser, "send NU"));
     items.push_back(std::make_pair(kTagSendPayUser, "send PU"));
@@ -154,35 +164,35 @@ void HelloWorld::menuCallback(Ref* pSender) {
     auto item = (MenuItemFont*) pSender;
 
     switch (item->getTag()) {
-    case kTagCafeHome:
+    case kTagHome:
         cafe::CafeSdk::startHome();
         break;
 
-    case kTagCafeNotice:
+    case kTagNotice:
         cafe::CafeSdk::startNotice();
         break;
 
-    case kTagCafeEvent:
+    case kTagEvent:
         cafe::CafeSdk::startEvent();
         break;
 
-    case kTagCafeMenu:
+    case kTagMenu:
         cafe::CafeSdk::startMenu();
         break;
 
-    case kTagCafeMenuById:
-        cafe::CafeSdk::startMenu(7);
-        break;
-
-    case kTagCafeProfile:
+    case kTagProfile:
         cafe::CafeSdk::startProfile();
         break;
 
-    case kTagCafeWrite1:
-        cafe::CafeSdk::startWrite(-1, "", "");
+    case kTagArticle:
+        cafe::CafeSdk::startArticle(1);
         break;
 
-    case kTagCafeWrite2: {
+    case kTagWrite1:
+        cafe::CafeSdk::startWrite();
+        break;
+
+    case kTagWrite2: {
         CCSize screenSize = Director::getInstance()->getWinSize();
         RenderTexture* texture = RenderTexture::create(screenSize.width,
                 screenSize.height);
@@ -196,9 +206,25 @@ void HelloWorld::menuCallback(Ref* pSender) {
         if (texture->saveToFile(fileName, Image::Format::PNG)) {
             std::string imageUri = FileUtils::getInstance()->getWritablePath()
                     + fileName;
-            cafe::CafeSdk::startImageWrite(-1, "", "", imageUri);
+            cafe::CafeSdk::startImageWrite(imageUri);
         }
     }
+        break;
+
+    case kTagLogin:
+        cafe::NaverIdLogin::login(this);
+        break;
+
+    case kTagLogout:
+        cafe::NaverIdLogin::logout();
+        break;
+
+    case kTagIsLogin:
+        showToast(StringUtils::format("%d", cafe::NaverIdLogin::isLogin()));
+        break;
+
+    case kTagGetProfile:
+        cafe::NaverIdLogin::getProfile(this);
         break;
 
     case kTagShowRecord:
@@ -220,37 +246,35 @@ void HelloWorld::menuCallback(Ref* pSender) {
 }
 
 void HelloWorld::onCafeSdkStarted() {
-//    cafe::CafeSdk::showToast("onCafeSdkStarted");
+    showToast("onCafeSdkStarted");
 }
 
 void HelloWorld::onCafeSdkStopped() {
-//    cafe::CafeSdk::showToast("onCafeSdkStopped");
+    showToast("onCafeSdkStopped");
 }
 
 void HelloWorld::onCafeSdkClickAppSchemeBanner(const std::string& appScheme) {
-//    cafe::CafeSdk::showToast(appScheme);
+    showToast(appScheme);
 }
 
 void HelloWorld::onCafeSdkJoined() {
-//    cafe::CafeSdk::showToast("onCafeSdkJoined");
+    showToast("onCafeSdkJoined");
 }
 
 void HelloWorld::onCafeSdkPostedArticle(int menuId, int imageCount,
         int videoCount) {
-//    cafe::CafeSdk::showToast(
-//            "onCafeSdkPostedArticle "
-//                    + StringUtils::format("%d, %d, %d", menuId, imageCount,
-//                            videoCount));
+    showToast(
+            "onCafeSdkPostedArticle "
+                    + StringUtils::format("%d, %d, %d", menuId, imageCount,
+                            videoCount));
 }
 
 void HelloWorld::onCafeSdkPostedComment(int articleId) {
-//    cafe::CafeSdk::showToast(
-//            "onCafeSdkPostedComment " + StringUtils::format("%d", articleId));
+    showToast("onCafeSdkPostedComment " + StringUtils::format("%d", articleId));
 }
 
 void HelloWorld::onCafeSdkDidVote(int articleId) {
-//    cafe::CafeSdk::showToast(
-//            "onCafeSdkDidVote " + StringUtils::format("%d", articleId));
+    showToast("onCafeSdkDidVote " + StringUtils::format("%d", articleId));
 }
 
 void HelloWorld::onCafeSdkWidgetScreenshotClick() {
@@ -267,10 +291,18 @@ void HelloWorld::onCafeSdkWidgetScreenshotClick() {
     if (texture->saveToFile(fileName, Image::Format::PNG)) {
         std::string imageUri = FileUtils::getInstance()->getWritablePath()
                 + fileName;
-        cafe::CafeSdk::startImageWrite(-1, "", "", imageUri);
+        cafe::CafeSdk::startImageWrite(imageUri);
     }
 }
 
 void HelloWorld::onCafeSdkOnRecordFinished(const std::string& fileUrl) {
-    cafe::CafeSdk::startVideoWrite(-1, "", "", fileUrl);
+    cafe::CafeSdk::startVideoWrite(fileUrl);
+}
+
+void HelloWorld::onNaverIdLoggedIn(bool success) {
+    showToast("onNaverIdLoggedIn " + StringUtils::format("%d", success));
+}
+
+void HelloWorld::onNaverIdProfileResult(std::string jsonString) {
+    showToast("onNaverIdLoggedIn " + jsonString);
 }
