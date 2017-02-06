@@ -81,13 +81,12 @@ public:
     static void startWidget();
     static void stopWidget();
     static void showWidgetWhenUnloadSdk(bool use);
+    static void setWidgetStartPosition(bool isLeft, int heightPercentage);
 
     static void setUseVideoRecord(bool use);
-    static void setCompanyName(std::string companyName);
 
     static void showToast(std::string text);
 };
-
 
 /**
  * 네이버 아이디 로그인.
@@ -116,7 +115,6 @@ public:
     /* docs: https://developers.naver.com/docs/login/profile */
     static void getProfile(NaverIdLoginGetProfileListener* listener);
 };
-
 
 /**
  * 웹툰 통계 기능.

@@ -239,22 +239,19 @@ void CafeSdk::showWidgetWhenUnloadSdk(bool use) {
     }
 }
 
-void CafeSdk::setUseVideoRecord(bool use) {
+void CafeSdk::setWidgetStartPosition(bool isLeft, int heightPercentage) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "setUseVideoRecord", "(Z)V")) {
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
+    if (getStaticMethod(t, "setWidgetStartPosition", "(ZI)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, isLeft,
+                heightPercentage);
         t.env->DeleteLocalRef(t.classID);
     }
 }
 
-void CafeSdk::setCompanyName(std::string companyName) {
+void CafeSdk::setUseVideoRecord(bool use) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "setCompanyName", "(Ljava/lang/String;)V")) {
-        jstring _companyName = t.env->NewStringUTF(companyName.c_str());
-
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _companyName);
-
-        t.env->DeleteLocalRef(_companyName);
+    if (getStaticMethod(t, "setUseVideoRecord", "(Z)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
         t.env->DeleteLocalRef(t.classID);
     }
 }

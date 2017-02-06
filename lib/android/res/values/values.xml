@@ -54,7 +54,7 @@
     <declare-styleable name="FloatingActionButton"><attr format="color" name="fab_colorNormal"/><attr format="color" name="fab_colorPressed"/><attr format="color" name="fab_colorDisabled"/><attr format="color" name="fab_colorRipple"/><attr format="boolean" name="fab_showShadow"/><attr format="color" name="fab_shadowColor"/><attr format="dimension" name="fab_shadowRadius"/><attr format="dimension" name="fab_shadowXOffset"/><attr format="dimension" name="fab_shadowYOffset"/><attr format="enum" name="fab_size">
       <enum name="normal" value="0"/>
       <enum name="mini" value="1"/>
-    </attr><attr format="reference" name="fab_showAnimation"/><attr format="reference" name="fab_hideAnimation"/><attr format="string" name="fab_label"/><attr format="dimension" name="fab_elevationCompat"/><attr format="color" name="fab_progress_color"/><attr format="color" name="fab_progress_backgroundColor"/><attr format="boolean" name="fab_progress_indeterminate"/><attr format="integer" name="fab_progress_max"/><attr format="integer" name="fab_progress"/><attr format="boolean" name="fab_progress_showBackground"/></declare-styleable>
+    </attr><attr format="reference" name="fab_showAnimation"/><attr format="reference" name="fab_hideAnimation"/><attr format="string" name="fab_label"/><attr format="dimension" name="fab_elevationCompat"/><attr format="color" name="fab_progress_color"/><attr format="color" name="fab_progress_backgroundColor"/><attr format="boolean" name="fab_progress_indeterminate"/><attr format="integer" name="fab_progress_max"/><attr format="integer" name="fab_progress"/><attr format="boolean" name="fab_progress_showBackground"/><attr format="boolean" name="fab_is_trash"/></declare-styleable>
     <declare-styleable name="FloatingActionMenu"><attr format="boolean" name="menu_showShadow"/><attr format="dimension" name="menu_buttonSpacing"/><attr format="dimension" name="menu_labels_margin"/><attr format="reference" name="menu_labels_showAnimation"/><attr format="reference" name="menu_labels_hideAnimation"/><attr format="dimension" name="menu_labels_paddingTop"/><attr format="dimension" name="menu_labels_paddingLeft"/><attr format="dimension" name="menu_labels_paddingRight"/><attr format="dimension" name="menu_labels_paddingBottom"/><attr format="dimension" name="menu_labels_padding"/><attr format="reference|color" name="menu_labels_textColor"/><attr format="dimension" name="menu_labels_textSize"/><attr format="dimension" name="menu_labels_cornerRadius"/><attr format="boolean" name="menu_labels_showShadow"/><attr format="color" name="menu_labels_colorNormal"/><attr format="color" name="menu_labels_colorPressed"/><attr format="color" name="menu_labels_colorRipple"/><attr format="enum" name="menu_labels_position">
       <enum name="left" value="0"/>
       <enum name="right" value="1"/>
@@ -107,6 +107,7 @@
     <dimen name="glink_widget_padding">9dp</dimen>
     <dimen name="glink_widget_size_normal">54dp</dimen>
     <dimen name="labels_text_size">14sp</dimen>
+    <dimen name="viewer_animation_speed">2dp</dimen>
     <dimen name="widget_speed">3dp</dimen>
     <item name="fab_label" type="id"/>
     <item name="glide_image_url_tag" type="id"/>
@@ -266,6 +267,10 @@
   </style>
     <style name="Theme.glink.seekbar" parent="@android:style/Theme.Black">
 
+  </style>
+    <style name="multimedia_dialog_anim" parent="android:Animation">
+    <item name="@android:windowEnterAnimation">@anim/widget_enter</item>
+    <item name="@android:windowExitAnimation">@anim/widget_enter</item>
   </style>
     <style name="notitle_defaultdialog_msg" parent="@android:style/Theme.Holo.Light.Dialog">
     <item name="android:background">@android:color/transparent</item>

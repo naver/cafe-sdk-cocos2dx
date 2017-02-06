@@ -1,6 +1,7 @@
 package com.naver.cafe;
 
-import android.widget.Toast;
+import org.cocos2dx.lib.Cocos2dxActivity;
+
 import com.naver.glink.android.sdk.Glink;
 import com.naver.glink.android.sdk.Glink.OnClickAppSchemeBannerListener;
 import com.naver.glink.android.sdk.Glink.OnJoinedListener;
@@ -13,7 +14,8 @@ import com.naver.glink.android.sdk.Glink.OnWidgetScreenshotClickListener;
 import com.naver.glink.android.sdk.NaverIdLogin;
 import com.naver.glink.android.sdk.NaverIdLogin.OnGetProfileListener;
 import com.naver.glink.android.sdk.Statistics;
-import org.cocos2dx.lib.Cocos2dxActivity;
+
+import android.widget.Toast;
 
 public class CafeSdk {
 
@@ -237,12 +239,12 @@ public class CafeSdk {
 		Glink.showWidgetWhenUnloadSdk(getActivity(), use);
 	}
 
-	public static void setUseVideoRecord(boolean use) {
-		Glink.setUseVideoRecord(getActivity(), use);
+	public static void setWidgetStartPosition(boolean isLeft, int heightPercentage) {
+		Glink.setWidgetStartPosition(getActivity(), isLeft, heightPercentage);
 	}
 
-	public static void setCompanyName(String companyName) {
-		Glink.setCompanyName(companyName);
+	public static void setUseVideoRecord(boolean use) {
+		Glink.setUseVideoRecord(getActivity(), use);
 	}
 
 	public static void login() {
