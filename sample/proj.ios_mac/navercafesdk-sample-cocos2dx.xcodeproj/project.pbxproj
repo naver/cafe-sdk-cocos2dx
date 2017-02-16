@@ -24,6 +24,13 @@
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
+		4A08401A1E559CA90051EF0A /* libApiGateway-MAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A08400B1E559CA80051EF0A /* libApiGateway-MAC.a */; };
+		4A08401B1E559CA90051EF0A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08400E1E559CA90051EF0A /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4A08401C1E559CA90051EF0A /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0840111E559CA90051EF0A /* AFNetworkReachabilityManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4A08401D1E559CA90051EF0A /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0840131E559CA90051EF0A /* AFSecurityPolicy.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4A08401E1E559CA90051EF0A /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0840151E559CA90051EF0A /* AFURLRequestSerialization.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4A08401F1E559CA90051EF0A /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0840171E559CA90051EF0A /* AFURLResponseSerialization.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4A0840201E559CA90051EF0A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0840191E559CA90051EF0A /* AFURLSessionManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4A291E951D375B8100C0DFD5 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A291E941D375B8100C0DFD5 /* ReplayKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4A4F435B1DF923480000CBFF /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F43571DF923480000CBFF /* CHANGELOG.md */; };
 		4A4F435C1DF923480000CBFF /* NAVER-COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 4A4F43581DF923480000CBFF /* NAVER-COPYING */; };
@@ -59,16 +66,6 @@
 		4AFFF8E81CD0D55100C3B280 /* PluginCafe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF8E71CD0D55100C3B280 /* PluginCafe.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4AFFF9701CD8745800C3B280 /* NaverCafeSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4AFFF96E1CD8745800C3B280 /* NaverCafeSDK.bundle */; };
 		4AFFF9711CD8745800C3B280 /* NaverCafeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFFF96F1CD8745800C3B280 /* NaverCafeSDK.framework */; };
-		4AFFF98F1CD8746E00C3B280 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF9741CD8746E00C3B280 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9901CD8746E00C3B280 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF9761CD8746E00C3B280 /* AFHTTPRequestOperationManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9911CD8746E00C3B280 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF9781CD8746E00C3B280 /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9921CD8746E00C3B280 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF97B1CD8746E00C3B280 /* AFNetworkReachabilityManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9931CD8746E00C3B280 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF97D1CD8746E00C3B280 /* AFSecurityPolicy.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9941CD8746E00C3B280 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF97F1CD8746E00C3B280 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9951CD8746E00C3B280 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF9811CD8746E00C3B280 /* AFURLRequestSerialization.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9961CD8746E00C3B280 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF9831CD8746E00C3B280 /* AFURLResponseSerialization.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9971CD8746E00C3B280 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF9851CD8746E00C3B280 /* AFURLSessionManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4AFFF9981CD8746E00C3B280 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF9871CD8746E00C3B280 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4AFFF9991CD8746E00C3B280 /* libNaverLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFFF9891CD8746E00C3B280 /* libNaverLogin.a */; };
 		4AFFF99A1CD8746E00C3B280 /* NaverAuth.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4AFFF98A1CD8746E00C3B280 /* NaverAuth.bundle */; };
 		4AFFF99B1CD8746E00C3B280 /* NLoginThirdPartyOAuth20InAppBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFF98E1CD8746E00C3B280 /* NLoginThirdPartyOAuth20InAppBrowserViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -165,6 +162,23 @@
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
+		4A0840081E559CA80051EF0A /* NMacCommonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMacCommonManager.h; sourceTree = "<group>"; };
+		4A0840091E559CA80051EF0A /* NMacManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMacManager.h; sourceTree = "<group>"; };
+		4A08400A1E559CA80051EF0A /* NServiceMacManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NServiceMacManager.h; sourceTree = "<group>"; };
+		4A08400B1E559CA80051EF0A /* libApiGateway-MAC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libApiGateway-MAC.a"; sourceTree = "<group>"; };
+		4A08400D1E559CA90051EF0A /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		4A08400E1E559CA90051EF0A /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		4A08400F1E559CA90051EF0A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		4A0840101E559CA90051EF0A /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		4A0840111E559CA90051EF0A /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		4A0840121E559CA90051EF0A /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		4A0840131E559CA90051EF0A /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		4A0840141E559CA90051EF0A /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		4A0840151E559CA90051EF0A /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		4A0840161E559CA90051EF0A /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		4A0840171E559CA90051EF0A /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		4A0840181E559CA90051EF0A /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		4A0840191E559CA90051EF0A /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		4A291E941D375B8100C0DFD5 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ReplayKit.framework; sourceTree = DEVELOPER_DIR; };
 		4A43A2931CCEFFF800A852E1 /* PluginCafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginCafe.h; sourceTree = "<group>"; };
 		4A4F43571DF923480000CBFF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
@@ -220,27 +234,6 @@
 		4AFFF8E71CD0D55100C3B280 /* PluginCafe.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PluginCafe.mm; sourceTree = "<group>"; };
 		4AFFF96E1CD8745800C3B280 /* NaverCafeSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NaverCafeSDK.bundle; path = ../../lib/ios/NaverCafeSDK.bundle; sourceTree = "<group>"; };
 		4AFFF96F1CD8745800C3B280 /* NaverCafeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaverCafeSDK.framework; path = ../../lib/ios/NaverCafeSDK.framework; sourceTree = "<group>"; };
-		4AFFF9731CD8746E00C3B280 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		4AFFF9741CD8746E00C3B280 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		4AFFF9751CD8746E00C3B280 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		4AFFF9761CD8746E00C3B280 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		4AFFF9771CD8746E00C3B280 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		4AFFF9781CD8746E00C3B280 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		4AFFF9791CD8746E00C3B280 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		4AFFF97A1CD8746E00C3B280 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		4AFFF97B1CD8746E00C3B280 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		4AFFF97C1CD8746E00C3B280 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		4AFFF97D1CD8746E00C3B280 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		4AFFF97E1CD8746E00C3B280 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		4AFFF97F1CD8746E00C3B280 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		4AFFF9801CD8746E00C3B280 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		4AFFF9811CD8746E00C3B280 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		4AFFF9821CD8746E00C3B280 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		4AFFF9831CD8746E00C3B280 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		4AFFF9841CD8746E00C3B280 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		4AFFF9851CD8746E00C3B280 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		4AFFF9861CD8746E00C3B280 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		4AFFF9871CD8746E00C3B280 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		4AFFF9891CD8746E00C3B280 /* libNaverLogin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNaverLogin.a; sourceTree = "<group>"; };
 		4AFFF98A1CD8746E00C3B280 /* NaverAuth.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NaverAuth.bundle; sourceTree = "<group>"; };
 		4AFFF98B1CD8746E00C3B280 /* NaverThirdPartyConstantsForApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaverThirdPartyConstantsForApp.h; sourceTree = "<group>"; };
@@ -305,6 +298,7 @@
 				4A291E951D375B8100C0DFD5 /* ReplayKit.framework in Frameworks */,
 				4AFFF8E61CD0CD7E00C3B280 /* UIKit.framework in Frameworks */,
 				4A686AB91C96C1FB00F1C97B /* GameController.framework in Frameworks */,
+				4A08401A1E559CA90051EF0A /* libApiGateway-MAC.a in Frameworks */,
 				4ABA5D171BF1FA9A00700256 /* SystemConfiguration.framework in Frameworks */,
 				4ABA5CF91BF1F55000700256 /* CoreMedia.framework in Frameworks */,
 				4ABA5CF51BF1F53F00700256 /* MediaPlayer.framework in Frameworks */,
@@ -391,9 +385,10 @@
 				4A4F43581DF923480000CBFF /* NAVER-COPYING */,
 				4A4F43591DF923480000CBFF /* NOTICE.txt */,
 				4A4F435A1DF923480000CBFF /* README.md */,
+				4A0840061E559CA80051EF0A /* ApiGateway-1.5.0 */,
+				4A08400C1E559CA80051EF0A /* AFNetworking-3.1.0 */,
 				4A97BBBF1DACDF0200822E42 /* FLAnimatedImage-1.0.12 */,
 				4A97BBC41DACDF0200822E42 /* SDWebImage-3.8.2 */,
-				4AFFF9721CD8746E00C3B280 /* AFNetworking-2.6.3 */,
 				4AFFF9881CD8746E00C3B280 /* NaverLogin-thirdPartyModule */,
 				4AFFF96E1CD8745800C3B280 /* NaverCafeSDK.bundle */,
 				4AFFF96F1CD8745800C3B280 /* NaverCafeSDK.framework */,
@@ -472,6 +467,45 @@
 			path = ../Classes;
 			sourceTree = "<group>";
 		};
+		4A0840061E559CA80051EF0A /* ApiGateway-1.5.0 */ = {
+			isa = PBXGroup;
+			children = (
+				4A0840071E559CA80051EF0A /* include */,
+				4A08400B1E559CA80051EF0A /* libApiGateway-MAC.a */,
+			);
+			path = "ApiGateway-1.5.0";
+			sourceTree = "<group>";
+		};
+		4A0840071E559CA80051EF0A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4A0840081E559CA80051EF0A /* NMacCommonManager.h */,
+				4A0840091E559CA80051EF0A /* NMacManager.h */,
+				4A08400A1E559CA80051EF0A /* NServiceMacManager.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		4A08400C1E559CA80051EF0A /* AFNetworking-3.1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				4A08400D1E559CA90051EF0A /* AFHTTPSessionManager.h */,
+				4A08400E1E559CA90051EF0A /* AFHTTPSessionManager.m */,
+				4A08400F1E559CA90051EF0A /* AFNetworking.h */,
+				4A0840101E559CA90051EF0A /* AFNetworkReachabilityManager.h */,
+				4A0840111E559CA90051EF0A /* AFNetworkReachabilityManager.m */,
+				4A0840121E559CA90051EF0A /* AFSecurityPolicy.h */,
+				4A0840131E559CA90051EF0A /* AFSecurityPolicy.m */,
+				4A0840141E559CA90051EF0A /* AFURLRequestSerialization.h */,
+				4A0840151E559CA90051EF0A /* AFURLRequestSerialization.m */,
+				4A0840161E559CA90051EF0A /* AFURLResponseSerialization.h */,
+				4A0840171E559CA90051EF0A /* AFURLResponseSerialization.m */,
+				4A0840181E559CA90051EF0A /* AFURLSessionManager.h */,
+				4A0840191E559CA90051EF0A /* AFURLSessionManager.m */,
+			);
+			path = "AFNetworking-3.1.0";
+			sourceTree = "<group>";
+		};
 		4A43A28D1CCEFFF800A852E1 /* plugincafe */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,35 +580,6 @@
 			);
 			name = "SDWebImage-3.8.2";
 			path = "../../lib/ios/external-lib/SDWebImage-3.8.2";
-			sourceTree = "<group>";
-		};
-		4AFFF9721CD8746E00C3B280 /* AFNetworking-2.6.3 */ = {
-			isa = PBXGroup;
-			children = (
-				4AFFF9731CD8746E00C3B280 /* AFHTTPRequestOperation.h */,
-				4AFFF9741CD8746E00C3B280 /* AFHTTPRequestOperation.m */,
-				4AFFF9751CD8746E00C3B280 /* AFHTTPRequestOperationManager.h */,
-				4AFFF9761CD8746E00C3B280 /* AFHTTPRequestOperationManager.m */,
-				4AFFF9771CD8746E00C3B280 /* AFHTTPSessionManager.h */,
-				4AFFF9781CD8746E00C3B280 /* AFHTTPSessionManager.m */,
-				4AFFF9791CD8746E00C3B280 /* AFNetworking.h */,
-				4AFFF97A1CD8746E00C3B280 /* AFNetworkReachabilityManager.h */,
-				4AFFF97B1CD8746E00C3B280 /* AFNetworkReachabilityManager.m */,
-				4AFFF97C1CD8746E00C3B280 /* AFSecurityPolicy.h */,
-				4AFFF97D1CD8746E00C3B280 /* AFSecurityPolicy.m */,
-				4AFFF97E1CD8746E00C3B280 /* AFURLConnectionOperation.h */,
-				4AFFF97F1CD8746E00C3B280 /* AFURLConnectionOperation.m */,
-				4AFFF9801CD8746E00C3B280 /* AFURLRequestSerialization.h */,
-				4AFFF9811CD8746E00C3B280 /* AFURLRequestSerialization.m */,
-				4AFFF9821CD8746E00C3B280 /* AFURLResponseSerialization.h */,
-				4AFFF9831CD8746E00C3B280 /* AFURLResponseSerialization.m */,
-				4AFFF9841CD8746E00C3B280 /* AFURLSessionManager.h */,
-				4AFFF9851CD8746E00C3B280 /* AFURLSessionManager.m */,
-				4AFFF9861CD8746E00C3B280 /* UIImageView+AFNetworking.h */,
-				4AFFF9871CD8746E00C3B280 /* UIImageView+AFNetworking.m */,
-			);
-			name = "AFNetworking-2.6.3";
-			path = "../../lib/ios/external-lib/AFNetworking-2.6.3";
 			sourceTree = "<group>";
 		};
 		4AFFF9881CD8746E00C3B280 /* NaverLogin-thirdPartyModule */ = {
@@ -684,6 +689,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = U6VV7FMD97;
+						ProvisioningStyle = Manual;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "navercafesdk-sample-cocos2dx" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -785,22 +796,20 @@
 			files = (
 				4A97BBF41DACDF0200822E42 /* UIView+WebCacheOperation.m in Sources */,
 				4A97BBE51DACDF0200822E42 /* FLAnimatedImageView.m in Sources */,
-				4AFFF9971CD8746E00C3B280 /* AFURLSessionManager.m in Sources */,
 				4A97BBF21DACDF0200822E42 /* UIImageView+HighlightedWebCache.m in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				4A4F435E1DF923480000CBFF /* README.md in Sources */,
-				4AFFF9921CD8746E00C3B280 /* AFNetworkReachabilityManager.m in Sources */,
 				4A97BBEC1DACDF0200822E42 /* SDWebImageManager.m in Sources */,
 				4A97BBE91DACDF0200822E42 /* SDWebImageDecoder.m in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				4AFFF9941CD8746E00C3B280 /* AFURLConnectionOperation.m in Sources */,
+				4A0840201E559CA90051EF0A /* AFURLSessionManager.m in Sources */,
 				4A97BBED1DACDF0200822E42 /* SDWebImagePrefetcher.m in Sources */,
+				4A08401C1E559CA90051EF0A /* AFNetworkReachabilityManager.m in Sources */,
 				4A97BBF31DACDF0200822E42 /* UIImageView+WebCache.m in Sources */,
-				4AFFF9911CD8746E00C3B280 /* AFHTTPSessionManager.m in Sources */,
-				4AFFF9951CD8746E00C3B280 /* AFURLRequestSerialization.m in Sources */,
 				4A97BBE41DACDF0200822E42 /* FLAnimatedImage.m in Sources */,
 				4A97BBEF1DACDF0200822E42 /* UIImage+GIF.m in Sources */,
+				4A08401F1E559CA90051EF0A /* AFURLResponseSerialization.m in Sources */,
 				4A97BBF11DACDF0200822E42 /* UIImage+WebP.m in Sources */,
 				4A97BBE61DACDF0200822E42 /* NSData+ImageContentType.m in Sources */,
 				4A97BBE81DACDF0200822E42 /* SDWebImageCompat.m in Sources */,
@@ -808,17 +817,15 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				4A97BBE71DACDF0200822E42 /* SDImageCache.m in Sources */,
 				4A97BBEA1DACDF0200822E42 /* SDWebImageDownloader.m in Sources */,
+				4A08401D1E559CA90051EF0A /* AFSecurityPolicy.m in Sources */,
 				4AFFF99B1CD8746E00C3B280 /* NLoginThirdPartyOAuth20InAppBrowserViewController.m in Sources */,
+				4A08401B1E559CA90051EF0A /* AFHTTPSessionManager.m in Sources */,
 				4AFFF8E81CD0D55100C3B280 /* PluginCafe.mm in Sources */,
 				4A4F435B1DF923480000CBFF /* CHANGELOG.md in Sources */,
 				4A97BBF01DACDF0200822E42 /* UIImage+MultiFormat.m in Sources */,
+				4A08401E1E559CA90051EF0A /* AFURLRequestSerialization.m in Sources */,
 				4A97BBEE1DACDF0200822E42 /* UIButton+WebCache.m in Sources */,
-				4AFFF9981CD8746E00C3B280 /* UIImageView+AFNetworking.m in Sources */,
-				4AFFF9901CD8746E00C3B280 /* AFHTTPRequestOperationManager.m in Sources */,
 				4A97BBEB1DACDF0200822E42 /* SDWebImageDownloaderOperation.m in Sources */,
-				4AFFF9931CD8746E00C3B280 /* AFSecurityPolicy.m in Sources */,
-				4AFFF9961CD8746E00C3B280 /* AFURLResponseSerialization.m in Sources */,
-				4AFFF98F1CD8746E00C3B280 /* AFHTTPRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -853,8 +860,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = U6VV7FMD97;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -882,6 +890,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/../../lib/ios/external-lib/NaverLogin-thirdPartyModule",
+					"$(PROJECT_DIR)/../../lib/ios/external-lib/ApiGateway-1.5.0",
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -889,6 +898,8 @@
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.navercorp.plug.sample.navercafesdk-sample";
+				PROVISIONING_PROFILE = "49f28bf7-3aa6-4d22-8ec0-86d4c82bd054";
+				PROVISIONING_PROFILE_SPECIFIER = "NaverGlink InHouse Dist Provisioning Profile";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -901,8 +912,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = U6VV7FMD97;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -928,6 +940,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/../../lib/ios/external-lib/NaverLogin-thirdPartyModule",
+					"$(PROJECT_DIR)/../../lib/ios/external-lib/ApiGateway-1.5.0",
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -935,6 +948,8 @@
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.navercorp.plug.sample.navercafesdk-sample";
+				PROVISIONING_PROFILE = "49f28bf7-3aa6-4d22-8ec0-86d4c82bd054";
+				PROVISIONING_PROFILE_SPECIFIER = "NaverGlink InHouse Dist Provisioning Profile";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";

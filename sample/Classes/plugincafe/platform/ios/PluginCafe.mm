@@ -7,7 +7,8 @@
 
 #import <NaverCafeSDK/NCSDKManager.h>
 #import <NaverCafeSDK/NCSDKStatistics.h>
-@interface CafeCallbackObject : NSObject <NCSDKManagerDelegate>
+#import <NaverCafeSDK/NCNaverLoginManager.h>
+@interface CafeCallbackObject : NSObject <NCSDKManagerDelegate, NCNaverLoginManagerDelegate>
 @end
 
 #include "PluginCafe.h"
@@ -34,11 +35,8 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     [[NCSDKManager getSharedInstance] setOrientationIsLandscape:YES];
 }
     
-void CafeSdk::initGlobal(std::string clientId, int communityId, std::string defaultChannelCode) {
+void CafeSdk::initGlobal(std::string clientId, int communityId) {
     NSString *_clientId = [NSString stringWithUTF8String:clientId.c_str()];
-    NSString *_defaultChannelCode = [NSString stringWithUTF8String:defaultChannelCode.c_str()];
-    
-    [[NCSDKManager getSharedInstance] setChannelCode:_defaultChannelCode];
     [[NCSDKManager getSharedInstance] setNeoIdConsumerKey:_clientId
                                               communityId:communityId];
 }
@@ -64,11 +62,6 @@ static CafeListener* gCafeListener = nullptr;
 void CafeSdk::setCafeListener(CafeListener* listener) {
     // do nothing.
     gCafeListener = listener;
-}
-
-void CafeSdk::setXButtonType(XButtonType type) {
-    GLXButtonType buttonXtype = type == kXButtonTypeMinimize ? kGLXButtonTypeMinimize : kGLXButtonTypeClose;
-    [[NCSDKManager getSharedInstance] setXButtonType:buttonXtype];
 }
     
 void setParentViewController() {
@@ -97,45 +90,34 @@ void CafeSdk::startMenu() {
     [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:3];
 }
 
-void CafeSdk::startMenu(int menuId) {
-    setParentViewController();
-    [[NCSDKManager getSharedInstance] presentArticleListViewControllerWithMenuId:menuId];
-}
-
 void CafeSdk::startProfile() {
     setParentViewController();
     [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:4];
 }
-
-void CafeSdk::startMore() {
-    // do nothing.
-}
-
-void CafeSdk::startWrite(int menuId, std::string subject, std::string text) {
+void CafeSdk::startArticle(int articleId) {
     setParentViewController();
-    [[NCSDKManager getSharedInstance] presentArticlePostViewControllerWithMenuId:menuId
-                                                                         subject:[NSString stringWithUTF8String:subject.c_str()]
-                                                                         content:[NSString stringWithUTF8String:text.c_str()]];
+    [[NCSDKManager getSharedInstance] presentMainViewControllerWithArticleId:articleId];
+}
+void CafeSdk::startMore() {
+    setParentViewController();
+    [[NCSDKManager getSharedInstance] presentEtc];
 }
 
-void CafeSdk::startImageWrite(int menuId, std::string subject, std::string text,
-        std::string imageUri) {
+void CafeSdk::startWrite() {
+    setParentViewController();
+    [[NCSDKManager getSharedInstance] presentArticlePostViewController];
+}
+
+void CafeSdk::startImageWrite(std::string imageUri) {
     setParentViewController();
     [[NCSDKManager getSharedInstance] presentArticlePostViewControllerWithType:kGLArticlePostTypeImage
-                                                                        menuId:menuId
-                                                                       subject:[NSString stringWithUTF8String:subject.c_str()]
-                                                                       content:[NSString stringWithUTF8String:text.c_str()]
                                                                       filePath:[NSString stringWithUTF8String:imageUri.c_str()]];
 
 }
 
-void CafeSdk::startVideoWrite(int menuId, std::string subject, std::string text,
-        std::string videoUri) {
+void CafeSdk::startVideoWrite(std::string videoUri) {
     setParentViewController();
     [[NCSDKManager getSharedInstance] presentArticlePostViewControllerWithType:kGLArticlePostTypeVideo
-                                                                        menuId:menuId
-                                                                       subject:[NSString stringWithUTF8String:subject.c_str()]
-                                                                       content:[NSString stringWithUTF8String:text.c_str()]
                                                                       filePath:[NSString stringWithUTF8String:videoUri.c_str()]];
 
 }
@@ -146,6 +128,9 @@ void CafeSdk::syncGameUserId(std::string gameUserId) {
 
 void CafeSdk::showWidgetWhenUnloadSdk(bool use) {
     [[NCSDKManager getSharedInstance] setShowWidgetWhenUnloadSDK:use];
+}
+void CafeSdk::setWidgetStartPosition(bool isLeft, int heightPercentage) {
+    [[NCSDKManager getSharedInstance] setWidgetStartPosition:isLeft andY:heightPercentage];
 }
 void CafeSdk::stopWidget() {
     [[NCSDKManager getSharedInstance] stopWidget];
@@ -171,6 +156,44 @@ void Statistics::sendPayUser(std::string gameUserId, double pay,
                      andCurrency:[NSString stringWithUTF8String:currency.c_str()]
                        andMarket:[NSString stringWithUTF8String:market.c_str()]];
 }
+    
+    /**
+     * 네이버 아이디 로그인.
+     */
+    
+    static NaverIdLoginListener* gNaverIdLoginListener = nullptr;
+    static NaverIdLoginGetProfileListener* gNaverIdLoginGetProfileListener = nullptr;
+    
+    NaverIdLoginListener::~NaverIdLoginListener() {
+        // do nothing.
+    }
+    
+    NaverIdLoginGetProfileListener::~NaverIdLoginGetProfileListener() {
+        // do nothing.
+    }
+    
+    void NaverIdLogin::init(std::string clientId, std::string clientSecret) {
+        CafeSdk::init(clientId, clientSecret, -1);
+    }
+    
+    void NaverIdLogin::login(NaverIdLoginListener* listener) {
+        gNaverIdLoginListener = listener;
+        [[NCNaverLoginManager getSharedInstance] setNcNaverLoginManagerDelegate:cafeCallbackObject];
+        [[NCNaverLoginManager getSharedInstance] naverIdLogin];
+    }
+    
+    void NaverIdLogin::logout() {
+        [[NCNaverLoginManager getSharedInstance] naverIdLogout];
+    }
+    
+    bool NaverIdLogin::isLogin() {
+        return [[NCNaverLoginManager getSharedInstance] isNaverIdLogin];
+    }
+    
+    void NaverIdLogin::getProfile(NaverIdLoginGetProfileListener* listener) {
+        gNaverIdLoginGetProfileListener = listener;
+    }
+
 } /* namespace cafe */
 
 
@@ -213,7 +236,7 @@ void Statistics::sendPayUser(std::string gameUserId, double pay,
 
 #pragma mark - NCWidgetDelegate
 - (void)ncWidgetPostArticle {
-    cafe::CafeSdk::startWrite(10, "subject", "text");
+    cafe::CafeSdk::startWrite();
 }
 - (void)ncWidtetExecuteGLink {
     cafe::CafeSdk::startHome();
@@ -221,4 +244,14 @@ void Statistics::sendPayUser(std::string gameUserId, double pay,
 - (void)ncWidgetPostArticleWithImage {
     cafe::gCafeListener->onCafeSdkWidgetScreenshotClick();
 }
+
+#pragma mark - NCNaverLoginManagerDelegate
+- (void)ncSDKLoginCallback {
+    cafe::gNaverIdLoginListener->onNaverIdLoggedIn(true);
+}
+- (void)ncSDKGetProfile:(NSString *)result {
+    std::string jsonResult = std::string([result UTF8String]);
+    cafe::gNaverIdLoginGetProfileListener->onNaverIdProfileResult(jsonResult);
+}
+
 @end

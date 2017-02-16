@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol NCSDKLoginManagerDelegate;
+
 @interface NCSDKLoginManager : NSObject
 /*
  로그인 웹뷰를 띄울 ViewController
@@ -93,4 +95,5 @@
  URLScheme
  */
 - (void)setNaverLoginURLScheme:(NSString *)urlScheme;
+
 @end
