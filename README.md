@@ -48,7 +48,7 @@ cafe::CafeSdk::init("U5ZHoj_OStOHOJ8mec_s", "piPHPA9i4E", 28334359);
 [제휴 신청](https://github.com/naver/cafe-sdk-ios/wiki/%5B%ED%95%9C%5D%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EB%84%A4%EC%9D%B4%EB%B2%84%20%EC%B9%B4%ED%8E%98%20%EC%82%AC%EC%9A%A9)을 통해 받은 ConsumerKey, communityId 값을 세팅한다.
 
 ```cpp
-cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329, cafe::kChannelCodeNone);
+cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329);
 ```
 
 ## UCafeSdkBlueprintLibrary
@@ -62,7 +62,7 @@ cafe::CafeSdk::startHome();
 
 ### ShowWidgetWhenUnloadSdk
 
-PLUG X버튼을 클릭할 때 위젯이 화면에 노출되는 여부를 설정한다.
+PLUG 접기버튼을 클릭할 때 위젯이 화면에 노출되는 여부를 설정한다.
 
 ```cpp
 static void showWidgetWhenUnloadSdk(bool use);
