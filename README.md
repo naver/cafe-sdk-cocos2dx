@@ -57,57 +57,13 @@ ConsumerKey, communityId 값을 세팅한다.
 cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329);
 ```
 
-## UCafeSdkBlueprintLibrary
+## 3. UCafeSdkBlueprintLibrary
 
 ### StartHome
 PLUG를 실행한다.
 
 ```cpp
 cafe::CafeSdk::startHome();
-```
-
-### ShowWidgetWhenUnloadSdk
-
-PLUG 접기버튼을 클릭할 때 위젯이 화면에 노출되는 여부를 설정한다.
-
-```cpp
-static void showWidgetWhenUnloadSdk(bool use);
-```
-
-### SetUseVideoRecord
-
-PLUG 위젯에 녹화 버튼 노출 여부를 설정한다. (iOS 9.0 이상)
-
-
-```cpp
-static void setUseVideoRecord(bool use);
-```
-
-### CallBack Listener
-PLUG에서는 PLUG에서 발생하는 사용자 이벤트를 리스닝 할 수 있다.
-
-PLUG 실행/종료, 글작성(이미지/동영상 첨부 개수), 가입, 댓글 작성, 투표 등이 있다.
-
-```cpp
-// CafeListener 인터페이스.
-class CafeListener {
-public:
-    virtual void onCafeSdkStarted() = 0;
-    virtual void onCafeSdkStopped() = 0;
-    virtual void onCafeSdkClickAppSchemeBanner(
-            const std::string& appScheme) = 0;
-    virtual void onCafeSdkJoined() = 0;
-    virtual void onCafeSdkPostedArticle(int menuId, int imageCount,
-            int videoCount) = 0;
-    virtual void onCafeSdkPostedComment(int articleId) = 0;
-    virtual void onCafeSdkDidVote(int articleId) = 0;
-    virtual void onCafeSdkWidgetScreenshotClick() = 0;
-    virtual void onCafeSdkOnRecordFinished(const std::string& fileUrl) = 0;
-    virtual ~CafeListener();
-};
-
-// CafeListner의 구현체를 세팅해야 한다.
-cafe::CafeSdk::setCafeListener(this);
 ```
 
 폴더 구조
