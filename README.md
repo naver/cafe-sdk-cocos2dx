@@ -20,23 +20,23 @@ PLUG SDK는 모바일 게임에서 이탈하지 않고 커뮤니케이션이 가
 - [iOS GitHub](https://github.com/naver/cafe-sdk-ios)
 - [Android GitHub](https://github.com/naver/cafe-sdk-android)
 
-## 프로젝트 설정
+## 1. 프로젝트 설정
 sample/Classes/plugincafe 폴더를 게임 프로젝트로 복사한다.
 
-### Android
+### 1-1. Android
 - lib/android에 있는 PLUG SDK 프로젝트를 게임 프로젝트에 Library로 추가한다.
 
-### iOS
+### 1-2. iOS
 - lib/iOS에 있는 PLUG SDK 프로젝트를 게임 프로젝트에 추가한다.
 
-## Initialize
-### 한국 채널(네이버 카페)
+## 2. Initialize
+### 2-1. 한국 채널(네이버 카페) - 글로벌 채널만 사용하는 경우 세팅하지 않는다.
 
-[네이버 아이디로 로그인](https://developers.naver.com/products/login/api)에 애플리케이션을 등록하고 받은 ClientId, ClientSecret 값을 세팅한다.
+[네이버 아이디로 로그인 애플리케이션 등록](https://developers.naver.com/apps/#/register?api=nvlogin)에서 받은 ClientId, ClientSecret 값을 세팅한다.
 
 [네이버 카페를 개설](http://section.cafe.naver.com/)하고 얻은 카페 ID를 세팅한다.
 
-[네이버 아이디로 로그인](https://developers.naver.com/products/login/api)에 애플리케이션 설정에 등록한 iOS URL Scheme을 세팅한다.
+[네이버 아이디로 로그인 어플리케이션](https://developers.naver.com/apps/#/myapps) 설정에 등록한 iOS URL Scheme을 세팅한다.
 
 ```cpp
 cafe::CafeSdk::init("U5ZHoj_OStOHOJ8mec_s", "piPHPA9i4E", 28334359);
@@ -44,8 +44,14 @@ cafe::CafeSdk::init("U5ZHoj_OStOHOJ8mec_s", "piPHPA9i4E", 28334359);
 
 
 
-### 글로벌 채널
-[제휴 신청](https://github.com/naver/cafe-sdk-ios/wiki/%5B%ED%95%9C%5D%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EB%84%A4%EC%9D%B4%EB%B2%84%20%EC%B9%B4%ED%8E%98%20%EC%82%AC%EC%9A%A9)을 통해 받은 ConsumerKey, communityId 값을 세팅한다.
+### 2-2. 글로벌 채널 - 한국 채널만 사용하는 경우 세팅하지 않는다.
+
+개설된 커뮤니티에 매니저 권한으로 접속한 후, [setting > Communities > In-App Community Setting](http://g.cafe.naver.com/plugsample/manage/consumer)으로 진입하여 '커뮤니티 ID 및 Consumer Key, Consumer Secret'를 발급받는다.
+
+![](https://plug.gitbooks.io/plug-sdk-android/content/assets/wiki-plug-setting.png)
+
+
+ConsumerKey, communityId 값을 세팅한다.
 
 ```cpp
 cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329);
