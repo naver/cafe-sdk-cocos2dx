@@ -7,14 +7,14 @@ PLUG SDK는 모바일 게임에서 이탈하지 않고 커뮤니케이션이 가
 이미 많은 게임에 적용되어 검증되어 있는 PLUG SDK는 손쉽게 커뮤니케이션 기능을 게임 안에 넣을 수 있습니다.
 
 # How To Get Started
-- 최신 버전을 [다운로드](https://github.com/naver/cafe-sdk-cocos2dx/archive/master.zip)하면 샘플 프로젝트를 실행할 수 있다.
-- 한국 채널인 네이버 카페를 사용하기 위해 [제휴 신청](https://github.com/naver/cafe-sdk-ios/wiki/%5B%ED%95%9C%5D-%EC%84%A0%ED%96%89-%EC%9E%91%EC%97%85)이 필요하다.
-- 글로벌 채널을 사용하기 위해 [제휴 신청](https://github.com/naver/cafe-sdk-ios/wiki/%5B%ED%95%9C%5D%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EB%84%A4%EC%9D%B4%EB%B2%84%20%EC%B9%B4%ED%8E%98%20%EC%82%AC%EC%9A%A9)이 필요하다.
-- 프로젝트에 적용하기 위한 [위키 가이드](https://github.com/naver/cafe-sdk-cocos2dx/wiki)가 작성 되어 있다.
+- 제휴신청을 위해 [첨부된 파일](https://github.com/naver/cafe-sdk-android/raw/master/guide/alliance/%EB%84%A4%EC%9D%B4%EB%B2%84%EC%B9%B4%ED%8E%98SDK_%EC%A0%9C%ED%9C%B4%EC%96%91%EC%8B%9D_%EA%B2%8C%EC%9E%84%EC%82%AC%EB%AA%85_%EA%B2%8C%EC%9E%84%EB%AA%85_ver.2.0.0.xlsx)을 작성하여
+[PLUG_제휴 dl_naverplugpartner@navercorp.com](dl_naverplugpartner@navercorp.com)로 메일을 보낸다.
+- 최신 버전을 [다운로드](https://github.com/naver/cafe-sdk-ios/archive/master.zip)하면 샘플 프로젝트를 실행할 수 있다.
+- 프로젝트에 적용하기 위한 [위키 가이드](https://www.gitbook.com/book/plug/plug-sdk-ios/details)가 작성 되어 있다.
 
 # Communication
 - [개발 문의 사항](http://cafe.naver.com/ArticleList.nhn?search.clubid=28285034&search.menuid=13&search.boardtype=L)에 있는 질문과 답변이 적용하는데 도움이 될 수 있다.
-- 문의 사항이 있는 경우 [카페](http://cafe.naver.com/navercafesdk) 혹은 [e-mail](dl_navercafesdk@navercorp.com)을 사용한다.
+- 문의 사항이 있는 경우 [카페](http://cafe.naver.com/navercafesdk)를 사용한다.
 
 # Usages
 - [iOS GitHub](https://github.com/naver/cafe-sdk-ios)
