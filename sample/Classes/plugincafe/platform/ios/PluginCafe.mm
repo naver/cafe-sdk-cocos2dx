@@ -139,7 +139,7 @@ void CafeSdk::setUseVideoRecord(bool use) {
     [[NCSDKManager getSharedInstance] setUseWidgetVideoRecord:use];
 }
 void CafeSdk::setUseScreenShot(bool use) {
-    [[NCSDKManager getSharedInstance] setWidgetUseScreenShot:use];
+    [[NCSDKManager getSharedInstance] setUseWidgetScreenShot:use];
 }
 void CafeSdk::showToast(std::string text) {
     [[NCSDKManager getSharedInstance] showToast:[NSString stringWithUTF8String:text.c_str()]];
