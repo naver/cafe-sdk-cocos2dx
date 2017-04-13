@@ -138,7 +138,9 @@ void CafeSdk::stopWidget() {
 void CafeSdk::setUseVideoRecord(bool use) {
     [[NCSDKManager getSharedInstance] setUseWidgetVideoRecord:use];
 }
-
+void CafeSdk::setUseScreenShot(bool use) {
+    [[NCSDKManager getSharedInstance] setWidgetUseScreenShot:use];
+}
 void CafeSdk::showToast(std::string text) {
     [[NCSDKManager getSharedInstance] showToast:[NSString stringWithUTF8String:text.c_str()]];
 }
@@ -233,7 +235,10 @@ void Statistics::sendPayUser(std::string gameUserId, double pay,
 - (void)ncSDKWidgetSuccessVideoRecord {
     cafe::gCafeListener->onCafeSdkOnRecordFinished(nil);
 }
-
+- (void)ncSDKAppSchemeBanner:(NSString *)appScheme {
+    std::string appSchemeResult = std::string([appScheme UTF8String]);
+    cafe::gCafeListener->onCafeSdkClickAppSchemeBanner(appSchemeResult);
+}
 #pragma mark - NCWidgetDelegate
 - (void)ncWidgetPostArticle {
     cafe::CafeSdk::startWrite();

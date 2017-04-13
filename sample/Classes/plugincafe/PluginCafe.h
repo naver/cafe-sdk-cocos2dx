@@ -84,7 +84,8 @@ public:
     static void setWidgetStartPosition(bool isLeft, int heightPercentage);
 
     static void setUseVideoRecord(bool use);
-
+    static void setUseScreenShot(bool use);
+    
     static void showToast(std::string text);
 };
 

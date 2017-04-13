@@ -16,6 +16,7 @@ enum CafeSdkTags {
     kTagIsLogin,
     kTagGetProfile,
     kTagShowRecord,
+    kTagShowScreenShot,
     kTagSendNewUser,
     kTagSendPayUser,
 };
@@ -67,8 +68,8 @@ bool HelloWorld::init() {
     // create menu, it's an autorelease object
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
-    // initCafeSdkButtons(menu);
+    this->addChild(menu, 0);
+    //initCafeSdkButtons(menu);
     initCafeSdkMenu(menu);
 
     // 국내 카페 초기화.
@@ -110,15 +111,15 @@ void HelloWorld::initCafeSdkButtons(Menu* menu) {
                             - navercafe->getContentSize().height));
     menu->addChild(navercafe);
 
-    auto screenshot = MenuItemImage::create("icon2.png", "icon2.png",
-            CC_CALLBACK_1(HelloWorld::menuCallback, this));
-
-    screenshot->setTag(kTagWrite2);
-    screenshot->setPosition(
-            Vec2(origin.x + screenshot->getContentSize().width,
-                    origin.y + visibleSize.height
-                            - navercafe->getContentSize().height * 2));
-    menu->addChild(screenshot);
+//    auto screenshot = MenuItemImage::create("icon2.png", "icon2.png",
+//            CC_CALLBACK_1(HelloWorld::menuCallback, this));
+//
+//    screenshot->setTag(kTagWrite2);
+//    screenshot->setPosition(
+//            Vec2(origin.x + screenshot->getContentSize().width,
+//                    origin.y + visibleSize.height
+//                            - navercafe->getContentSize().height * 2));
+//    menu->addChild(screenshot);
 }
 
 void HelloWorld::initCafeSdkMenu(Menu* menu) {
@@ -230,6 +231,10 @@ void HelloWorld::menuCallback(Ref* pSender) {
     case kTagShowRecord:
         cafe::CafeSdk::setUseVideoRecord(true);
         break;
+            
+    case kTagShowScreenShot:
+        cafe::CafeSdk::setUseScreenShot(true);
+        break;
 
     case kTagSendNewUser:
         cafe::Statistics::sendNewUser("user", cafe::kMarketOne);
@@ -278,13 +283,15 @@ void HelloWorld::onCafeSdkDidVote(int articleId) {
 }
 
 void HelloWorld::onCafeSdkWidgetScreenshotClick() {
-    CCSize screenSize = Director::getInstance()->getWinSize();
+    Size screenSize = Director::getInstance()->getWinSize();
     RenderTexture* texture = RenderTexture::create(screenSize.width,
             screenSize.height);
     texture->setPosition(Vec2(screenSize.width / 2, screenSize.height / 2));
-
+    
     texture->begin();
-    Director::getInstance()->getRunningScene()->visit();
+    this->getParent()->visit();
+//    this->getScene()->visit();
+//    Director::getInstance()->getRunningScene()->visit();
     texture->end();
 
     std::string fileName = "captured_image.png";
