@@ -256,6 +256,14 @@ void CafeSdk::setUseVideoRecord(bool use) {
     }
 }
 
+void CafeSdk::setUseScreenShot(bool use) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "setUseScreenshot", "(Z)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, use);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
 void CafeSdk::showToast(std::string text) {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "showToast", "(Ljava/lang/String;)V")) {
