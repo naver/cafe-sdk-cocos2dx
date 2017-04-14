@@ -247,6 +247,10 @@ public class CafeSdk {
 		Glink.setUseVideoRecord(getActivity(), use);
 	}
 
+	public static void setUseScreenshot(boolean use) {
+		Glink.setUseScreenshot(getActivity(), use);
+	}
+	
 	public static void login() {
 		NaverIdLogin.login(getActivity(), new OnLoggedInListener() {
 			@Override
