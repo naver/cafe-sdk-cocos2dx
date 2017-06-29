@@ -375,6 +375,36 @@ void Statistics::sendPayUser(std::string gameUserId, double pay,
     }
 }
 
+/**
+ * 녹화 기능.
+ */
+
+static RecordListener* gRecordListener = nullptr;
+
+void Record::init() {
+    // do nothing.
+}
+
+void Record::startRecord() {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "startRecord", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void Record::stopRecord() {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "stopRecord", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+
+void Record::setRecordListener(RecordListener* listener) {
+    gRecordListener = listener;
+}
+
 extern "C" {
 
 JNIEXPORT void JNICALL
@@ -446,6 +476,24 @@ Java_com_naver_cafe_CafeSdk_nativeOnGetProfileResult(JNIEnv* env, jobject thiz, 
     gNaverIdLoginGetProfileListener->onNaverIdProfileResult(_jsonString);
 }
 
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnStartRecord(JNIEnv* env, jobject thiz) {
+    if (gRecordListener == nullptr) return;
+    gRecordListener->onSDKRecordStart();
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnError(JNIEnv* env, jobject thiz) {
+    if (gRecordListener == nullptr) return;
+    gRecordListener->onSDKRecordError("");
+}
+
+JNIEXPORT void JNICALL
+Java_com_naver_cafe_CafeSdk_nativeOnFinishRecord(JNIEnv* env, jobject thiz, jstring uriString) {
+    if (gRecordListener == nullptr) return;
+    std::string _uriString = PluginJniHelper::jstring2string(uriString);
+    gRecordListener->onSDKRecordFinish(_uriString);
+}
 }
 
 } /* namespace cafe */

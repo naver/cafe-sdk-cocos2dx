@@ -325,7 +325,7 @@ void HelloWorld::onSDKRecordStart() {
 void HelloWorld::onSDKRecordError(const std::string& errorMsg) {
 }
 void HelloWorld::onSDKRecordFinish(const std::string& uri) {
-    cafe::CafeSdk::startWrite();
+    cafe::CafeSdk::startVideoWrite(uri);
 }
 void HelloWorld::onSDKRecordFinishWithPreview() {
 }

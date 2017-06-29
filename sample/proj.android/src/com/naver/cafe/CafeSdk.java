@@ -12,6 +12,8 @@ import com.naver.glink.android.sdk.Glink.OnSdkStartedListener;
 import com.naver.glink.android.sdk.Glink.OnSdkStoppedListener;
 import com.naver.glink.android.sdk.Glink.OnWidgetScreenshotClickListener;
 import com.naver.glink.android.sdk.NaverIdLogin;
+import com.naver.glink.android.sdk.PlugRecordManager;
+import com.naver.glink.android.sdk.PlugRecordManager.OnRecordManagerListener;
 import com.naver.glink.android.sdk.NaverIdLogin.OnGetProfileListener;
 import com.naver.glink.android.sdk.Statistics;
 
@@ -155,6 +157,23 @@ public class CafeSdk {
 				});
 			}
 		});
+		
+		PlugRecordManager.setOnRecordManagerListener(new OnRecordManagerListener() {
+			@Override
+			public void onStartRecord() {
+				nativeOnStartRecord();
+			}
+			
+			@Override
+			public void onFinishRecord(String uri) {
+				nativeOnFinishRecord(uri);
+			}
+			
+			@Override
+			public void onErrorRecord() {
+				nativeOnErrorRecord();
+			}
+		});
 	}
 
 	public static void setChannelCode(String channelCode) {
@@ -293,7 +312,15 @@ public class CafeSdk {
 			}
 		});
 	}
+	
+	public static void startRecord() {
+		PlugRecordManager.startRecord(getActivity());
+	}
 
+	public static void stopRecord() {
+		PlugRecordManager.stopRecord();
+	}
+	
 	private static native void nativeOnSdkStarted();
 
 	private static native void nativeOnSdkStopped();
@@ -315,4 +342,10 @@ public class CafeSdk {
 	private static native void nativeOnLoggedIn(boolean success);
 
 	private static native void nativeOnGetProfileResult(String jsonString);
+	
+	private static native void nativeOnStartRecord();
+	
+	private static native void nativeOnErrorRecord();
+	
+	private static native void nativeOnFinishRecord(String uri);
 }
