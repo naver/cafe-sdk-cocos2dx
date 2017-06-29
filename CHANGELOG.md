@@ -1,3 +1,11 @@
+v.2.5.0
+-------------
+### updated
+1. 본분/댓글 번역기능 추가
+2. 지원 언어 추가 (브라질, 포르투갈, 이탈리아, 멕시코, 터키, 베트남)
+3. 녹화 인터페이스 제공
+4. 네이버 로그인 라이브러리 사용시 최초 세팅한 URLScheme, delegate 갱신하도록 변경 (iOS)
+
 v.2.4.5
 -------------
 ### updated
@@ -30,6 +38,8 @@ v.2.4.0
 * 관련 이슈: https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html?m=1
 6. '스마트폰 앱 접근권한에 대한 정보통신망법 시행령'에 따른 권한 획득시 사용처 고지 (안드로이드)
 7. 위젯 스크린샷 버튼 on/off 추가
+8. 5. SDK 홈 배너 클릭시 발생하는 이벤트를 delegate로도 처리되도록 추가 (ncSDKAppSchemeBanner:) (iOS)
+* 기존에는 AppDelegate openURL을 호출
 
 v.2.3.2
 -------------

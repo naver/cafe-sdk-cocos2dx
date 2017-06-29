@@ -243,14 +243,12 @@ void HelloWorld::menuCallback(Ref* pSender) {
         break;
 
     case kTagSendNewUser:
-//        cafe::Statistics::sendNewUser("user", cafe::kMarketOne);
-            cafe::Record::startRecord();
+        cafe::Statistics::sendNewUser("user", cafe::kMarketOne);
         break;
 
     case kTagSendPayUser:
-//        cafe::Statistics::sendPayUser("user", 1.f, "product1",
-//                cafe::kCurrencyWon, cafe::kMarketOne);
-            cafe::Record::stopRecord();
+        cafe::Statistics::sendPayUser("user", 1.f, "product1",
+                cafe::kCurrencyWon, cafe::kMarketOne);
         break;
 
     default:

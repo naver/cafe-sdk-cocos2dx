@@ -148,7 +148,7 @@ public:
     virtual void onSDKRecordStart() = 0;
     virtual void onSDKRecordError(const std::string& errorMsg) = 0;
     virtual void onSDKRecordFinish(const std::string& uri) = 0;
-    virtual void onSDKRecordFinishWithPreview() = 0;
+    virtual void onSDKRecordFinishWithPreview() = 0;// 녹화 영상 프리뷰 화면이 닫힐때 호출됩니다.(iOS에서만 동작)
 };
 
 class Record {
