@@ -8,7 +8,8 @@
 #import <NaverCafeSDK/NCSDKManager.h>
 #import <NaverCafeSDK/NCSDKStatistics.h>
 #import <NaverCafeSDK/NCNaverLoginManager.h>
-@interface CafeCallbackObject : NSObject <NCSDKManagerDelegate, NCNaverLoginManagerDelegate>
+#import <NaverCafeSDK/NCSDKRecordManager.h>
+@interface CafeCallbackObject : NSObject <NCSDKManagerDelegate, NCNaverLoginManagerDelegate, NCSDKRecordManagerDelegate>
 @end
 
 #include "PluginCafe.h"
@@ -196,6 +197,29 @@ void Statistics::sendPayUser(std::string gameUserId, double pay,
         gNaverIdLoginGetProfileListener = listener;
     }
 
+    /*
+     * Record
+     */
+    void Record::init() {
+        UIWindow *window =  [[UIApplication sharedApplication] keyWindow];
+        [[NCSDKRecordManager getSharedInstance] setBaseViewController:window.rootViewController];
+        [NCSDKRecordManager getSharedInstance].ncSDKRecordDelegate = cafeCallbackObject;
+    }
+    void Record::startRecord() {
+        [[NCSDKRecordManager getSharedInstance] startRecord];
+    }
+    
+    void Record::stopRecord() {
+        [[NCSDKRecordManager getSharedInstance] stopRecord];
+    }
+
+    static RecordListener* recordListener = nullptr;
+    
+    void Record::setRecordListener(RecordListener* listener) {
+        recordListener = listener;
+    }
+    
+    
 } /* namespace cafe */
 
 
@@ -233,7 +257,7 @@ void Statistics::sendPayUser(std::string gameUserId, double pay,
     cafe::gCafeListener->onCafeSdkWidgetScreenshotClick();
 }
 - (void)ncSDKWidgetSuccessVideoRecord {
-    cafe::gCafeListener->onCafeSdkOnRecordFinished(nil);
+    cafe::gCafeListener->onCafeSdkOnRecordFinished("");
 }
 - (void)ncSDKAppSchemeBanner:(NSString *)appScheme {
     std::string appSchemeResult = std::string([appScheme UTF8String]);
@@ -257,6 +281,21 @@ void Statistics::sendPayUser(std::string gameUserId, double pay,
 - (void)ncSDKGetProfile:(NSString *)result {
     std::string jsonResult = std::string([result UTF8String]);
     cafe::gNaverIdLoginGetProfileListener->onNaverIdProfileResult(jsonResult);
+}
+
+#pragma mark - NCSDKRecordDelegate
+- (void)ncSDKRecordStart {
+    cafe::recordListener->onSDKRecordStart();
+}
+- (void)ncSDKRecordError:(NSString *)errorMsg {
+    std::string error = std::string([errorMsg UTF8String]);
+    cafe::recordListener->onSDKRecordError(error);
+}
+- (void)ncSDKRecordFinish {
+    cafe::recordListener->onSDKRecordFinish("");
+}
+- (void)ncSDKRecordFinishWithPreview {
+    cafe::recordListener->onSDKRecordFinishWithPreview();
 }
 
 @end

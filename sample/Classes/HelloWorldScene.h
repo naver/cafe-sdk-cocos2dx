@@ -7,7 +7,8 @@
 class HelloWorld: public cocos2d::Layer,
         cafe::CafeListener,
         cafe::NaverIdLoginListener,
-        cafe::NaverIdLoginGetProfileListener {
+        cafe::NaverIdLoginGetProfileListener ,
+        cafe::RecordListener {
 public:
     static cocos2d::Scene* createScene();
 
@@ -37,6 +38,12 @@ private:
 
     void onNaverIdLoggedIn(bool success);
     void onNaverIdProfileResult(std::string jsonString);
+            
+    void onSDKRecordStart();
+    void onSDKRecordError(const std::string& errorMsg);
+    void onSDKRecordFinish(const std::string& uri);
+    void onSDKRecordFinishWithPreview();
+            
 };
 
 #endif // __HELLOWORLD_SCENE_H__

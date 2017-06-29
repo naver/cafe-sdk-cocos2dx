@@ -178,9 +178,6 @@
 		4A0840181E559CA90051EF0A /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		4A0840191E559CA90051EF0A /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		4A262C961EB1CEBA009FF00A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4A262C981EB1CEBD009FF00A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4A262C991EB1CEBE009FF00A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4A262C9A1EB1CEBF009FF00A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A262C9B1EB1CECA009FF00A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4A262C9C1EB1CECE009FF00A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4A262C9D1EB1CED8009FF00A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -241,6 +238,15 @@
 		4ABA5CF81BF1F55000700256 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		4ABA5D181BF2006100700256 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		4ACD705D1E9F437800AA517D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		4AD0C47C1F0363C0006024C1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AD0C47D1F0363C6006024C1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AD0C47E1F0363CB006024C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AD0C47F1F0363D0006024C1 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4AD0C4801F0363D5006024C1 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4AD0C4811F0363DC006024C1 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4AD0C4821F0363E0006024C1 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AD0C4831F0363EA006024C1 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AD0C4841F0363F5006024C1 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4AFFF8E51CD0CD7E00C3B280 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		4AFFF8E71CD0D55100C3B280 /* PluginCafe.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PluginCafe.mm; sourceTree = "<group>"; };
 		4AFFF96E1CD8745800C3B280 /* NaverCafeSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NaverCafeSDK.bundle; path = ../../lib/ios/NaverCafeSDK.bundle; sourceTree = "<group>"; };
@@ -720,9 +726,6 @@
 				Japanese,
 				French,
 				German,
-				ja,
-				de,
-				fr,
 				"zh-Hans",
 				"zh-Hant",
 				ko,
@@ -730,6 +733,15 @@
 				th,
 				id,
 				es,
+				fr,
+				de,
+				ja,
+				"pt-BR",
+				"pt-PT",
+				"es-MX",
+				it,
+				tr,
+				vi,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -881,9 +893,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				4A262C961EB1CEBA009FF00A /* en */,
-				4A262C981EB1CEBD009FF00A /* ja */,
-				4A262C991EB1CEBE009FF00A /* de */,
-				4A262C9A1EB1CEBF009FF00A /* fr */,
 				4A262C9B1EB1CECA009FF00A /* zh-Hans */,
 				4A262C9C1EB1CECE009FF00A /* zh-Hant */,
 				4A262C9D1EB1CED8009FF00A /* ko */,
@@ -891,6 +900,15 @@
 				4A262C9F1EB1CEF5009FF00A /* th */,
 				4A262CA01EB1CEFE009FF00A /* id */,
 				4A262CA11EB1CF8E009FF00A /* es */,
+				4AD0C47C1F0363C0006024C1 /* fr */,
+				4AD0C47D1F0363C6006024C1 /* de */,
+				4AD0C47E1F0363CB006024C1 /* ja */,
+				4AD0C47F1F0363D0006024C1 /* pt-BR */,
+				4AD0C4801F0363D5006024C1 /* pt-PT */,
+				4AD0C4811F0363DC006024C1 /* es-MX */,
+				4AD0C4821F0363E0006024C1 /* it */,
+				4AD0C4831F0363EA006024C1 /* tr */,
+				4AD0C4841F0363F5006024C1 /* vi */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

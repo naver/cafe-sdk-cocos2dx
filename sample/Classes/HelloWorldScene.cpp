@@ -87,6 +87,12 @@ bool HelloWorld::init() {
      */
     cafe::CafeSdk::setThemeColor("#2e65d9", "#44484e");
 
+    /*
+     * 녹화 API
+     */
+    cafe::Record::init();
+    cafe::Record::setRecordListener(this);
+
     return true;
 }
 
@@ -237,12 +243,14 @@ void HelloWorld::menuCallback(Ref* pSender) {
         break;
 
     case kTagSendNewUser:
-        cafe::Statistics::sendNewUser("user", cafe::kMarketOne);
+//        cafe::Statistics::sendNewUser("user", cafe::kMarketOne);
+            cafe::Record::startRecord();
         break;
 
     case kTagSendPayUser:
-        cafe::Statistics::sendPayUser("user", 1.f, "product1",
-                cafe::kCurrencyWon, cafe::kMarketOne);
+//        cafe::Statistics::sendPayUser("user", 1.f, "product1",
+//                cafe::kCurrencyWon, cafe::kMarketOne);
+            cafe::Record::stopRecord();
         break;
 
     default:
@@ -312,4 +320,14 @@ void HelloWorld::onNaverIdLoggedIn(bool success) {
 
 void HelloWorld::onNaverIdProfileResult(std::string jsonString) {
     showToast("onNaverIdLoggedIn " + jsonString);
+}
+
+void HelloWorld::onSDKRecordStart() {
+}
+void HelloWorld::onSDKRecordError(const std::string& errorMsg) {
+}
+void HelloWorld::onSDKRecordFinish(const std::string& uri) {
+    cafe::CafeSdk::startWrite();
+}
+void HelloWorld::onSDKRecordFinishWithPreview() {
 }

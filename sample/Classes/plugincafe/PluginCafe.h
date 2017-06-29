@@ -139,6 +139,26 @@ public:
     static void sendPayUser(std::string gameUserId, double pay,
             std::string productCode, std::string currency, std::string market);
 };
+    
+/**
+ * 녹화 기능.
+ */
+class RecordListener {
+public:
+    virtual void onSDKRecordStart() = 0;
+    virtual void onSDKRecordError(const std::string& errorMsg) = 0;
+    virtual void onSDKRecordFinish(const std::string& uri) = 0;
+    virtual void onSDKRecordFinishWithPreview() = 0;
+};
+
+class Record {
+public:
+    static void init();
+    static void startRecord();
+    static void stopRecord();
+    static void setRecordListener(RecordListener* listener);
+};
+
 } /* namespace cafe */
 
 #endif /* JNI_PLUGINCAFE_PLUGINCAFE_H_ */
