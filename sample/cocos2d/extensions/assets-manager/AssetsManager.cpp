@@ -680,7 +680,7 @@ void AssetsManager::destroyStoragePath()
     // Path may include space.
     command += "\"" + _storagePath + "\"";
     system(command.c_str());
-#else
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     string command = "rm -r ";
     // Path may include space.
     command += "\"" + _storagePath + "\"";
