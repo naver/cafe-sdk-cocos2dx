@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NCSDKLanguage.h"
 
 typedef NS_ENUM(NSUInteger, GLArticlePostType) {
     kGLArticlePostTypeImage = 1,
@@ -14,10 +13,9 @@ typedef NS_ENUM(NSUInteger, GLArticlePostType) {
 };
 typedef NS_ENUM(NSUInteger, GLTabType) {
     kGLTabTypeHome = 0,
-    kGLTabTypeNotice = 1,
-    kGLTabTypeEvent = 2,
-    kGLTabTypeMenuList = 3,
-    kGLTabTypeProfile = 4,
+    kGLTabTypeArticles = 1,
+    kGLTabTypeMedias = 2,
+    kGLTabTypeSerach = 3,
 };
 
 @protocol NCSDKManagerDelegate;
@@ -28,7 +26,7 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
 @property (nonatomic, weak) id<NCSDKManagerDelegate> ncSDKDelegate;
 @property (nonatomic, weak) id parentViewController;
 @property (nonatomic, assign) BOOL orientationIsLandscape;
-
+@property (nonatomic, copy, readonly) NSString *sdkVersion;
 #pragma mark - Widget property
 @property (nonatomic, assign) BOOL showWidgetWhenUnloadSDK;
 @property (nonatomic, assign) BOOL useWidgetVideoRecord NS_AVAILABLE_IOS(9_0);
@@ -55,6 +53,10 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
  */
 - (void)setNeoIdConsumerKey:(NSString *)neoIdConsumerKey
                 communityId:(NSInteger)communityId;
+
+- (void)setNeoIdConsumerKey:(NSString *)neoIdConsumerKey
+                communityId:(NSInteger)communityId
+                  channelId:(NSInteger)channelId;
 
 /*
  SDK Theme Color
@@ -125,9 +127,6 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
 #pragma mark - private function
 - (void)sdkWillCloseWithWidget:(BOOL)widget;
 - (id)sdkRootViewController;
-- (void)dismissViewController:(id)viewController;
-- (void)dismissTopViewController;
-- (void)presentViewController:(id)viewController;
 
 #pragma mark - test function
 - (void)showToast:(NSString *)str;
@@ -156,8 +155,13 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
 - (void)ncSDKWidgetPostArticleWithImage;
 - (void)ncSDKWidgetSuccessVideoRecord;
 
+//Live callback
+- (void)ncSDKDidEndStreamingLiveViewCount:(NSInteger)viewCount
+                                likeCount:(NSInteger)likeCount;
+- (void)ncSDKDidEndWatchingLiveSeconds:(NSInteger)seconds;
+
 /*
- App Scheme 처리
+ App Scheme
  */
 - (void)ncSDKAppSchemeBanner:(NSString *)appScheme;
 
