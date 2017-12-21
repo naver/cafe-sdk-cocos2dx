@@ -85,7 +85,7 @@ startHome() 메서드는 PLUG SDK를 시작하는 메서드입니다.
 cafe::CafeSdk::startHome();
 ```
 
-### 6. LIVE
+### 4. LIVE
 
 PLUG SDK는 사용자가 게임 화면을 실시간 스트리밍 할 수 있는 기능을 제공합니다.
 
