@@ -7,14 +7,19 @@ v.3.1.0
 4. 글로벌 커뮤니티 지역별 관리 기능 추가 (http://cafe.naver.com/navercafesdk/1550)
 5. 필독공지 노출 개수 증가 (3개)
 6. minSDK 16에서 17로 변경 (안드로이드)
-6. @3x 이미지 적용 (iOS)
+7. @3x 이미지 적용 (iOS)
 
 ### fixed
 1. Eclpise 지원 중단 (구글의 지원 중단) (안드로이드)
 2. Android Oreo 대응 (안드로이드)
 3. Android 5.0 기기에서 EditText 글자 삭제 시 2개씩 지워지는 이슈 수정 (안드로이드)
 4. 기타 알려진 이슈 수정 (안드로이드)
-7. 위젯 위치 수정 (iPhone X Notch 회피) (iOS)
+5. 위젯 위치 수정 (iPhone X Notch 회피) (iOS)
+
+v.2.5.5
+-------------
+### fixed
+XCode 9 & iPhone X 대응
 
 v.2.5.4
 -------------
