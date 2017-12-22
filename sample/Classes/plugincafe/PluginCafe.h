@@ -53,7 +53,8 @@ public:
             int cafeId);
 
     static void initGlobal(std::string clientId, int communityId);
-
+    static void initGlobal(std::string clientId, int communityId, int channelId);
+    
     static void setChannelCode(std::string channelCode);
     static std::string getChannelCode();
 

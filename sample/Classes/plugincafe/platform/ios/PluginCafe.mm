@@ -37,9 +37,14 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
 }
     
 void CafeSdk::initGlobal(std::string clientId, int communityId) {
+    CafeSdk::initGlobal(clientId, communityId, 0);
+}
+    
+void CafeSdk::initGlobal(std::string clientId, int communityId, int channelId) {
     NSString *_clientId = [NSString stringWithUTF8String:clientId.c_str()];
     [[NCSDKManager getSharedInstance] setNeoIdConsumerKey:_clientId
-                                              communityId:communityId];
+                                              communityId:communityId
+                                                channelId:channelId];
 }
     
 void CafeSdk::setChannelCode(std::string channelCode) {
