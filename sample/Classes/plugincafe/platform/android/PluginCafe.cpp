@@ -58,6 +58,18 @@ void CafeSdk::initGlobal(std::string clientId, int communityId) {
     }
 }
 
+void CafeSdk::initGlobal(std::string clientId, int communityId, int channelId) {
+    PluginJniMethodInfo t;
+    if (getStaticMethod(t, "initGlobal", "(Ljava/lang/String;II)V")) {
+        jstring _clientId = t.env->NewStringUTF(clientId.c_str());
+
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId, communityId, channelId);
+	
+        t.env->DeleteLocalRef(_clientId);
+        t.env->DeleteLocalRef(t.classID);
+    }
+}
+  
 void CafeSdk::setChannelCode(std::string channelCode) {
     PluginJniMethodInfo t;
     if (getStaticMethod(t, "setChannelCode", "(Ljava/lang/String;)V")) {
