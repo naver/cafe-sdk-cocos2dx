@@ -53,6 +53,7 @@
 		4A97BBF41DACDF0200822E42 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97BBE31DACDF0200822E42 /* UIView+WebCacheOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4A97BBF61DACDF7700822E42 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97BBF51DACDF7700822E42 /* ImageIO.framework */; };
 		4A97BBF81DACDF7E00822E42 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97BBF71DACDF7E00822E42 /* QuartzCore.framework */; };
+		4A9A5A501FEBA64C0021E8DD /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9A5A4F1FEBA64C0021E8DD /* CoreText.framework */; };
 		4ABA5CED1BF1F50C00700256 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CEC1BF1F50B00700256 /* MobileCoreServices.framework */; };
 		4ABA5CEF1BF1F51200700256 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CEE1BF1F51100700256 /* Security.framework */; };
 		4ABA5CF11BF1F51600700256 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABA5CF01BF1F51600700256 /* AssetsLibrary.framework */; };
@@ -143,6 +144,13 @@
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
 		};
+		4A9A5A4C1FEBA62A0021E8DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -229,6 +237,8 @@
 		4A97BBE31DACDF0200822E42 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		4A97BBF51DACDF7700822E42 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		4A97BBF71DACDF7E00822E42 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		4A9A5A4A1FEBA62A0021E8DD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		4A9A5A4F1FEBA64C0021E8DD /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		4ABA5CEC1BF1F50B00700256 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		4ABA5CEE1BF1F51100700256 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		4ABA5CF01BF1F51600700256 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
@@ -310,6 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A9A5A501FEBA64C0021E8DD /* CoreText.framework in Frameworks */,
 				4ACD705E1E9F437800AA517D /* WebKit.framework in Frameworks */,
 				4A97BBF81DACDF7E00822E42 /* QuartzCore.framework in Frameworks */,
 				4A97BBF61DACDF7700822E42 /* ImageIO.framework in Frameworks */,
@@ -392,6 +403,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				4A9A5A4D1FEBA62A0021E8DD /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -426,6 +438,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A9A5A4F1FEBA64C0021E8DD /* CoreText.framework */,
+				4A9A5A4A1FEBA62A0021E8DD /* CoreFoundation.framework */,
 				4ACD705D1E9F437800AA517D /* WebKit.framework */,
 				4A97BBF71DACDF7E00822E42 /* QuartzCore.framework */,
 				4A97BBF51DACDF7700822E42 /* ImageIO.framework */,
@@ -772,6 +786,13 @@
 			fileType = archive.ar;
 			path = "libcocos2d iOS.a";
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4A9A5A4D1FEBA62A0021E8DD /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = 4A9A5A4C1FEBA62A0021E8DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
