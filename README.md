@@ -129,11 +129,15 @@ PLUG SDK를 사용하려면 다음 라이브러리를 프로젝트에 추가해 
 - [네이버 아이디 로그인](https://nid.naver.com/devcenter/docs.nhn?menu=IOS)(4.0.7 버전)
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking)(3.1.0 버전 )
 
->  AFNetworking 2.x 버전과 3.x 버전 모두 사용할 수 있습니다. PLUG SDK 테스트는 AFNetworking 3.1.0 버전으로 진행했습니다.
+  - AFNetworking 2.x 버전과 3.x 버전 모두 사용할 수 있습니다. PLUG SDK 테스트는 AFNetworking 3.1.0 버전으로 진행했습니다.
 
 - [SDWebImage](https://github.com/rs/SDWebImage)(3.8.2 버전)
 - [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage)(1.0.12 버전)
 - ApiGateway-1.5.0 
+- KaleidoCore.framework
+  - i386, x86_64 아키텍쳐 포함 (앱스토어 등록시 제거)
+  - lipo -remove i386 KaleidoCore -o KaleidoCore
+  - lipo -remove x86_64 KaleidoCore -o KaleidoCore
 
 ## License 
 
