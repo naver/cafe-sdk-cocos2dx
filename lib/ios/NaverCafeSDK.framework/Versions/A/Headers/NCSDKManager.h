@@ -7,8 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define GL_SDK_VERSION              @"2.5.5"
-
 typedef NS_ENUM(NSUInteger, GLArticlePostType) {
     kGLArticlePostTypeImage = 1,
     kGLArticlePostTypeVideo = 2,
