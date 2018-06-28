@@ -136,10 +136,7 @@ PLUG SDK를 사용하려면 다음 라이브러리를 프로젝트에 추가해 
 - [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage)(1.0.12 버전)
 - ApiGateway-1.5.0 
 - KaleidoCore.framework
-  - i386, x86_64 아키텍쳐 포함 (앱스토어 등록시 제거)
-  - lipo -remove i386 KaleidoCore -o KaleidoCore
-  - lipo -remove x86_64 KaleidoCore -o KaleidoCore
-
+  
 ## License 
 
 PLUG SDK의 저작권은 네이버(주)에 있습니다.
