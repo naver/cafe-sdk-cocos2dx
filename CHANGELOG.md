@@ -1,3 +1,13 @@
+v.3.3.0
+-------------
+### updated
+1. 채널변경 on/off 인터페이스 추가
+2. KaleidoCore.framework 를 static library  로 변경  (iOS)
+
+### fixed
+1. 알려진 버그 수정
+
+
 v.3.2.6
 -------------
 ### updated
