@@ -5,7 +5,9 @@ v.3.3.0
 2. KaleidoCore.framework 를 static library  로 변경  (iOS)
 
 ### fixed
-1. 알려진 버그 수정
+1. initGlobal API 채널 id 설정 이슈 수정 (안드)
+2. Google 로그인 시 join callback 호출 이슈 수정 (안드)
+3. 알려진 버그 수정
 
 
 v.3.2.6
