@@ -45,30 +45,21 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     }
 }
 
-void CafeSdk::initGlobal(std::string clientId, int communityId) {
+void CafeSdk::initGlobal(std::string consummerKey, std::string consummerSecretKey,  int communityNo) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "initGlobal", "(Ljava/lang/String;I)V")) {
-        jstring _clientId = t.env->NewStringUTF(clientId.c_str());
+    if (getStaticMethod(t, "initGlobal", "(Ljava/lang/String;Ljava/lang/String;I)V")) {
+        jstring _consummerKey = t.env->NewStringUTF(consummerKey.c_str());
+        jstring _consummerSecretKey = t.env->NewStringUTF(consummerSecretKey.c_str());
 
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId,
-                communityId);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _consummerKey, _consummerSecretKey, communityNo);
 
-        t.env->DeleteLocalRef(_clientId);
+        t.env->DeleteLocalRef(_consummerKey);
+        t.env->DeleteLocalRef(_consummerSecretKey);
         t.env->DeleteLocalRef(t.classID);
     }
 }
 
-void CafeSdk::initGlobal(std::string clientId, int communityId, int channelId) {
-    PluginJniMethodInfo t;
-    if (getStaticMethod(t, "initGlobal", "(Ljava/lang/String;II)V")) {
-        jstring _clientId = t.env->NewStringUTF(clientId.c_str());
 
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _clientId, communityId, channelId);
-	
-        t.env->DeleteLocalRef(_clientId);
-        t.env->DeleteLocalRef(t.classID);
-    }
-}
   
 void CafeSdk::setChannelCode(std::string channelCode) {
     PluginJniMethodInfo t;
