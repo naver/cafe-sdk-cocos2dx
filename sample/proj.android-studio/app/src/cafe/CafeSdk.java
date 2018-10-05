@@ -36,9 +36,9 @@ public class CafeSdk {
 		initListeners();
 	}
 
-	public static void initGlobal(String consumerKey, String consumerSecretKey, int communityNo) {
+	public static void initGlobal(String consumerKey, String consumerSecretKey, int communityNo, int loungeNo) {
 
-		Glink.initGlobal(getActivity(), consumerKey, consumerSecretKey, communityNo);
+		Glink.initGlobal(getActivity(), consumerKey, consumerSecretKey, communityNo, loungeNo);
 		initListeners();
 	}
 

@@ -45,13 +45,13 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     }
 }
 
-void CafeSdk::initGlobal(std::string consummerKey, std::string consummerSecretKey,  int communityNo) {
+void CafeSdk::initGlobal(std::string consummerKey, std::string consummerSecretKey, int communityNo, int loungeNo) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "initGlobal", "(Ljava/lang/String;Ljava/lang/String;I)V")) {
+    if (getStaticMethod(t, "initGlobal", "(Ljava/lang/String;Ljava/lang/String;II)V")) {
         jstring _consummerKey = t.env->NewStringUTF(consummerKey.c_str());
         jstring _consummerSecretKey = t.env->NewStringUTF(consummerSecretKey.c_str());
 
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, _consummerKey, _consummerSecretKey, communityNo);
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, _consummerKey, _consummerSecretKey, communityNo, loungeNo);
 
         t.env->DeleteLocalRef(_consummerKey);
         t.env->DeleteLocalRef(_consummerSecretKey);
