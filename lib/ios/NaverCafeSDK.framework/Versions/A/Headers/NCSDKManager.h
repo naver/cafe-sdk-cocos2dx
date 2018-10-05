@@ -47,16 +47,28 @@ typedef NS_ENUM(NSUInteger, GLTabType) {
                        cafeId:(NSInteger)cafeId;
 
 /*
+ GLOBAL
+ */
+- (void)setGlobalConsumerKey:(NSString *)globalConsumerKey
+        globalConsumerSecret:(NSString *)globalConsumerSecret
+           globalCommunityNo:(NSInteger)globalCommunityNo
+              globalLoungeNo:(NSInteger)globalLoungeNo;
+
+
+ /*
+  Don't Use GLOBAL
+ 
  PLUG
  neoIdConsumerKey : neoId ConsumerKey
  plugId : Plug ID
- */
 - (void)setNeoIdConsumerKey:(NSString *)neoIdConsumerKey
                 communityId:(NSInteger)communityId;
-
+ 
 - (void)setNeoIdConsumerKey:(NSString *)neoIdConsumerKey
                 communityId:(NSInteger)communityId
                   channelId:(NSInteger)channelId;
+ */
+
 
 /*
  SDK Theme Color

@@ -36,15 +36,14 @@ void CafeSdk::init(std::string clientId, std::string clientSecret, int cafeId) {
     [[NCSDKManager getSharedInstance] setOrientationIsLandscape:YES];
 }
     
-void CafeSdk::initGlobal(std::string clientId, int communityId) {
-    CafeSdk::initGlobal(clientId, communityId, 0);
-}
+void CafeSdk::initGlobal(std::string consummerKey, std::string consummerSecretKey, int communityNo, int loungeNo) {
+    NSString *_consummerKey = [NSString stringWithUTF8String:consummerKey.c_str()];
+    NSString *_consummerSecretKey = [NSString stringWithUTF8String:consummerSecretKey.c_str()];
     
-void CafeSdk::initGlobal(std::string clientId, int communityId, int channelId) {
-    NSString *_clientId = [NSString stringWithUTF8String:clientId.c_str()];
-    [[NCSDKManager getSharedInstance] setNeoIdConsumerKey:_clientId
-                                              communityId:communityId
-                                                channelId:channelId];
+    [[NCSDKManager getSharedInstance] setGlobalConsumerKey:_consummerKey
+                                      globalConsumerSecret:_consummerSecretKey
+                                         globalCommunityNo:communityNo
+                                            globalLoungeNo:loungeNo];
 }
     
 void CafeSdk::setChannelCode(std::string channelCode) {

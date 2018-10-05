@@ -52,7 +52,7 @@ public:
     static void init(std::string clientId, std::string clientSecret,
             int cafeId);
 
-    static void initGlobal(std::string consummerKey, std::string consummerSecretKey, int communityNo);
+    static void initGlobal(std::string consummerKey, std::string consummerSecretKey, int communityNo, int loungeNo);
     
     static void setChannelCode(std::string channelCode);
     static std::string getChannelCode();
