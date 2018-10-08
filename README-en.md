@@ -58,11 +58,13 @@ cafe::CafeSdk::init("U5ZHoj_OStOHOJ8mec_s", "piPHPA9i4E", 28334359 );
 
 Configure the initialization information below to initialize the PLUG SDK that supports languages other than Korean.
 
-- Consumer key you received after creating your community
-- Community ID you received after creating your community
+- consumerKey: Community Key you received after creating your community
+- consumerSecretKey: Community Scret Key you received after creating your community
+- cummunityNo: Community No received after creating your community
+- loungeNo: Lounge No received after creating your lounge
 
 ```cpp
-cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329);
+cafe::CafeSdk::initGlobal("PLUGTESTKEY", "PLUGTESTSECRET", 1, 58);
 ```
 
 > **How to check your community ID and consumer key**  
@@ -135,3 +137,5 @@ All rights reserved.
 
 Unauthorized use, modification and redistribution of this software are strongly prohibited.
 ```
+
+ PLUG SDK 2.x, 3.x versions are no longer supported.

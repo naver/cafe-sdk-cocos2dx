@@ -61,11 +61,13 @@ cafe::CafeSdk::init("U5ZHoj_OStOHOJ8mec_s", "piPHPA9i4E", 28334359 );
 
 외국어만 지원하는 PLUG SDK를 초기화할 때는 다음과 같은 초기화 정보를 설정합니다.
 
-- 커뮤니티를 개설하고 받은 컨슈머 키(Consumer Key)
-- 커뮤니티를 개설하고 받은 커뮤니티 ID(Community ID)
+- consumerKey: 커뮤니티를 개설하고 받은 컨슈머 키(Consumer Key)
+- consumerSecretKey: 커뮤니티를 개설하고 받은 컨슈머 시크릿(Consumer Secret Key)
+- cummunityNo: 커뮤니티를 개설하고 받은 커뮤니티 No(cummunityNo)
+- loungeNo: 라운지를 개설하고 받은 라운지 No(cummunityNo)
 
 ```cpp
-cafe::CafeSdk::initGlobal("IHCd_HmSiMcXOMC37xZ8", 1013329);
+cafe::CafeSdk::initGlobal("PLUGTESTKEY", "PLUGTESTSECRET", 1, 58);
 ```
 
 > **커뮤니티 ID와 컨슈머 키 확인**  
@@ -149,3 +151,5 @@ All rights reserved.
 
 Unauthorized use, modification and redistribution of this software are strongly prohibited.
 ```
+
+PLUG SDK 3.x 버전은 더 이상 지원되지 않습니다.
