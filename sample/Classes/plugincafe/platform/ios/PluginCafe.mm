@@ -44,6 +44,7 @@ void CafeSdk::initGlobal(std::string consummerKey, std::string consummerSecretKe
                                       globalConsumerSecret:_consummerSecretKey
                                          globalCommunityNo:communityNo
                                             globalLoungeNo:loungeNo];
+    [[NCSDKManager getSharedInstance] setOrientationIsLandscape:YES];
 }
     
 void CafeSdk::setChannelCode(std::string channelCode) {
