@@ -1,5 +1,9 @@
 # PLUG SDK
 
+* PLUG SDK 2.x, 3.x versions are no longer supported.
+* A iOS Sample Project contains large files over 100mb. Therefore, the sample project should be downloaded from below link instead of git clone.
+(https://github.com/naver/cafe-sdk-cocos2dx/releases/download/4.0.4/cafe-sdk-cocos2dx-4.0.4.zip)
+
 The PLUG SDK is a dedicated in-app community library for mobile games, which lets mobile gamers use community features without leaving games while they are playing. It is easy to apply the PLUG SDK to your project.
 
 As a proven SDK, which has been used in many mobile games, this lets you simply and quickly add community features in your game.
@@ -20,7 +24,6 @@ You can manage the PLUG SDK content on the Settings page from your computer afte
 ### Documentation
 
 - [PLUG documents](https://www.gitbook.com/book/plug/plug-sdk-ios/details/en)
-- [Downloads of latest library and sample project files](https://github.com/naver/cafe-sdk-ios/archive/master.zip )
 
 ## Communication 
 
@@ -138,4 +141,3 @@ All rights reserved.
 Unauthorized use, modification and redistribution of this software are strongly prohibited.
 ```
 
- PLUG SDK 2.x, 3.x versions are no longer supported.

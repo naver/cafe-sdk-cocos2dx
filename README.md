@@ -1,5 +1,9 @@
 # PLUG SDK
 
+* PLUG SDK 2.x, 3.x 버전은 더 이상 지원되지 않습니다.
+* iOS 샘플 프로젝트는 100mb가 넘는 파일을 포함하고 있습니다. git clone 대신 아래 링크에서 다운로드 바랍니다.
+(https://github.com/naver/cafe-sdk-cocos2dx/releases/download/4.0.4/cafe-sdk-cocos2dx-4.0.4.zip)
+
 PLUG SDK는 모바일 게임 사용자가 게임 도중 게임을 벗어나지 않고 게임의 커뮤니티와 소통할 수 있도록 제공되는 인앱 커뮤니티 라이브러리입니다. 간단한 조작으로 프로젝트에 PLUG SDK를 추가할 수 있습니다.
 
 이미 많은 게임에 적용돼 검증된 PLUG SDK를 사용하면 손쉽게 커뮤니케이션 기능을 게임 안에 넣을 수 있습니다.
@@ -20,7 +24,6 @@ PLUG SDK를 앱에 적용하려면 PLUG SDK 제휴를 신청해야 합니다. �
 ### 적용 가이드
 
 - [PLUG 적용 가이드](https://www.gitbook.com/book/plug/plug-sdk-ios/details)
-- [최신 버전 및 샘플 프로젝트 다운로드](https://github.com/naver/cafe-sdk-ios/archive/master.zip )
 
 ## Communication 
 
@@ -151,5 +154,3 @@ All rights reserved.
 
 Unauthorized use, modification and redistribution of this software are strongly prohibited.
 ```
-
-PLUG SDK 3.x 버전은 더 이상 지원되지 않습니다.
