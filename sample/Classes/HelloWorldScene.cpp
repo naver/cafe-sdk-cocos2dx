@@ -183,7 +183,7 @@ void HelloWorld::menuCallback(Ref* pSender) {
         break;
 
     case kTagMenu:
-        cafe::CafeSdk::startMenu();
+        cafe::CafeSdk::startMenu(9);
         break;
 
     case kTagProfile:

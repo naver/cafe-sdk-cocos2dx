@@ -66,7 +66,7 @@ public:
     static void startHome();
     static void startNotice();
     static void startEvent();
-    static void startMenu();
+    static void startMenu(int menuId);
     static void startProfile();
     static void startArticle(int articleId);
     static void startMore();

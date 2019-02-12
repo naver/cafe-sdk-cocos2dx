@@ -146,10 +146,10 @@ void CafeSdk::startEvent() {
     }
 }
 
-void CafeSdk::startMenu() {
+void CafeSdk::startMenu(int menuId) {
     PluginJniMethodInfo t;
-    if (getStaticMethod(t, "startMenu", "()V")) {
-        t.env->CallStaticVoidMethod(t.classID, t.methodID);
+    if (getStaticMethod(t, "startMenu", "(I)V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID, menuId);
         t.env->DeleteLocalRef(t.classID);
     }
 }

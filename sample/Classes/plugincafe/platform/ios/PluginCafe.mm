@@ -91,9 +91,9 @@ void CafeSdk::startEvent() {
     [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:2];
 }
 
-void CafeSdk::startMenu() {
+void CafeSdk::startMenu(int menuId) {
     setParentViewController();
-    [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:3];
+    [[NCSDKManager getSharedInstance] presentMainViewControllerWithTabIndex:menuId];
 }
 
 void CafeSdk::startProfile() {
