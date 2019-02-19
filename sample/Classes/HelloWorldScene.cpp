@@ -152,7 +152,7 @@ void HelloWorld::initCafeSdkMenu(Menu* menu) {
             + (visibleSize.width * 3) / 6, origin.x
             + (visibleSize.width * 5) / 6 };
 
-    float step = 45.0f;
+    float step = 38.0f;
     float beginY = origin.y + visibleSize.height - step;
 
     for (auto it = items.begin(); it != items.end(); ++it) {
