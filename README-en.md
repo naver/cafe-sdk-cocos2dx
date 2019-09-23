@@ -35,7 +35,7 @@ If you have any questions regarding working this SDK, please [visit our issue pa
 
 1. Go to the **sample/Classes** folder and copy and paste the **plugincafe** folder to your project. The folder is included in the sample project you downloaded. 
 2. Add the PLUG SDK project to your game project depending on your operating system.  
-   - Android: Go to the **lib/android** folder and add the PLUG SDK project to your game project as a library.  
+   - Android: Go to the **sample/proj.android-studio/app/libs** folder and add the PLUG SDK project to your game project as a library.  
    - iOS: Go to the **lib/iOS** folder and add the PLUG SDK project to your game project.
 
 > For more information about the PLUG SDK for each operating system, visit the GitHub repository.  

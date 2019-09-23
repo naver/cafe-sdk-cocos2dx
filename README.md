@@ -38,7 +38,7 @@ PLUG SDK를 앱에 적용하려면 PLUG SDK 제휴를 신청해야 합니다. �
 
 1. 다운로드한 샘플 프로젝트에 포함된 **sample/Classes/plugincafe** 폴더를 게임 프로젝트로 복사합니다.  
 2. 운영체제에 맞는 PLUG SDK 프로젝트 게임 프로젝트에 추가합니다.  
-   - Android: **lib/android** 폴더에 있는 PLUG SDK 프로젝트를 게임 프로젝트에 라이브러리로 추가합니다.  
+   - Android: **sample/proj.android-studio/app/libs** 폴더에 있는 PLUG SDK 프로젝트를 게임 프로젝트에 라이브러리로 추가합니다.  
    - iOS: **lib/iOS** 폴더에 있는 PLUG SDK 프로젝트를 게임 프로젝트에 추가합니다.
 
 > 운영체제별 PLUG SDK에 관한 자세한 내용은 GitHub 저장소를 참고합니다.  
